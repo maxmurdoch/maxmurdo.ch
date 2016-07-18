@@ -1,0 +1,15 @@
+@value medium from '../style/breakpoints.css';
+
+.image {
+  width: 80vmax;
+  max-width: 100%;
+  margin-bottom: 2vmax;
+}
+
+@media medium {
+  .right {
+    float: right;
+    max-width: 35vmax;
+    margin-left: 2vmax;
+  }
+}

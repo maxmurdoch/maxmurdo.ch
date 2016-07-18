@@ -1,0 +1,65 @@
+@value light, lightGrey, primary, secondary, tertiary from '../style/color.css';
+@value small as smallSize, medium as mediumSize, large as largeSize, light as lightWeight, lineHeight from '../style/typography.css';
+@value medium as mediumBp, large as largeBp from '../style/breakpoints.css';
+
+.text {
+  color: primary;
+  font-family: -apple-system, ".SFNSText-Regular", "Nitti Grotesk", "Helvetica Neue", serif;
+  font-size: smallSize;
+  font-weight: lightWeight;
+  margin: 0 0 2vmax 0;
+  line-height: lineHeight;
+}
+
+.text::selection {
+  -webkit-text-fill-color: initial;
+}
+
+.textContainer {
+  background: #6065f2; /* Old browsers */
+  background: -moz-linear-gradient(45deg, #6065f2 27%, #6065f2 27%, #0592ff 50%, #00ffbf 76%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #6065f2 27%,#6065f2 27%,#0592ff 50%,#00ffbf 76%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #6065f2 27%,#6065f2 27%,#0592ff 50%,#00ffbf 76%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6065f2', endColorstr='#00ffbf',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+@media mediumBp {
+  .text {
+    font-size: mediumSize;
+  }
+}
+
+@media largeBp {
+  .text {
+    font-size: largeSize;
+  }
+}
+
+.link {
+  color: text-underline-background-color;
+  outline: none;
+  border-bottom: 2px solid secondary;
+}
+
+.link:focus,
+.link:active {
+  border-bottom-color: tertiary;
+}
+
+.link::selection {
+  -webkit-text-fill-color: initial;
+}
+
+@media mediumBp {
+  .link {
+    border-bottom-width: 3px;
+  }
+}
+
+@media largeBp {
+  .link {
+    border-bottom-width: 4px;
+  }
+}
