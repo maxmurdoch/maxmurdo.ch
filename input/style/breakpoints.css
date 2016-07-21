@@ -1,2 +1,3 @@
 @value medium: (min-width: 60rem);
-@value large: (min-width: 80rem);
+@value large: (min-width: 90rem);
+@value xlarge: (min-width: 120rem);
