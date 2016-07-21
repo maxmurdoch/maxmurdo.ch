@@ -21,7 +21,7 @@ const About = () => {
   const third = DOM.p({className: styles.text}, `As an independent I help clients make their digital products simple, clear and useful.`);
   const fourth = DOM.p({className: styles.text},
                        `If you’d like to talk about working together, please `,
-                       DOM.a({className: styles.link, href: 'mailto:max@maxmurdo.ch?subject=Work enquiry&body=Howdy Max …'}, `get in touch`),
+                       DOM.a({className: styles.link, href: 'mailto:max@maxmurdo.ch?subject=Work enquiry&body=Hi Max! 👋'}, `get in touch`),
                        `.`
                       );
   const image = createElement(Image, {
