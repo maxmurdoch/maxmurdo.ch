@@ -9,7 +9,7 @@
     "validate": "npm-run-all --parallel validate-webpack:* lint",
     "validate-webpack:dev": "webpack-validator webpack.config.js --env.dev",
     "validate-webpack:prod": "webpack-validator webpack.config.js --env.prod",
-    "copy-files": "cpy input/index.html input/CNAME output",
+    "copy-files": "cpy input/index.html input/favicon* output",
     "clean-and-copy": "npm run clean-output && npm run copy-files",
     "prestart": "npm run clean-and-copy",
     "start": "webpack-dev-server --env.dev --content-base output",
