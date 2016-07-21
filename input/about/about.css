@@ -1,4 +1,4 @@
-@value light, blue, green from '../style/color.css';
+@value light, one, two, three from '../style/color.css';
 @value small as smallSize, medium as mediumSize, large as largeSize, light as lightWeight, lineHeight from '../style/typography.css';
 @value medium as mediumBp, large as largeBp from '../style/breakpoints.css';
 
@@ -8,22 +8,17 @@
   font-weight: lightWeight;
   margin: 0 0 2vmax 0;
   line-height: lineHeight;
+  color: one;
+  background: -webkit-linear-gradient(45deg, rgb(121, 219, 187) 0%, rgb(112, 197, 250) 16%, rgb(162, 166, 255) 41%, rgb(215, 165, 240) 63%, rgba(222,143,169,1) 80%, rgba(209,132,132,1) 100%);
+  background: -o-linear-gradient(transparent, transparent);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 .text::selection {
+  background-color: transparent;
   -webkit-text-fill-color: initial;
-}
-
-.textContainer {
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  opacity: 1;
-  background: -webkit-linear-gradient(45deg, #6065f2 27%,#6065f2 27%,#0592ff 50%,#00ffbf 76%); /* Chrome10-25,Safari5.1-6 */
-  background: -o-linear-gradient(transparent, transparent);
-  color: blue;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
+  color: two;
 }
 
 @media mediumBp {
@@ -39,15 +34,15 @@
 }
 
 .link {
-  color: blue;
+  color: one;
   outline: none;
   text-decoration: none;
-  border-bottom: 2px solid green;
+  border-bottom: 2px solid three;
 }
 
 .link:focus,
 .link:active {
-  border-bottom-color: tertiary;
+  border-bottom-color: two;
 }
 
 .link::selection {

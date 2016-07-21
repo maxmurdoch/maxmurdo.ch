@@ -30,7 +30,7 @@ const About = () => {
   });
 
   return DOM.section(
-    {className: styles.textContainer},
+    null,
     image,
     first,
     second,
