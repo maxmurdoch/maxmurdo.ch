@@ -1,9 +1,9 @@
 /* font stacks don't work. Check [this issue](https://github.com/css-modules/postcss-modules-values/issues/21) to see if it's been resolved. Copy paste for now.  */
 /* @value fontStack: -apple-system, ".SFNSText-Regular", "Roboto", "Times New Roman", serif; */
 
-@value small: 2.2vmax;
-@value medium: 3.2vmax;
-@value large: 4vmax;
+@value small: 5vw;
+@value medium: 4vw;
+@value large: 4vw;
 
 @value lineHeight: 1.4;
 

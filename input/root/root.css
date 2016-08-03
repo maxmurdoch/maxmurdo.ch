@@ -1,14 +1,9 @@
-@value light, tertiary from '../style/color.css';
+@value light, dark from '../style/color.css';
 
 .root {
   min-height: 100vh;
   height: 100%;
   padding: 5%;
-  background-color: black;
+  background-color: dark;
   display: flex;
-}
-
-:global ::selection {
-    background-color: inherit;
-    color: tertiary;
 }
