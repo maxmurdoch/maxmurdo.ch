@@ -1,4 +1,4 @@
-@value medium from '../style/breakpoints.css';
+@value small, medium, large from '../style/breakpoints.css';
 
 .image {
   width: 80vmax;
@@ -11,5 +11,28 @@
     float: right;
     max-width: 35vmax;
     margin-left: 2vmax;
+  }
+}
+
+.behind {
+  z-index: 0;
+  position: absolute;
+}
+
+@media small {
+  .behind {
+    max-width: 80%;
+  }
+}
+
+@media medium {
+  .behind {
+    max-width: 60%;
+  }
+}
+
+@media large {
+  .behind {
+    max-width: 50%;
   }
 }

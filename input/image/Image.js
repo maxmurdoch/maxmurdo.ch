@@ -1,7 +1,7 @@
-import { DOM } from 'react';
-import styles from './image.css';
-import R from 'ramda';
-import classNames from 'classnames';
+import { DOM } from 'react'
+import styles from './image.css'
+import R from 'ramda'
+import classNames from 'classnames'
 
 const Image = ({
   position,
@@ -17,7 +17,7 @@ const Image = ({
       alt: description,
       ...props,
     }
-  );
-};
+  )
+}
 
-export default Image;
+export default Image

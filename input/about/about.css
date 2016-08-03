@@ -1,44 +1,76 @@
-@value light, one, two, three from '../style/color.css';
-@value small as smallSize, medium as mediumSize, large as largeSize, light as lightWeight, lineHeight from '../style/typography.css';
+@value light, blue from '../style/color.css';
+@value small as smallSize, medium as mediumSize, large as largeSize, regular, lineHeight from '../style/typography.css';
 @value medium as mediumBp, large as largeBp, xlarge as xlargeBp from '../style/breakpoints.css';
 
+.section {
+  display: flex;
+}
+
+@media mediumBp {
+  .section {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .text {
-  font-family: -apple-system, ".SFNSText-Regular", "Nitti Grotesk", "Helvetica Neue", serif;
-  font-size: smallSize;
-  font-weight: lightWeight;
-  margin: 0 0 2vmax 0;
-  line-height: 1.4;
-  color: one;
-  background: -webkit-linear-gradient(45deg, rgb(121, 219, 187) 0%, rgb(112, 197, 250) 16%, rgb(162, 166, 255) 41%, rgb(215, 165, 240) 63%, rgba(222,143,169,1) 80%, rgba(209,132,132,1) 100%);
   background: -o-linear-gradient(transparent, transparent);
-  -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(45deg, rgb(143, 222, 200) 0%, rgb(112, 197, 250) 16%, rgb(162, 166, 255) 41%, rgb(215, 165, 240) 63%, rgba(222,143,169,1) 80%, rgba(209,132,132,1) 100%);
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: light;
+  font-family: -apple-system, ".SFNSText-Medium", "Roboto", "Nitti Grotesk", HelveticaNeue, sans-serif;
+  text-shadow: 3px -3px light;
+  font-size: smallSize;
+  font-weight: regular;
+  line-height: 1.4;
+  margin: 0 0 2vmax 0;
 }
 
 .text::selection {
   background-color: transparent;
   -webkit-text-fill-color: initial;
-  color: two;
+  text-shadow: none;
+}
+
+.textContainer {
+  z-index: 10;
+}
+
+@media smallBp {
+  .text {
+    font-size: mediumSize;
+  }
 }
 
 @media mediumBp {
   .text {
     font-size: mediumSize;
+    line-height: 1.4;
+  }
+  .textContainer {
+    margin-left: 8%;
+    max-width: 90%;
   }
 }
 
 @media largeBp {
   .text {
     font-size: largeSize;
-    line-height: 1.2;
+  }
+  .textContainer {
+    max-width: 80%;
   }
 }
 
 .link {
-  color: one;
+  color: blue;
   outline: none;
   text-decoration: none;
-  border-bottom: 2px solid three;
+}
+
+.link:hover {
+  text-shadow: none;
 }
 
 .link:focus,
@@ -48,6 +80,7 @@
 
 .link::selection {
   -webkit-text-fill-color: initial;
+  text-shadow: none;
 }
 
 @media mediumBp {

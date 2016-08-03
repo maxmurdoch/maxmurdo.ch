@@ -4,7 +4,8 @@
   min-height: 100vh;
   height: 100%;
   padding: 5%;
-  background-color: light;
+  background-color: black;
+  display: flex;
 }
 
 :global ::selection {

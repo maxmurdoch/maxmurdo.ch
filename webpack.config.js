@@ -1,9 +1,9 @@
-const { resolve, join } = require('path');
-const normalize = require('postcss-normalize');
-const autoreset = require('postcss-autoreset');
-const cssNext = require('postcss-cssnext');
-const values = require('postcss-modules-values');
-const fontMagician = require('postcss-font-magician');
+const { resolve, join } = require('path')
+const normalize = require('postcss-normalize')
+const autoreset = require('postcss-autoreset')
+const cssNext = require('postcss-cssnext')
+const values = require('postcss-modules-values')
+const fontMagician = require('postcss-font-magician')
 
 module.exports = (env) => ({
   entry: resolve(__dirname, 'input', 'index.js'),
@@ -48,4 +48,4 @@ module.exports = (env) => ({
     cssNext,
     values,
   ]),
-});
+})
