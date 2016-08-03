@@ -38,7 +38,7 @@ const About = () => {
     description: 'Photo of Max',
     src: photo,
     style: {
-      'opacity': 1,
+      'opacity': .7,
     },
   })
 
