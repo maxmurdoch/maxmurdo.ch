@@ -1,16 +1,11 @@
 @value light, blue from '../style/color.css';
 @value small as smallSize, medium as mediumSize, large as largeSize, regular, lineHeight from '../style/typography.css';
-@value medium as mediumBp, large as largeBp, xlarge as xlargeBp from '../style/breakpoints.css';
+@value small as smallBp, medium as mediumBp, large as largeBp, xlarge as xlargeBp from '../style/breakpoints.css';
 
 .section {
   display: flex;
-}
-
-@media mediumBp {
-  .section {
-    align-items: center;
-    justify-content: center;
-  }
+  justify-content: center;
+  align-items: center;
 }
 
 .text {
@@ -20,7 +15,7 @@
   -webkit-text-fill-color: transparent;
   color: light;
   font-family: -apple-system, ".SFNSText-Medium", "Roboto", "Nitti Grotesk", HelveticaNeue, sans-serif;
-  text-shadow: 3px -3px light;
+  text-shadow: 2px -2px light;
   font-size: smallSize;
   font-weight: regular;
   line-height: 1.4;
@@ -57,6 +52,7 @@
 @media largeBp {
   .text {
     font-size: largeSize;
+    text-shadow: 3px -3px light;
   }
   .textContainer {
     max-width: 80%;
