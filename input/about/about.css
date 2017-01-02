@@ -14,10 +14,10 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: light;
-  font-family: -apple-system, ".SFNSText-Medium", "Roboto", "Nitti Grotesk", HelveticaNeue, sans-serif;
+  font-family: 'Graphik-Regular-Web', -apple-system, ".SFNSText-Medium", "Roboto", "Nitti Grotesk", HelveticaNeue, sans-serif;
   text-shadow: 1px -1px light;
   font-size: smallSize;
-  font-weight: regular;
+  font-weight: 400;
   line-height: 1.4;
   margin: 0 0 2vmax 0;
 }
