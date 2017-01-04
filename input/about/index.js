@@ -1,5 +1,4 @@
 import {
-  hr,
   div,
   section,
 } from 'react-hyperscript-helpers'
@@ -37,7 +36,6 @@ const About = () => {
     div([
       avatar,
       first,
-      hr({className: styles.line }),
       second,
       third,
       fourth,

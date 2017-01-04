@@ -7,10 +7,3 @@
   justify-content: center;
   align-items: flex-start;
 }
-
-.line {
-  border: 0;
-  margin-bottom: 2vmax;
-  border-bottom: 0.3vmax solid rgba(0, 0, 0, 0.3);
-  width: 6vmax;
-}
