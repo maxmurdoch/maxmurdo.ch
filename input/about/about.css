@@ -1,99 +1,16 @@
-@value light, blue from '../style/color.css';
-@value small as smallSize, medium as mediumSize, large as largeSize, regular, lineHeight from '../style/typography.css';
+@value dark, blue, lime, green, yellow from '../style/color.css';
+
 @value small as smallBp, medium as mediumBp, large as largeBp, xlarge as xlargeBp from '../style/breakpoints.css';
 
 .section {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.text {
-  background: -o-linear-gradient(transparent, transparent);
-  background: -webkit-linear-gradient(45deg, rgb(143, 222, 200) 0%, rgb(112, 197, 250) 16%, rgb(162, 166, 255) 41%, rgb(215, 165, 240) 63%, rgba(222,143,169,1) 80%, rgba(209,132,132,1) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: light;
-  font-family: 'Graphik-Regular-Web', -apple-system, ".SFNSText-Medium", "Roboto", "Nitti Grotesk", HelveticaNeue, sans-serif;
-  text-shadow: 1px -1px light;
-  font-size: smallSize;
-  font-weight: 400;
-  line-height: 1.4;
-  margin: 0 0 2vmax 0;
-}
-
-.text::selection {
-  background-color: transparent;
-  -webkit-text-fill-color: initial;
-  text-shadow: none;
-}
-
-.textContainer {
-  z-index: 10;
-}
-
-@media smallBp {
-  .text {
-    font-size: mediumSize;
-    text-shadow: 2px -2px light;
-  }
-}
-
-@media mediumBp {
-  .text {
-    font-size: mediumSize;
-    line-height: 1.4;
-  }
-  .textContainer {
-    margin-left: 8%;
-    max-width: 90%;
-  }
-}
-
-@media largeBp {
-  .text {
-    font-size: largeSize;
-    text-shadow: 3px -3px light;
-  }
-  .textContainer {
-    max-width: 80%;
-  }
-}
-
-.link {
-  color: blue;
-  outline: none;
-  text-decoration: none;
-}
-
-.link:hover {
-  text-shadow: none;
-}
-
-.link:focus,
-.link:active {
-  border-bottom-color: two;
-}
-
-.link::selection {
-  -webkit-text-fill-color: initial;
-  text-shadow: none;
-}
-
-@media mediumBp {
-  .link {
-    border-bottom-width: 3px;
-  }
-}
-
-@media largeBp {
-  .link {
-    border-bottom-width: 4px;
-  }
-}
-
-@media xlargeBp {
-  .link {
-    border-bottom-width: 6px;
-  }
+.line {
+  border: 0;
+  margin-bottom: 2vmax;
+  border-bottom: 0.3vmax solid rgba(0, 0, 0, 0.3);
+  width: 6vmax;
 }

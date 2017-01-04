@@ -6,33 +6,10 @@
   margin-bottom: 2vmax;
 }
 
-@media medium {
+@media small {
   .right {
     float: right;
     max-width: 35vmax;
     margin-left: 2vmax;
-  }
-}
-
-.behind {
-  z-index: 0;
-  position: absolute;
-}
-
-@media small {
-  .behind {
-    max-width: 70%;
-  }
-}
-
-@media medium {
-  .behind {
-    max-width: 60%;
-  }
-}
-
-@media large {
-  .behind {
-    max-width: 50%;
   }
 }

@@ -1,4 +1,4 @@
-import { DOM } from 'react'
+import { img, hh } from 'react-hyperscript-helpers'
 import styles from './image.css'
 import R from 'ramda'
 import classNames from 'classnames'
@@ -8,7 +8,7 @@ const Image = ({
   description = '',
   ...props,
 }) => {
-  return DOM.img(
+  return img(
     {
       className: classNames(
         styles.image,
@@ -20,4 +20,4 @@ const Image = ({
   )
 }
 
-export default Image
+export default hh(Image)
