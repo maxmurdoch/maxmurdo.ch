@@ -6,7 +6,7 @@ import classNames from 'classnames'
 const Image = ({
   position,
   description = '',
-  ...props,
+  ...props
 }) => {
   return img(
     {

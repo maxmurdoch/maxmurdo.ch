@@ -32,6 +32,7 @@
     "keyword-spacing": [2, {"before": true, "after": true}],
     "new-cap": 2,
     "no-console": 0,
+    "no-global-assign": 2,
     "no-multiple-empty-lines": [2, { max: 2 }],
     "no-process-exit": 0,
     "no-shadow": 2,

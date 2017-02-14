@@ -1,14 +1,54 @@
 const { resolve, join } = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const normalize = require('postcss-normalize')
+const modules = require('postcss-modules')
 const autoreset = require('postcss-autoreset')
 const cssNext = require('postcss-cssnext')
 const values = require('postcss-modules-values')
 const fontMagician = require('postcss-font-magician')
 
+const postcssLoaders = [
+  {
+    loader: 'style-loader',
+  },
+  {
+    loader: 'css-loader',
+    options: {
+      modules: true,
+      localIdentName: '[name]__[local]__[hash:base64:5]',
+    },
+  },
+  {
+    loader: 'postcss-loader',
+    options: {
+      plugins: [
+        modules,
+        normalize,
+        fontMagician({
+          hosted: resolve(__dirname, 'input', 'style', 'fonts'),
+        }),
+        autoreset({
+          reset: {
+            fontSize: '100%',
+            boxSizing: 'border-box',
+            margin: 0,
+            padding: 0,
+          },
+        }),
+        cssNext,
+        values,
+      ],
+    },
+  },
+]
+
 module.exports = (env) => ({
-  entry: resolve(__dirname, 'input', 'index.js'),
+  entry: {
+    main: resolve(__dirname, 'input', 'index.js'),
+  },
   output: {
-    filename: 'output.js',
+    filename: env.prod ? '[name].[chunkhash].js' : '[name].js',
     path: join(__dirname, 'output'),
     pathinfo: !env.prod,
   },
@@ -16,36 +56,63 @@ module.exports = (env) => ({
   devtool: env.prod ? 'cheap-module-source-map' : 'eval',
   bail: env.prod,
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loaders: ['babel', 'eslint'],
-        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['es2015', 'stage-2'],
+            },
+          },
+          {
+            loader: 'eslint-loader',
+          },
+        ],
+        include: join(__dirname, 'input'),
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css?modules&importLoaders=1', 'postcss-loader'],
+        use: postcssLoaders,
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        loaders: [ 'url?limit=10000', 'img?minimize' ],
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+            },
+          },
+          {
+            loader: 'img-loader',
+            options: {
+              minimize: true,
+            },
+          },
+        ],
       },
     ],
   },
-  postcss: () => ([
-    normalize,
-    fontMagician({
-      hosted: resolve(__dirname, 'input', 'style', 'fonts'),
-    }),
-    autoreset({
-      reset: {
-        fontSize: '100%',
-        boxSizing: 'border-box',
-        margin: 0,
-        padding: 0,
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      beautify: false,
+      mangle: {
+        screw_ie8: true,
+        keep_fnames: true,
       },
+      compress: {
+        screw_ie8: true,
+      },
+      comments: false,
     }),
-    cssNext,
-    values,
-  ]),
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['commons', 'manifest'],
+    }),
+    new HtmlWebpackPlugin({
+      template: resolve(__dirname, 'input', 'index.html'),
+      inject: 'body',
+    }),
+  ],
 })
