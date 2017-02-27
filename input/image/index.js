@@ -1,7 +1,20 @@
 import { img, hh } from 'react-hyperscript-helpers'
-import styles from './image.css'
 import R from 'ramda'
-import classNames from 'classnames'
+import classnames from 'classnames'
+import { space } from '../constants/space'
+import cxs from 'cxs'
+
+const base = cxs({
+  width: '80vmax',
+  maxWidth: '100%',
+  marginBottom: R.nth(2, space),
+})
+
+const right = cxs({
+  float: 'right',
+  maxWidth: '35vmax',
+  marginLeft: R.nth(2, space),
+})
 
 const Image = ({
   position,
@@ -10,9 +23,11 @@ const Image = ({
 }) => {
   return img(
     {
-      className: classNames(
-        styles.image,
-        R.prop(position, styles)
+      className: classnames(
+        base,
+        {
+          [right]: R.equals(position, 'right'),
+        }
       ),
       alt: description,
       ...props,

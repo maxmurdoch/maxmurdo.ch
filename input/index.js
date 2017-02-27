@@ -1,8 +1,8 @@
-import { createElement } from 'react'
+import { h } from 'react-hyperscript-helpers'
 import { render } from 'react-dom'
 import Root from './root'
 
 render(
-  createElement(Root, null),
+  h(Root),
   document.getElementById('root')
 )

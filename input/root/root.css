@@ -1,8 +1,0 @@
-@value light, dark from '../style/color.css';
-
-.root {
-  min-height: 100vh;
-  height: 100%;
-  padding: 5%;
-  display: flex;
-}

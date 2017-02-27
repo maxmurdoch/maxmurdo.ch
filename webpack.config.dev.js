@@ -52,7 +52,7 @@ module.exports = () => ({
     path: join(__dirname, 'output'),
   },
   devServer: {
-    port: 4000,
+    port: 5000,
     host: 'localhost',
     historyApiFallback: true,
     noInfo: false,
@@ -106,21 +106,6 @@ module.exports = () => ({
     new HtmlWebpackPlugin({
       template: resolve(__dirname, 'input', 'index.html'),
       inject: 'body',
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      debug: false
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      beautify: false,
-      mangle: {
-        screw_ie8: true,
-        keep_fnames: true,
-      },
-      compress: {
-        screw_ie8: true,
-      },
-      comments: false,
     }),
   ],
 })

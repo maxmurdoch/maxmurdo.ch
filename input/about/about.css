@@ -1,9 +1,0 @@
-@value dark, blue, lime, green, yellow from '../style/color.css';
-
-@value small as smallBp, medium as mediumBp, large as largeBp, xlarge as xlargeBp from '../style/breakpoints.css';
-
-.section {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}

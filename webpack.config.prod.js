@@ -96,6 +96,11 @@ module.exports = (    ) => ({
     new webpack.optimize.CommonsChunkPlugin({
       names: ['commons', 'manifest'],
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
     new HtmlWebpackPlugin({
       template: resolve(__dirname, 'input', 'index.html'),
       inject: 'body',
@@ -108,6 +113,7 @@ module.exports = (    ) => ({
       },
       compress: {
         screw_ie8: true,
+        warnings: false,
       },
       comments: false,
     }),
