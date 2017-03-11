@@ -1,11 +1,7 @@
-const { resolve, join } = require('path')
+const {resolve, join} = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const postcssImport = require('postcss-import')
-const modules = require('postcss-modules')
 const autoreset = require('postcss-autoreset')
-const cssNext = require('postcss-cssnext')
-const values = require('postcss-modules-values')
 const fontMagician = require('postcss-font-magician')
 
 const postcssLoaders = [
@@ -13,18 +9,9 @@ const postcssLoaders = [
     loader: 'style-loader',
   },
   {
-    loader: 'css-loader',
-    options: {
-      modules: true,
-      localIdentName: '[name]__[local]__[hash:base64:5]',
-    },
-  },
-  {
     loader: 'postcss-loader',
     options: {
       plugins: [
-        modules,
-        postcssImport,
         fontMagician({
           hosted: resolve(__dirname, 'input', 'style', 'fonts'),
         }),
@@ -36,8 +23,6 @@ const postcssLoaders = [
             padding: 0,
           },
         }),
-        cssNext,
-        values,
       ],
     },
   },
