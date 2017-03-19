@@ -2,6 +2,7 @@ import { hh, div } from 'react-hyperscript-helpers'
 import { v4 } from 'uuid'
 import R from 'ramda'
 
+import media from '../../constants/media'
 import { black } from '../../constants/colour'
 import text from '../text'
 import style from '../../helpers/style'
@@ -22,28 +23,41 @@ const TextIntro = () => {
     random(R.length(validAlignments)),
     validAlignments)
 
-  const textClass = style({
+  const validTextAlignments = ['left', 'center', 'right']
+  const randomTextAlign = () => R.nth(
+    random(R.length(validTextAlignments)),
+    validTextAlignments
+  )
+
+  const textStyle = {
     margin: 0,
     height: '100%',
     color,
-  })
+    textAlign: 'left',
+  }
 
   const first = text({
-    className: textClass,
+    className: style(R.merge(textStyle, {
+      [R.prop('small', media)]: { textAlign: randomTextAlign() },
+    })),
     key: v4(),
     tag: 'p',
     size: 4,
   }, 'Hi, I’m Max')
 
   const second = text({
-    className: textClass,
+    className: style(R.merge(textStyle, {
+      [R.prop('small', media)]: { textAlign: randomTextAlign() },
+    })),
     key: v4(),
     tag: 'p',
     size: 4,
   }, 'I design &\u00A0build')
 
   const third = text({
-    className: textClass,
+    className: style(R.merge(textStyle, {
+      [R.prop('small', media)]: { textAlign: randomTextAlign() },
+    })),
     key: v4(),
     tag: 'p',
     size: 4,
@@ -59,19 +73,49 @@ const TextIntro = () => {
   }, [
     grid([
       cell({
-        col: 12,
+        small: {
+          column: 1,
+          of: 1,
+        },
+        medium: {
+          column: 1,
+          of: 3,
+        },
+        large: {
+          column: 1,
+          of: 3,
+        },
         alignSelf: randomAlign(),
-        mediumCol: 4,
       }, [first]),
       cell({
-        col: 12,
+        small: {
+          column: 1,
+          of: 1,
+        },
+        medium: {
+          column: 2,
+          of: 3,
+        },
+        large: {
+          column: 2,
+          of: 3,
+        },
         alignSelf: randomAlign(),
-        mediumCol: 4,
       }, [second]),
       cell({
-        col: 12,
+        small: {
+          column: 1,
+          of: 1,
+        },
+        medium: {
+          column: 3,
+          of: 3,
+        },
+        large: {
+          column: 3,
+          of: 3,
+        },
         alignSelf: randomAlign(),
-        mediumCol: 4,
       }, [third]),
     ]),
   ])

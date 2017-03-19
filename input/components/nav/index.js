@@ -1,6 +1,9 @@
-import { hh, ul } from 'react-hyperscript-helpers'
-import { size, sansSerif } from '../../constants/typography'
+import { h, hh, ul } from 'react-hyperscript-helpers'
+import { v4 } from 'uuid'
 import R from 'ramda'
+
+import link from '../../components/link'
+import { size, sansSerif } from '../../constants/typography'
 import { black } from '../../constants/colour'
 import navItem from '../navItem'
 import mapIndex from '../../helpers/mapIndex'
@@ -21,10 +24,25 @@ const className = style({
   margin: 0,
 })
 
-const Nav = ({children}) => ul({
+const NavList = ({children}) => ul({
   className,
 }, mapIndex((child, index) => navItem({
   key: index,
 }, [child]), children))
+
+const Nav = () => h(NavList, [
+  link({
+    key: v4(),
+    href: '#work',
+  }, ['Work']),
+  link({
+    key: v4(),
+    href: '#about',
+  }, ['About']),
+  link({
+    key: v4(),
+    href: '#contact',
+  }, ['Contact']),
+])
 
 export default hh(Nav)

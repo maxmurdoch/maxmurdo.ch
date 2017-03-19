@@ -21,11 +21,13 @@
     "stylelint": "stylelint input/**/*.js",
     "eslint": "eslint . --fix",
     "lint": "yarn run stylelint && yarn run eslint",
-    "setup": "yarn install && yarn run validate"
+    "setup": "yarn install && yarn run validate",
+    "test": "babel-tape-runner input/**/*test.js | faucet"
   },
   "author": "Max Murdoch, max@maxmurdo.ch",
   "license": "ISC",
   "dependencies": {
+    "babel-tape-runner": "^2.0.1",
     "chroma-js": "^1.2.2",
     "cxs": "^3.0.4",
     "immutable": "^3.8.1",

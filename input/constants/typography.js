@@ -11,7 +11,7 @@ const family = {
 
 const numScale = R.scan(
   (n) => R.multiply(n, 1.4),
-  0.8,
+  0.6,
   R.range(1, 7)
 )
 const appendVmax = R.partialRight(R.concat, ['vmax'])

@@ -20,6 +20,6 @@ const Logo = () => h1({
   className,
 }, [link({
   href: '/',
-}, 'Murdoch Studio')])
+}, 'Max Murdoch')])
 
 export default hh(Logo)

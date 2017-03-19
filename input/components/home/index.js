@@ -1,14 +1,16 @@
 import { h, div } from 'react-hyperscript-helpers'
 import { StickyContainer } from 'react-sticky'
 import container from '../site-container'
+import style from '../../helpers/style'
+
 import textIntro from '../text-intro'
 import link from '../link'
 import header from '../header'
 import text from '../text'
+import goCardless from '../gocardless'
 import mathsBuilders from '../maths-builders'
 import grid from '../grid'
 import cell from '../cell'
-import style from '../../helpers/style'
 
 import { v4 } from 'uuid'
 
@@ -33,14 +35,17 @@ const Home = () => {
   return h(StickyContainer, [
     grid([
       cell({
-        col: 12,
+        column: 1,
+        of: 1,
       }, [intro]),
       cell({
-        col: 12,
+        column: 1,
+        of: 1,
       }, [
         container([
           header(),
           mathsBuilders(),
+          goCardless(),
           contact,
         ]),
       ]),

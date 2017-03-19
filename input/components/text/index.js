@@ -10,7 +10,7 @@ const Text = ({tag = 'p', size = 3, family = 'sans', weight = 400, className, ch
   const base = style({
     fontFamily: R.prop(family, fontFamily),
     fontWeight: weight,
-    color: R.nth(8, black),
+    color: R.last(black),
     lineHeight,
     fontSize: R.nth(size, typeSize),
     '-webkit-font-smoothing': 'antialiased',

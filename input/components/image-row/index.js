@@ -1,44 +1,50 @@
 import { hh, div } from 'react-hyperscript-helpers'
 import R from 'ramda'
 import space from '../../constants/space'
-import { black } from '../../constants/colour'
+import media from '../../constants/media'
 
 import style from '../../helpers/style'
-import image from '../image'
+import screenImage from '../screen-image'
 import grid from '../grid'
 import cell from '../cell'
 
 const imageContainerClass = style({
-  border: `2px solid ${R.nth(1, black)}`,
-  padding: `${R.nth(7, space)} ${R.nth(2, space)}`,
-  borderRadius: '24px',
   display: 'flex',
   justifyContent: 'center',
+  [R.prop('small', media)]: {
+    padding: `${R.nth(3, space)}`,
+  },
+  [R.prop('medium', media)]: {
+    padding: `${R.nth(2, space)}`,
+  },
+  [R.prop('large', media)]: {
+    padding: `${R.nth(4, space)}`,
+  },
 })
 
-const imageClass = style({
-  border: `2px solid ${R.nth(1, black)}`,
-  width: `100%`,
-  height: `100%`,
-})
+const mapIndexed = R.addIndex(R.map)
 
 const ImageRow = ({images = []}) => {
-  const wrappedImages = R.map((src) => {
+  const wrappedImages = mapIndexed((src, i) => {
+    const index = R.inc(i)
+    const of2 = R.equals(R.modulo(index, 2), 0) ? index : R.modulo(index, 2)
+    const of3 = R.equals(R.modulo(index, 3), 0) ? index : R.modulo(index, 3)
+
     return cell({
-      smallCol: 12,
-      mediumCol: 4,
-      largeCol: 4,
-    }, [
-      div({
-        className: imageContainerClass,
+      bottomGutter: true,
+      small: {
+        column: 1,
+        of: 1,
       },
-        [
-          image({
-            className: imageClass,
-            src,
-          }),
-        ]),
-    ])
+      medium: {
+        column: of2,
+        of: 2,
+      },
+      large: {
+        column: of3,
+        of: 3,
+      },
+    }, [div({ className: imageContainerClass }, [screenImage({ src })])])
   }, images)
 
 

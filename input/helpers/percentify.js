@@ -1,5 +1,3 @@
-import R from 'ramda'
-
-const percentify = R.pipe(R.toString, R.append('%'), R.join(''))
+const percentify = (str) => `${str}%`
 
 export default percentify
