@@ -1,41 +1,64 @@
-import { hh, h, header } from 'react-hyperscript-helpers'
-import { Sticky } from 'react-sticky'
+import {hh, header} from 'react-hyperscript-helpers'
+import {css} from 'glamor'
+
+import container from '../site-container'
 import logo from '../logo'
 import nav from '../nav'
-import style from '../../helpers/style'
 import grid from '../grid'
 import cell from '../cell'
-import R from 'ramda'
-import space from '../../constants/space'
 
-const className = style({
+const className = css({
+  backgroundColor: 'white',
   display: 'flex',
   flexWrap: 'wrap',
+  height: '15vmin',
   justifyContent: 'space-between',
-  height: '10vh',
-  backgroundColor: 'rgba(255, 255, 255, 0.9)',
-  minHeight: R.last(space),
+  left: 0,
+  position: 'fixed',
+  right: 0,
+  top: 0,
+  zIndex: 1
 })
 
-const Header = () => h(Sticky, [
-  header({ className }, [
-    grid([
+const Header = () => header({className}, [
+  container([
+    grid({
+      wrap: false,
+      justify: 'between',
+      align: 'stretch'
+    }, [
       cell({
-        column: 1,
-        of: 6,
-      }, [logo()]),
-      cell({
+        small: {
+          auto: true
+        },
         medium: {
-          column: 3,
-          of: 6,
+          column: 1,
+          of: 2
         },
         large: {
-          column: 3,
-          of: 6,
+          column: 1,
+          of: 2
+        }
+      }, [logo()]),
+      cell({
+        small: {
+          auto: true
         },
-      }, [nav()]),
-    ]),
+        medium: {
+          column: 1,
+          of: 2
+        },
+        large: {
+          column: 1,
+          of: 2
+        },
+        align: 'center',
+        grow: 1,
+        justify: 'end'
+      }, [nav()])
+    ])
   ]
-)])
+  )]
+)
 
 export default hh(Header)

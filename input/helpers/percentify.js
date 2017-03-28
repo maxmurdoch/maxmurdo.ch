@@ -1,3 +1,3 @@
-const percentify = (str) => `${str}%`
+const percentify = str => `${str}%`
 
 export default percentify

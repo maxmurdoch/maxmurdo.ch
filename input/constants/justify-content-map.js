@@ -3,7 +3,7 @@ const justifyContentMap = {
   end: 'flex-end',
   center: 'center',
   between: 'space-between',
-  apart: 'space-apart',
+  apart: 'space-apart'
 }
 
 export default justifyContentMap

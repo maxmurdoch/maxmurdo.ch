@@ -14,10 +14,9 @@ const contrastChecker = (scale = randomScale()) => {
   )
   if (isValid) {
     return [R.head(scale), R.last(scale)]
-  } else {
-    console.log('Tail function called')
-    return contrastChecker(randomScale())
   }
+  console.log('Tail function called')
+  return contrastChecker(randomScale())
 }
 
 export default contrastChecker

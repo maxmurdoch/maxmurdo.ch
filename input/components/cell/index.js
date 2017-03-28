@@ -1,69 +1,104 @@
-import { PropTypes } from 'react'
-import { hh, div } from 'react-hyperscript-helpers'
+import {PropTypes} from 'react'
+import {hh, div} from 'react-hyperscript-helpers'
 import R from 'ramda'
-import classnames from 'classnames'
+import {css} from 'glamor'
 
 import media from '../../constants/media'
-import alignMap from '../../constants/align-items-map'
 import validAlign from '../../constants/valid-align'
+import validJustify from '../../constants/valid-justify'
+import justifyContentMap from '../../constants/justify-content-map'
+import alignItemsMap from '../../constants/align-items-map'
 
-import style from '../../helpers/style'
-import calculateColumn, { gutter } from '../../services/calculate-column'
+import toFixed from '../../helpers/to-fixed'
+import {
+  smallHalf,
+  small as smallGutter,
+  mediumHalf,
+  medium as mediumGutter,
+  largeHalf,
+  large as largeGutter
+} from '../../constants/gutter'
 
 const Cell = ({
   grow = 0,
-  shrink = 0,
+  shrink = 1,
   small = {
     column: 1,
     of: 1,
+    auto: false,
+    gutter: smallHalf
   },
   medium = {
     column: 1,
     of: 1,
+    auto: false,
+    gutter: mediumHalf
   },
   large = {
     column: 1,
     of: 1,
+    auto: false,
+    gutter: largeHalf
   },
-  alignSelf = 'start',
+  alignSelf,
+  justify = 'start',
+  align = 'start',
   bottomGutter = false,
-  children,
+  children
 }) => {
-  const baseClass = style({
+  const percent = (styleShape = {column: 1, of: 1}) => `${R.pipe(R.divide(100), R.multiply(R.prop('column', styleShape)), toFixed(2))(R.prop('of', styleShape))}%`
+
+  const baseClass = css({
+    alignSelf: R.prop(alignSelf, alignItemsMap),
     boxSizing: 'border-box',
-    alignSelf: R.prop(alignSelf, alignMap),
+    display: 'flex',
+    alignItems: R.prop(align, alignItemsMap),
+    justifyContent: R.prop(justify, justifyContentMap),
     flexGrow: grow,
     flexShrink: shrink,
-    marginBottom: bottomGutter ? gutter : 0,
-  })
-
-  const columnClass = style({
-    [R.prop('small', media)]: calculateColumn(small),
-    [R.prop('medium', media)]: calculateColumn(medium),
-    [R.prop('large', media)]: calculateColumn(large),
+    [R.prop('small', media)]: {
+      flexBasis: R.prop('auto', small) ? 'auto' : percent(small),
+      paddingRight: smallHalf,
+      paddingLeft: smallHalf,
+      paddingBottom: bottomGutter ? smallGutter : 0
+    },
+    [R.prop('medium', media)]: {
+      flexBasis: R.prop('auto', medium) ? 'auto' : percent(medium),
+      paddingRight: mediumHalf,
+      paddingLeft: mediumHalf,
+      paddingBottom: bottomGutter ? mediumGutter : 0
+    },
+    [R.prop('large', media)]: {
+      flexBasis: R.prop('auto', large) ? 'auto' : percent(large),
+      paddingRight: largeHalf,
+      paddingLeft: largeHalf,
+      paddingBottom: bottomGutter ? largeGutter : 0
+    }
   })
 
   return div({
-    className: classnames(baseClass, columnClass),
+    className: baseClass
   }, [children])
 }
 
 Cell.propTypes = {
   small: PropTypes.shape({
     column: PropTypes.number,
-    of: PropTypes.number,
+    of: PropTypes.number
   }),
   medium: PropTypes.shape({
     column: PropTypes.number,
-    of: PropTypes.number,
+    of: PropTypes.number
   }),
   large: PropTypes.shape({
     column: PropTypes.number,
-    of: PropTypes.number,
+    of: PropTypes.number
   }),
   alignSelf: PropTypes.oneOf(validAlign),
+  align: PropTypes.oneOf(validAlign),
+  justify: PropTypes.oneOf(validJustify),
   grow: PropTypes.number,
-  shrink: PropTypes.number,
+  shrink: PropTypes.number
 }
 
 export default hh(Cell)

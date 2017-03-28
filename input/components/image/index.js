@@ -1,16 +1,15 @@
-import { img, hh } from 'react-hyperscript-helpers'
-import classnames from 'classnames'
-import style from '../../helpers/style'
-
-const base = style({
-  maxWidth: '100%',
-})
+import {img, hh} from 'react-hyperscript-helpers'
+import {css} from 'glamor'
 
 const Image = ({className, ...props}) => {
+  const style = css(
+    {maxWidth: '100%'},
+    className
+  )
   return img(
     {
-      className: classnames(base, className),
-      ...props,
+      className: style,
+      ...props
     }
   )
 }

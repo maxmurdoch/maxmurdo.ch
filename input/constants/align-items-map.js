@@ -3,7 +3,7 @@ const alignItemsMap = {
   end: 'flex-end',
   baseline: 'baseline',
   center: 'center',
-  stretch: 'stretch',
+  stretch: 'stretch'
 }
 
 export default alignItemsMap
