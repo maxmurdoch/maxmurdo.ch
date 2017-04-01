@@ -1,6 +1,6 @@
-const small = '@media screen and (max-width: 40rem)'
-const medium = '@media screen and (min-width: 40rem) and (max-width: 70rem)'
-const large = '@media screen and (min-width: 70rem)'
+const small = '@media screen and (max-width: 40em)'
+const medium = '@media screen and (min-width: 40em) and (max-width: 70em)'
+const large = '@media screen and (min-width: 70em)'
 
 const media = {
   small,

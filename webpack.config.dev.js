@@ -28,12 +28,13 @@ module.exports = () => ({
             options: {
               presets: ['es2015', 'stage-2']
             }
-          },
-          {
-            loader: 'eslint-loader'
           }
         ],
         include: join(__dirname, 'input')
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,

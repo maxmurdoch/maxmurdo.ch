@@ -21,7 +21,7 @@ const family = {
 }
 
 const numScale = R.scan(
-  n => R.multiply(n, 1.4),
+  n => R.multiply(n, 1.3),
   0.6,
   R.range(1, 7)
 )

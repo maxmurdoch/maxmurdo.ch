@@ -1,8 +1,8 @@
 import {hh} from 'react-hyperscript-helpers'
+import {css} from 'glamor'
 import {v4} from 'uuid'
 
 import link from '../../components/link'
-import {css} from 'glamor'
 import text from '../../components/text'
 
 const linkClass = css({

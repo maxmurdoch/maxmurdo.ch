@@ -31,13 +31,10 @@ const TextIntro = () => {
   const first = text({
     className: css({
       margin: 0,
-      textTransform: 'uppercase',
-      height: '100%',
       color
     }),
     key: v4(),
     tag: 'p',
-    family: 'sansDruk',
     size: 4
   }, 'Hi, I’m Max')
 
@@ -48,7 +45,6 @@ const TextIntro = () => {
       color
     }),
     key: v4(),
-    family: 'serif',
     tag: 'p',
     size: 4
   }, 'I design &\u00A0build')
@@ -56,11 +52,9 @@ const TextIntro = () => {
   const third = text({
     className: css({
       margin: 0,
-      height: '100%',
       color
     }),
     key: v4(),
-    family: 'mono',
     tag: 'p',
     size: 4
   }, 'digital products')
@@ -69,9 +63,7 @@ const TextIntro = () => {
     className: css({
       backgroundColor,
       padding: '5vmin',
-      height: '80vmin',
-      marginTop: '10vmin',
-      marginBottom: '5vmin',
+      height: '100vmin',
       maxWidth: '100%',
       boxSizing: 'border-box'
     })

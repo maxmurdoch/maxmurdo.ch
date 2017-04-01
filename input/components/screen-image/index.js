@@ -1,11 +1,9 @@
 import {hh, div} from 'react-hyperscript-helpers'
-// Import R from 'ramda'
-
-// import { black } from '../../constants/colour'
 import {css} from 'glamor'
+
 import image from '../image'
 
-const className = css({
+const container = css({
   width: `100%`,
   height: `100%`
 })
@@ -17,6 +15,6 @@ const imageStyle = css({
   width: '100%'
 })
 
-const ScreenImage = ({src}) => div({className}, [image({className: imageStyle, src})])
+const ScreenImage = ({src, className}) => div({className: container}, [image({className: css(imageStyle, className), src})])
 
 export default hh(ScreenImage)

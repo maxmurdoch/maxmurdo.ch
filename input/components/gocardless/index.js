@@ -1,8 +1,8 @@
 import {hh, div} from 'react-hyperscript-helpers'
 import R from 'ramda'
+import {css} from 'glamor'
 
 import space from '../../constants/space'
-import {css} from 'glamor'
 import goCardless1 from '../../images/gocardless-1.png'
 
 import screenImage from '../screen-image'
