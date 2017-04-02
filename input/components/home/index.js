@@ -2,7 +2,6 @@ import {h} from 'react-hyperscript-helpers'
 import {StickyContainer} from 'react-sticky'
 import container from '../site-container'
 
-// Import textIntro from '../text-intro'
 import simpleIntro from '../simple-intro'
 import header from '../header'
 import footer from '../footer'

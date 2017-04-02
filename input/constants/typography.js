@@ -22,7 +22,7 @@ const family = {
 
 const numScale = R.scan(
   n => R.multiply(n, 1.3),
-  0.6,
+  0.8,
   R.range(1, 7)
 )
 const appendRem = R.partialRight(R.concat, ['rem'])

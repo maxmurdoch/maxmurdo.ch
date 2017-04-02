@@ -13,7 +13,7 @@ const ImageRow = ({images = []}) => {
       },
       medium: {
         column: 1,
-        of: 2
+        of: 3
       },
       large: {
         column: 1,

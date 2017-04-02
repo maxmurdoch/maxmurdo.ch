@@ -33,7 +33,6 @@ class SimpleIntro extends Component {
 
   componentWillUnmount() {
     this.state.rellax.destroy()
-    window.removeEventListener('scroll', this.handleScroll)
   }
 
   handleScroll() {

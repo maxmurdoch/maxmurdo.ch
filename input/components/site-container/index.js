@@ -8,6 +8,7 @@ const SiteContainer = ({children}) => {
   const className = css({
     width: '100%',
     maxWidth: '100%',
+    margin: '0 auto',
     boxSizing: 'border-box',
     [small]: {
       paddingRight: smallGutter,

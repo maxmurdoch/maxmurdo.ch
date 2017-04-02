@@ -17,7 +17,7 @@ const Nav =
     href: '#menu'
   }, [
     text({
-      size: 2
+      size: 1
     }, 'Menu')
   ])
 

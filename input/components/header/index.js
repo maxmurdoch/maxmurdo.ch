@@ -11,16 +11,11 @@ import grid from '../grid'
 import cell from '../cell'
 
 const className = css({
-  backgroundColor: 'white',
   display: 'flex',
   flexWrap: 'wrap',
   height: '15vmin',
   justifyContent: 'space-between',
-  left: 0,
-  position: 'fixed',
-  right: 0,
-  top: 0,
-  zIndex: 1,
+  zIndex: 3,
   transition: 'box-shadow 200ms ease-in-out'
 })
 
@@ -30,22 +25,10 @@ class Header extends Component {
   }
 
   render() {
-    return h(Sticky, {
-      style: {
-        transition: 'box-shadow 200ms ease-in-out'
-      },
-      stickyClassName: css({
-        zIndex: 3,
-        '& header': {
-          boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)'
-        }
-      })
-    }, [
+    return h(Sticky, {stickyStyle: {zIndex: 3}}, [
       header({
         className,
-        'data-aos': 'fade-in',
-        'data-aos-delay': 100,
-        'data-aos-anchor-placement': 'center-center'
+        'data-aos': 'fade-in'
       }, [
         container([
           grid({
@@ -64,7 +47,8 @@ class Header extends Component {
               large: {
                 column: 1,
                 of: 2
-              }
+              },
+              align: 'center'
             }, [logo()]),
             cell({
               small: {
