@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import R from 'ramda'
-import {hh, div, br} from 'react-hyperscript-helpers'
+import {hh, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
 import Rellax from 'rellax'
 import aos from 'aos'
@@ -8,7 +8,6 @@ import aos from 'aos'
 import container from '../site-container'
 import text from '../text'
 import grid from '../grid'
-import cell from '../cell'
 
 class SimpleIntro extends Component {
   constructor(props) {
@@ -32,6 +31,7 @@ class SimpleIntro extends Component {
   }
 
   componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
     this.state.rellax.destroy()
   }
 
@@ -44,45 +44,41 @@ class SimpleIntro extends Component {
   }
 
   render() {
-    return div({
-      className: 'rellax',
-      'data-rellax-speed': -5
-    }, [
-      container(
-        [
-          div({
-            className: css({
-              height: '100vh',
-              maxWidth: '100%',
-              boxSizing: 'border-box'
-            }),
-            'data-aos': 'fade-in'
+    return container(
+      [
+        div({
+          className: css({
+            height: '100vh',
+            maxWidth: '100%',
+            boxSizing: 'border-box'
+          }),
+          style: {
+            opacity: this.state.opacity
+          }
+        }, [
+          grid({
+            align: 'center'
           }, [
             div({
               className: css({
-                height: '100%'
-              }),
-              style: {
-                opacity: this.state.opacity
-              }
+                display: 'flex',
+                flexDirection: 'column',
+                height: '100%',
+                justifyContent: 'center'
+              })
             }, [
-              grid({
-                align: 'center'
+              div({
+                className: 'rellax',
+                'data-rellax-speed': -1
               }, [
-                cell([
-                  text({size: 4}, [
-                    `Hi`,
-                    br(),
-                    `I’m Max`,
-                    br(),
-                    `I design and build digital\u00A0products`
-                  ])
-                ])
+                text({tag: 'h1', size: 4, 'data-aos': 'fade-in', 'data-aos-duration': 1000}, `Hi`),
+                text({tag: 'h1', size: 4, 'data-aos': 'fade-in', 'data-aos-duration': 1000, 'data-aos-delay': 500}, `I’m Max`),
+                text({tag: 'h1', size: 4, 'data-aos': 'fade-in', 'data-aos-duration': 1000, 'data-aos-delay': 1000}, `I design and build digital\u00A0products`)
               ])
             ])
           ])
         ])
-    ])
+      ])
   }
 }
 

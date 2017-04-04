@@ -2,21 +2,21 @@ import {h} from 'react-hyperscript-helpers'
 import {StickyContainer} from 'react-sticky'
 import container from '../site-container'
 
+import sideNav from '../side-nav'
+import sideLogo from '../side-logo'
 import simpleIntro from '../simple-intro'
-import header from '../header'
-import footer from '../footer'
 import goCardless from '../gocardless'
 import codeAtUni from '../code-at-uni'
 import mathsBuilders from '../maths-builders'
 
 const Home = () => h(StickyContainer, [
   simpleIntro(),
-  header(),
   container([
+    sideNav(),
+    sideLogo(),
     mathsBuilders(),
     codeAtUni(),
-    goCardless(),
-    footer()
+    goCardless()
   ])
 ])
 

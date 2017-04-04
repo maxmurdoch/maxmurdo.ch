@@ -4,6 +4,7 @@ import {Sticky} from 'react-sticky'
 import {css} from 'glamor'
 import aos from 'aos'
 
+import {medium, large} from '../../constants/media'
 import container from '../site-container'
 import logo from '../logo'
 import nav from '../nav'
@@ -13,10 +14,15 @@ import cell from '../cell'
 const className = css({
   display: 'flex',
   flexWrap: 'wrap',
-  height: '15vmin',
   justifyContent: 'space-between',
   zIndex: 3,
-  transition: 'box-shadow 200ms ease-in-out'
+  transition: 'box-shadow 200ms ease-in-out',
+  [medium]: {
+    height: '10vmax'
+  },
+  [large]: {
+    height: '10vmax'
+  }
 })
 
 class Header extends Component {
@@ -31,44 +37,22 @@ class Header extends Component {
         'data-aos': 'fade-in'
       }, [
         container([
-          grid({
-            wrap: false,
-            justify: 'between',
-            align: 'stretch'
-          }, [
+          grid({justify: 'between', align: 'stretch'}, [
             cell({
-              small: {
-                auto: true
-              },
-              medium: {
-                column: 1,
-                of: 2
-              },
-              large: {
-                column: 1,
-                of: 2
-              },
+              small: {column: 1, of: 1},
+              medium: {column: 1, of: 2},
+              large: {column: 1, of: 2},
               align: 'center'
             }, [logo()]),
             cell({
-              small: {
-                auto: true
-              },
-              medium: {
-                column: 1,
-                of: 2
-              },
-              large: {
-                column: 1,
-                of: 2
-              },
-              align: 'center',
-              grow: 1,
-              justify: 'end'
+              small: {auto: true},
+              medium: {column: 1, of: 2},
+              large: {column: 1, of: 2},
+              align: 'center'
             }, [nav()])
           ])
         ]
-  )])
+      )])
     ])
   }
 }

@@ -20,8 +20,8 @@ class Footer extends Component {
       className: css({
         paddingTop: R.nth(4, space),
         marginTop: R.nth(4, space),
-        paddingBottom: R.nth(4, space),
-        marginBottom: R.nth(4, space)
+        paddingBottom: R.nth(2, space),
+        marginBottom: R.nth(2, space)
       })
     }, [
       grid([

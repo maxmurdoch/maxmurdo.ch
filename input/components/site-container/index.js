@@ -6,6 +6,7 @@ import {small as smallGutter, medium as mediumGutter, large as largeGutter} from
 
 const SiteContainer = ({children}) => {
   const className = css({
+    position: 'relative',
     width: '100%',
     maxWidth: '100%',
     margin: '0 auto',
@@ -15,12 +16,12 @@ const SiteContainer = ({children}) => {
       paddingLeft: smallGutter
     },
     [medium]: {
-      paddingRight: mediumGutter,
-      paddingLeft: mediumGutter
+      paddingRight: `calc(${mediumGutter} + ${mediumGutter})`,
+      paddingLeft: `calc(${mediumGutter} + ${mediumGutter})`
     },
     [large]: {
-      paddingRight: largeGutter,
-      paddingLeft: largeGutter
+      paddingRight: `calc(${largeGutter} + ${largeGutter})`,
+      paddingLeft: `calc(${largeGutter} + ${largeGutter})`
     }
   })
 

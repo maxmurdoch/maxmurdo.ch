@@ -1,30 +1,33 @@
 import {h, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import {small, medium, large} from '../../constants/media'
 import home from '../home'
+import about from '../about'
+import contact from '../contact'
 
 css.insert(`
 ${small} {
   :root {
-    font-size: calc(12px + 0.2vmax);
+    font-size: calc(10px + 0.4vmax);
   }
 }
 
 ${medium} {
   :root {
-    font-size: calc(14px + 0.2vmax);
+    font-size: calc(1.3vmax);
   }
 }
 
 ${large} {
   :root {
-    font-size: calc(16px + 0.2vmax);
+    font-size: calc(1vmax);
   }
 }
 `)
 
-css.global(':root', {
+css.global(':App', {
   textRendering: 'optimizeLegibility',
   WebkitFontSmoothing: 'antialiased',
   WebkitBackfaceVisibility: 'hidden'
@@ -36,8 +39,14 @@ const className = css({
   display: 'flex'
 })
 
-const Root = () => div({
+const App = () => div({
   className
-}, [h(home)])
+}, [h(Router, [
+  div([
+    h(Route, {exact: true, path: '/', component: home}),
+    h(Route, {path: '/about', component: about}),
+    h(Route, {path: '/contact', component: contact})
+  ])
+])])
 
-export default Root
+export default App

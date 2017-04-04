@@ -22,24 +22,9 @@ import {
 const Cell = ({
   grow = 0,
   shrink = 1,
-  small = {
-    column: 1,
-    of: 1,
-    auto: false,
-    gutter: smallHalf
-  },
-  medium = {
-    column: 1,
-    of: 1,
-    auto: false,
-    gutter: mediumHalf
-  },
-  large = {
-    column: 1,
-    of: 1,
-    auto: false,
-    gutter: largeHalf
-  },
+  small = {column: 1, of: 1, auto: false, gutter: smallHalf},
+  medium = {column: 1, of: 1, auto: false, gutter: mediumHalf},
+  large = {column: 1, of: 1, auto: false, gutter: largeHalf},
   alignSelf,
   justify = 'start',
   align = 'start',
@@ -56,6 +41,7 @@ const Cell = ({
     justifyContent: R.prop(justify, justifyContentMap),
     flexGrow: grow,
     flexShrink: shrink,
+    height: '100%',
     [R.prop('small', media)]: {
       flexBasis: R.prop('auto', small) ? 'auto' : percent(small),
       paddingRight: smallHalf,

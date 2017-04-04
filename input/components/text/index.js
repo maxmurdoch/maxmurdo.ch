@@ -17,7 +17,8 @@ const Text = ({
   weight = 400,
   shade = 1,
   className,
-  children
+  children,
+  ...props
 }) => {
   const shadeSet = [
     R.last(black),
@@ -44,13 +45,14 @@ const Text = ({
   className)
 
   return h(tag, {
-    className: style
+    className: style,
+    ...props
   }, children)
 }
 
 Text.propTypes = {
   tag: PropTypes.string,
-  className: PropTypes.object,
+  className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   family: PropTypes.oneOf(['sans', 'mono']),
   weight: PropTypes.number
 }
