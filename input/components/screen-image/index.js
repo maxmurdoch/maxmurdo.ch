@@ -9,9 +9,8 @@ const container = css({
 })
 
 const imageStyle = css({
-  border: `1px solid rgba(0, 0, 0, 0.05)`,
   boxSizing: 'border-box',
-  boxShadow: `0 10px 30px rgba(0, 0, 0, 0.03), 0 0 30px 10px rgba(0, 0, 0, 0.03)`,
+  boxShadow: `0 20px 25px rgba(0, 0, 0, 0.06), 0 0 20px rgba(0, 0, 0, 0.04)`,
   width: '100%'
 })
 

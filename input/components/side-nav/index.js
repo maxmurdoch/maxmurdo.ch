@@ -1,11 +1,9 @@
-import {Component} from 'react'
 import R from 'ramda'
-import {h, hh, aside, nav} from 'react-hyperscript-helpers'
+import {h, hh, aside, nav, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
 import {v4} from 'uuid'
 import {Link} from 'react-router-dom'
 import {Sticky} from 'react-sticky'
-import aos from 'aos'
 
 import text from '../../components/text'
 import space from '../../constants/space'
@@ -17,104 +15,111 @@ const linkClass = css({
   textDecoration: 'none',
   alignItems: 'center',
   paddingRight: R.nth(1, space),
-  margin: 0
+  margin: 0,
+  ':last-of-type': {
+    paddingRight: 0
+  }
 })
 
 const navItems = [
-  {
-    to: '/contact',
-    title: 'Contact'
-  },
-  {
-    to: '/work',
-    title: 'Work'
-  },
-  {
-    to: '/about',
-    title: 'About'
-  }
+  {to: '/info', title: 'Info'},
+  {to: '/work', title: 'Work'}
 ]
-class SideNav extends Component {
-  componentDidMount() {
-    aos.init()
-  }
+const SideNav = ({
+  isAnimated = true
+}) => {
+  console.log(isAnimated)
+  const className = css({
+    display: 'none',
+    [medium]: {
+      display: 'block',
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      width: `calc(${mediumGutter} + ${mediumGutter})`,
+      backgroundColor: 'white'
+    },
+    [large]: {
+      display: 'block',
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      backgroundColor: 'white',
+      width: `calc(${largeGutter} + ${largeGutter})`
+    }
+  })
 
-  render() {
-    const className = css({
-      display: 'none',
-      [medium]: {
-        display: 'block',
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        left: 0,
-        width: `calc(${mediumGutter} + ${mediumGutter})`,
-        backgroundColor: 'white'
-      },
-      [large]: {
-        display: 'block',
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        left: 0,
-        backgroundColor: 'white',
-        width: `calc(${largeGutter} + ${largeGutter})`
-      }
-    })
-
-    return h(Sticky, {
-      style: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 'inherit'
-      },
-      stickyStyle: {
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 'inherit'
-      }
+  return h(Sticky, {
+    style: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 'inherit'
+    },
+    stickyStyle: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 'inherit'
+    }
+  }, [
+    aside({
+      className
     }, [
-      aside({
-        className
+      div({
+        className: css({
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh',
+          textDecoration: 'none',
+          paddingLeft: 0,
+          paddingBottom: R.nth(1, space),
+          margin: 0,
+          listStyleType: 'none',
+          [medium]: {
+            padding: 0
+          },
+          [large]: {
+            padding: 0
+          }
+        })
       }, [
         nav({
           className: css({
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100vh',
             transform: 'rotate(-90deg)',
             transformOrigin: 'center',
-            textDecoration: 'none',
-            paddingLeft: 0,
-            paddingBottom: R.nth(1, space),
-            margin: 0,
-            flex: '1 1 auto',
-            listStyleType: 'none',
-            [medium]: {
-              padding: 0
-            },
-            [large]: {
-              padding: 0
-            }
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           })
         }, R.map(({to, title}) => {
-          return h(Link, {
+          const aosAttrs = {
             'data-aos': 'fade-right',
+            'data-aos-anchor-placement': 'top-bottom'
+          }
+          const linkAttrs = {
             key: v4(),
             className: linkClass,
             to
-          }, [
+          }
+          const attrs = R.ifElse(
+            () => R.equals(isAnimated, true),
+            () => R.merge(aosAttrs, linkAttrs),
+            () => linkAttrs
+          )
+
+          return h(Link, attrs(), [
             text({
-              size: 1
+              size: 2
             }, title)
           ])
         }, navItems))
       ])
     ])
-  }
+  ])
 }
 
 export default hh(SideNav)

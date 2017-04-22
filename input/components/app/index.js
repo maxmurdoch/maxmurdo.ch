@@ -1,16 +1,18 @@
+import {Component} from 'react'
 import {h, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
+import ScrollToTop from '../scroll-to-top'
 import {small, medium, large} from '../../constants/media'
 import home from '../home'
+import work from '../work'
 import about from '../about'
-import contact from '../contact'
 
 css.insert(`
 ${small} {
   :root {
-    font-size: calc(10px + 0.4vmax);
+    font-size: calc(8px + 0.4vmax);
   }
 }
 
@@ -27,26 +29,23 @@ ${large} {
 }
 `)
 
-css.global(':App', {
+css.global(':root', {
   textRendering: 'optimizeLegibility',
-  WebkitFontSmoothing: 'antialiased',
-  WebkitBackfaceVisibility: 'hidden'
+  WebkitFontSmoothing: 'antialiased'
 })
 
-const className = css({
-  minHeight: '100vh',
-  height: '100%',
-  display: 'flex'
-})
-
-const App = () => div({
-  className
-}, [h(Router, [
-  div([
-    h(Route, {exact: true, path: '/', component: home}),
-    h(Route, {path: '/about', component: about}),
-    h(Route, {path: '/contact', component: contact})
-  ])
-])])
+class App extends Component {
+  render() {
+    return h(Router, [
+      h(ScrollToTop, [
+        div({className: css({width: '100%'})}, [
+          h(Route, {exact: true, path: '/', component: home}),
+          h(Route, {path: '/info', component: about}),
+          h(Route, {path: '/work', component: work})
+        ])
+      ])
+    ])
+  }
+}
 
 export default App

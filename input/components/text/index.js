@@ -7,6 +7,11 @@ import {small, medium, large} from '../../constants/media'
 import {size as typeSize, lineHeight, family as fontFamily} from '../../constants/typography'
 import {black} from '../../constants/colour'
 
+css.global('::selection', {
+  backgroundColor: 'blue',
+  color: 'white'
+})
+
 const Text = ({
   tag = 'p',
   size = 2,
@@ -16,6 +21,7 @@ const Text = ({
   family = 'sans',
   weight = 400,
   shade = 1,
+  style = 'normal',
   className,
   children,
   ...props
@@ -26,10 +32,11 @@ const Text = ({
     R.nth(5, black)
   ]
 
-  const style = css({
+  const cx = css({
     fontFamily: R.prop(family, fontFamily),
     fontWeight: weight,
     color: R.nth(R.dec(shade), shadeSet),
+    fontStyle: style,
     lineHeight,
     margin: 0,
     [small]: {
@@ -45,7 +52,7 @@ const Text = ({
   className)
 
   return h(tag, {
-    className: style,
+    className: cx,
     ...props
   }, children)
 }

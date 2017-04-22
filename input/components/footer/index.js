@@ -2,26 +2,22 @@ import {Component} from 'react'
 import {hh, footer, address, br, ul, li} from 'react-hyperscript-helpers'
 import R from 'ramda'
 import {css} from 'glamor'
-import aos from 'aos'
 
 import space from '../../constants/space'
 import link from '../link'
 import text from '../text'
 import grid from '../grid'
 import cell from '../cell'
+import {small, medium, large} from '../../constants/media'
+import {small as smallGutter, medium as mediumGutter, large as largeGutter} from '../../constants/gutter'
 
 class Footer extends Component {
-  componentDidMount() {
-    aos.init()
-  }
-
   render() {
     return footer({
       className: css({
-        paddingTop: R.nth(4, space),
-        marginTop: R.nth(4, space),
-        paddingBottom: R.nth(2, space),
-        marginBottom: R.nth(2, space)
+        [small]: {height: smallGutter},
+        [medium]: {height: mediumGutter},
+        [large]: {height: largeGutter}
       })
     }, [
       grid([

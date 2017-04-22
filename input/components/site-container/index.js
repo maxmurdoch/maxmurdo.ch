@@ -2,7 +2,7 @@ import {hh, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
 
 import {small, medium, large} from '../../constants/media'
-import {small as smallGutter, medium as mediumGutter, large as largeGutter} from '../../constants/gutter'
+import {small as smallGutter, mediumDouble as mediumGutter, largeDouble as largeGutter} from '../../constants/gutter'
 
 const SiteContainer = ({children}) => {
   const className = css({
@@ -16,12 +16,12 @@ const SiteContainer = ({children}) => {
       paddingLeft: smallGutter
     },
     [medium]: {
-      paddingRight: `calc(${mediumGutter} + ${mediumGutter})`,
-      paddingLeft: `calc(${mediumGutter} + ${mediumGutter})`
+      paddingRight: mediumGutter,
+      paddingLeft: mediumGutter
     },
     [large]: {
-      paddingRight: `calc(${largeGutter} + ${largeGutter})`,
-      paddingLeft: `calc(${largeGutter} + ${largeGutter})`
+      paddingRight: largeGutter,
+      paddingLeft: largeGutter
     }
   })
 

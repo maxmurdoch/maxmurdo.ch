@@ -1,10 +1,7 @@
 import {Component} from 'react'
-import R from 'ramda'
 import {hh, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
-import aos from 'aos'
 
-import space from '../../constants/space'
 import firstPage from '../../images/first-page.svg'
 import geometryAndMeasures from '../../images/maths-builder-geometry-and-measures-1.svg'
 import mathsBuilderProfile from '../../images/maths-builder-profile.svg'
@@ -16,15 +13,13 @@ import cell from '../cell'
 import text from '../text'
 
 class MathsBuilders extends Component {
-  componentDidMount() {
-    return aos.init()
-  }
-
   render() {
     return div({
       className: css({
-        paddingTop: R.nth(2, space),
-        marginTop: R.nth(2, space)
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
       })
     }, [
       grid([
@@ -34,7 +29,11 @@ class MathsBuilders extends Component {
           large: {column: 1, of: 2},
           bottomGutter: true
         }, [
-          div({'data-aos': 'fade-in'}, [
+          div({
+            'data-aos': 'fade-in',
+            'data-aos-delay': 200,
+            'data-aos-anchor-placement': 'center-bottom'
+          }, [
             text({tag: 'h1', size: 2, largeSize: 3, className: css({margin: 0})}, 'Maths Builders')])]),
         cell({
           small: {column: 1, of: 1},
@@ -42,7 +41,11 @@ class MathsBuilders extends Component {
           large: {column: 1, of: 2},
           bottomGutter: true
         }, [
-          div({'data-aos': 'fade-in', 'data-aos-delay': 200}, [
+          div({
+            'data-aos': 'fade-in',
+            'data-aos-delay': 400,
+            'data-aos-anchor-placement': 'top-bottom'
+          }, [
             text({tag: 'p', size: 2, largeSize: 3, shade: 2, className: css({margin: 0})}, [
               'I worked with the ',
               link({target: 'external', href: 'http://www.eng.cam.ac.uk/'}, 'University of Cambridge'),
@@ -50,7 +53,8 @@ class MathsBuilders extends Component {
             ])])])]),
       div({
         'data-aos': 'fade-up',
-        'data-aos-delay': 200
+        'data-aos-delay': 600,
+        'data-aos-anchor-placement': 'top-bottom'
       }, [
         grid([
           cell([imageRow({
@@ -60,6 +64,6 @@ class MathsBuilders extends Component {
       ])
     ])
   }
-        }
+}
 
 export default hh(MathsBuilders)
