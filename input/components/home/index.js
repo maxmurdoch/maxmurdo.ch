@@ -1,31 +1,33 @@
 import {Component} from 'react'
-import {h} from 'react-hyperscript-helpers'
+import {css} from 'glamor'
+import {h, div} from 'react-hyperscript-helpers'
 import {StickyContainer} from 'react-sticky'
 
 import container from '../site-container'
-import sideNav from '../side-nav'
-import sideLogo from '../side-logo'
+import stickySideNav from '../sticky-side-nav'
+import stickySideLogo from '../sticky-side-logo'
+import stickyFooter from '../sticky-footer'
 import simpleIntro from '../simple-intro'
 import goCardless from '../gocardless'
 import codeAtUni from '../code-at-uni'
 import mathsBuilders from '../maths-builders'
-import initialiseAnimation from '../../services/initialise-animation'
+import {large} from '../../constants/gutter'
+import {large as largeBp} from '../../constants/media'
 
 class Home extends Component {
-  componentDidMount() {
-    initialiseAnimation()
-  }
-
   render() {
     return h(StickyContainer, [
       simpleIntro(),
-      container([
-        sideNav(),
-        sideLogo(),
-        mathsBuilders(),
-        codeAtUni(),
-        goCardless()
-      ])
+      div({className: css({[largeBp]: {marginTop: large}})}, [
+        container([
+          stickySideNav(),
+          stickySideLogo(),
+          mathsBuilders(),
+          codeAtUni(),
+          goCardless()
+        ])
+      ]),
+      stickyFooter()
     ])
   }
 }

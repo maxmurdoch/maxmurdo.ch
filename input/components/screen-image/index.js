@@ -9,11 +9,14 @@ const container = css({
 })
 
 const imageStyle = css({
-  boxSizing: 'border-box',
-  boxShadow: `0 20px 25px rgba(0, 0, 0, 0.06), 0 0 20px rgba(0, 0, 0, 0.04)`,
-  width: '100%'
+  boxSizing: `border-box`,
+  boxShadow: `0 20px 25px rgba(0, 0, 0, 0.06), 0 0 30px rgba(0, 0, 0, 0.06)`,
+  width: `100%`
 })
 
-const ScreenImage = ({src, className}) => div({className: container}, [image({className: css(imageStyle, className), src})])
+const ScreenImage = ({src, className}) =>
+  div({className: container}, [
+    image({className: css(imageStyle, className), src})
+  ])
 
 export default hh(ScreenImage)

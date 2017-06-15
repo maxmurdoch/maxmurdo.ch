@@ -17,4 +17,11 @@
     },
     "sourceType": "module"
   },
+  "rules": {
+    "semi": ["error", "never"],
+    "object-curly-spacing": ["error", "never"],
+    "array-bracket-spacing": ["error", "never"],
+    "quotes": [2, "backtick", "avoid-escape"],
+    "comma-dangle": ["error", "never"]
+  }
 }

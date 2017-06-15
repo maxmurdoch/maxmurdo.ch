@@ -1,9 +1,6 @@
-import 'aos/dist/aos.css'
-import {h} from 'react-hyperscript-helpers'
-import {render} from 'react-dom'
-import App from './components/app'
+import "aos/dist/aos.css"
+import {h} from "react-hyperscript-helpers"
+import {render} from "react-dom"
+import App from "./components/app"
 
-render(
-  h(App),
-  document.getElementById('root')
-)
+render(h(App), document.getElementById(`root`))

@@ -1,11 +1,14 @@
-import R from 'ramda'
-import {Component} from 'react'
-import {withRouter} from 'react-router-dom'
+import R from "ramda"
+import PropTypes from "prop-types"
+import {Component} from "react"
+import {withRouter} from "react-router-dom"
 
 class ScrollToTop extends Component {
   componentWillUpdate(prevProps) {
-    const newPath = R.prop('pathname', this.props.location)
-    const prevPath = R.prop('pathname', prevProps.location)
+    const getPathname = R.path([`location`, `pathname`])
+    const newPath = getPathname(this.props)
+    const prevPath = getPathname(prevProps)
+
     if (R.not(R.equals(prevPath, newPath))) {
       window.scrollTo(0, 0)
     }
@@ -14,6 +17,11 @@ class ScrollToTop extends Component {
   render() {
     return this.props.children
   }
+}
+
+ScrollToTop.propTypes = {
+  location: PropTypes.object.isRequired,
+  children: PropTypes.node
 }
 
 export default withRouter(ScrollToTop)

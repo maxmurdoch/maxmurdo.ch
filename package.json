@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "precommit": "lint-staged",
     "build": "webpack --env=dev",
     "build:prod": "webpack --env=prod",
     "deploy": "yarn run build:prod && yarn run s3 && yarn run bust-cache",
@@ -18,11 +19,8 @@
     "start": "webpack-dev-server --env=dev --content-base 'output'",
     "prebuild": "yarn run clean-and-copy",
     "prebuild:prod": "yarn run clean-and-copy",
-    "stylelint": "stylelint input/**/*.js",
-    "eslint": "eslint . --fix",
-    "lint": "yarn run stylelint && yarn run eslint",
-    "setup": "yarn install && yarn run validate",
-    "test": "standard && babel-tape-runner input/**/*test.js | faucet"
+    "lint": "prettier-eslint --write \"./input/**/*.js\"",
+    "test": "babel-tape-runner input/**/*test.js | faucet"
   },
   "author": "Max Murdoch, max@maxmurdo.ch",
   "license": "ISC",
@@ -33,19 +31,23 @@
     "glamor-reset": "^3.0.0-1",
     "immutable": "^3.8.1",
     "normalize.css": "^5.0.0",
-    "pure-random": "^0.1.1",
+    "prop-types": "^15.5.8",
     "ramda": "^0.21.0",
     "ramda-repl": "^4.1.1",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
+    "react-fullpage": "^0.1.16",
     "react-headroom": "^2.1.3",
     "react-parallax-component": "^1.0.6",
     "react-router": "^4.0.0",
+    "react-slide-deck": "^0.2.3",
     "react-sticky": "^5.0.5",
+    "recompose": "^0.23.5",
     "reline": "^1.0.0-beta.3",
     "rellax": "^1.0.0",
     "scrollreveal": "^3.3.4",
     "styled-components": "^1.4.3",
+    "tumblr.js": "^1.1.1",
     "uuid": "^3.0.1"
   },
   "devDependencies": {
@@ -58,7 +60,7 @@
     "classnames": "^2.2.5",
     "cpy-cli": "^1.0.1",
     "css-loader": "^0.23.1",
-    "eslint": "^3.1.0",
+    "eslint": "^3.19.0",
     "eslint-import-resolver-webpack": "^0.4.0",
     "eslint-loader": "^1.4.1",
     "eslint-plugin-babel": "^3.3.0",
@@ -67,11 +69,15 @@
     "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "faucet": "^0.0.1",
     "file-loader": "^0.9.0",
-    "glamor": "^3.0.0",
+    "glamor": "^2.0.0",
     "html-webpack-plugin": "^2.26.0",
     "img-loader": "^1.3.1",
     "inline-style-prefixer": "^3.0.0",
+    "lint-staged": "^3.4.1",
     "npm-run-all": "^2.3.0",
+    "prettier": "^1.2.2",
+    "prettier-eslint": "^6.1.2",
+    "prettier-eslint-cli": "^4.0.0",
     "react-hot-loader": "^1.3.0",
     "react-hyperscript-helpers": "^1.2.0",
     "react-router-dom": "^4.0.0",
@@ -84,19 +90,12 @@
     "url-loader": "^0.5.7",
     "webpack": "^2.1.0-beta.28",
     "webpack-dev-server": "^2.0.0-beta",
-    "webpack-validator": "^2.2.3",
-    "xo": "^0.18.0"
+    "webpack-validator": "^2.2.3"
   },
-  "xo": {
-    "envs": [
-      "browser",
-      "node"
-    ],
-    "space": true,
-    "semicolon": false,
-    "parser": "babel-eslint",
-    "rules": {
-      "import/no-unassigned-import": 0
-    }
+  "lint-staged": {
+    "app/javascript/**/*.js": [
+      "prettier-eslint --write",
+      "git add"
+    ]
   }
 }
