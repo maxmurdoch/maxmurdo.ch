@@ -1,4 +1,5 @@
-import {PropTypes} from 'prop-types'
+import {Component} from 'react'
+import PropTypes from 'prop-types'
 import {hh, div} from 'react-hyperscript-helpers'
 import R from 'ramda'
 import {css} from 'glamor'
@@ -19,52 +20,72 @@ import {
   large as largeGutter
 } from '../../constants/gutter'
 
-const Cell = ({
-  grow = 0,
-  shrink = 1,
-  small = {column: 1, of: 1, auto: false, gutter: smallHalf},
-  medium = {column: 1, of: 1, auto: false, gutter: mediumHalf},
-  large = {column: 1, of: 1, auto: false, gutter: largeHalf},
-  className,
-  alignSelf,
-  justify = `start`,
-  align = `start`,
-  bottomGutter = false,
-  children
-}) => {
-  const percent = (styleShape = {column: 1, of: 1}) =>
-    `${R.pipe(R.divide(100), R.multiply(R.prop(`column`, styleShape)), toFixed(2))(R.prop(`of`, styleShape))}%`
+class Cell extends Component {
+  render() {
+    const {
+      grow = 0,
+      shrink = 1,
+      small = {column: 1, of: 1, auto: false, gutter: smallHalf},
+      medium = {column: 1, of: 1, auto: false, gutter: mediumHalf},
+      large = {column: 1, of: 1, auto: false, gutter: largeHalf},
+      className,
+      style,
+      alignSelf,
+      justify = `start`,
+      align = `start`,
+      topGutter = false,
+      bottomGutter = false,
+      children,
+      ...props
+    } = this.props
+    const percent = (styleShape = {column: 1, of: 1}) =>
+      `${R.pipe(
+        R.divide(100),
+        R.multiply(R.prop(`column`, styleShape)),
+        toFixed(2)
+      )(R.prop(`of`, styleShape))}%`
 
-  const baseClass = css({
-    alignSelf: R.prop(alignSelf, alignItemsMap),
-    boxSizing: `border-box`,
-    display: `flex`,
-    alignItems: R.prop(align, alignItemsMap),
-    justifyContent: R.prop(justify, justifyContentMap),
-    flexGrow: grow,
-    flexShrink: shrink,
-    height: `100%`,
-    [R.prop(`small`, media)]: {
-      flexBasis: R.prop(`auto`, small) ? `auto` : percent(small),
-      paddingRight: smallHalf,
-      paddingLeft: smallHalf,
-      paddingBottom: bottomGutter ? smallGutter : 0
-    },
-    [R.prop(`medium`, media)]: {
-      flexBasis: R.prop(`auto`, medium) ? `auto` : percent(medium),
-      paddingRight: mediumHalf,
-      paddingLeft: mediumHalf,
-      paddingBottom: bottomGutter ? mediumGutter : 0
-    },
-    [R.prop(`large`, media)]: {
-      flexBasis: R.prop(`auto`, large) ? `auto` : percent(large),
-      paddingRight: largeHalf,
-      paddingLeft: largeHalf,
-      paddingBottom: bottomGutter ? largeGutter : 0
-    }
-  })
+    const baseClass = css({
+      alignSelf: R.prop(alignSelf, alignItemsMap),
+      boxSizing: `border-box`,
+      display: `flex`,
+      alignItems: R.prop(align, alignItemsMap),
+      justifyContent: R.prop(justify, justifyContentMap),
+      flexGrow: grow,
+      flexShrink: shrink,
+      height: `100%`,
+      [R.prop(`small`, media)]: {
+        flexBasis: R.prop(`auto`, small) ? `auto` : percent(small),
+        paddingRight: smallHalf,
+        paddingLeft: smallHalf,
+        paddingBottom: bottomGutter ? smallGutter : 0,
+        paddingTop: topGutter ? smallGutter : 0
+      },
+      [R.prop(`medium`, media)]: {
+        flexBasis: R.prop(`auto`, medium) ? `auto` : percent(medium),
+        paddingRight: mediumHalf,
+        paddingLeft: mediumHalf,
+        paddingBottom: bottomGutter ? mediumGutter : 0,
+        paddingTop: topGutter ? smallGutter : 0
+      },
+      [R.prop(`large`, media)]: {
+        flexBasis: R.prop(`auto`, large) ? `auto` : percent(large),
+        paddingRight: largeHalf,
+        paddingLeft: largeHalf,
+        paddingBottom: bottomGutter ? largeGutter : 0,
+        paddingTop: topGutter ? smallGutter : 0
+      }
+    })
 
-  return div({className: css(baseClass, className)}, [children])
+    return div(
+      {
+        className: css(baseClass, className),
+        style,
+        ...props
+      },
+      [children]
+    )
+  }
 }
 
 Cell.propTypes = {

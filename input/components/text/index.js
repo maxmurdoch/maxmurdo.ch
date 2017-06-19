@@ -47,7 +47,7 @@ const Text = ({
     className
   )
 
-  return h(tag, {className: cx, ...props}, children)
+  return h(tag, {className: cx, ...props}, [children])
 }
 
 Text.propTypes = {

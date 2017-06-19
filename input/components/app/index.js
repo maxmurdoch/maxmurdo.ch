@@ -2,14 +2,13 @@ import {Component} from 'react'
 import {h, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-import AOS from 'aos'
+import createHistory from 'history/createBrowserHistory'
 
 import ScrollToTop from '../scroll-to-top'
 import {small, medium, large} from '../../constants/media'
-import home from '../home'
-import work from '../work'
-import info from '../info'
-import mood from '../mood'
+import Home from '../home'
+import Info from '../info'
+import MathsBuilder from '../../screens/maths-builder'
 import initialiseAnimation from '../../services/initialise-animation'
 
 css.insert(
@@ -34,12 +33,17 @@ ${large} {
 `
 )
 
+css.global(`*`, {
+  boxSizing: `border-box`
+})
+
 css.global(`:root`, {
   textRendering: `optimizeLegibility`,
   WebkitFontSmoothing: `antialiased`,
-  maxWidth: `100%`,
-  overflowX: `hidden`
+  maxWidth: `100%`
 })
+
+const history = createHistory()
 
 class App extends Component {
   componentDidMount() {
@@ -47,23 +51,14 @@ class App extends Component {
   }
 
   render() {
-    return h(Router, [
-      h(
-        ScrollToTop,
-        {
-          onChange: () => {
-            console.log(`refresh called`)
-            return AOS.refresh()
-          }
-        },
-        [
-          div({className: css({width: `100%`})}, [
-            h(Route, {exact: true, path: `/`, component: home}),
-            h(Route, {path: `/info`, component: info}),
-            h(Route, {path: `/work`, component: work})
-          ])
-        ]
-      )
+    return h(Router, {history}, [
+      h(ScrollToTop, [
+        div({className: css({width: `100%`})}, [
+          h(Route, {exact: true, path: `/`, component: Home}),
+          h(Route, {path: `/info`, component: Info}),
+          h(Route, {path: `/maths-builders`, component: MathsBuilder})
+        ])
+      ])
     ])
   }
 }

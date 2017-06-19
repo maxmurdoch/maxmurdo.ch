@@ -1,7 +1,7 @@
-import R from "ramda"
-import PropTypes from "prop-types"
-import {Component} from "react"
-import {withRouter} from "react-router-dom"
+import R from 'ramda'
+import PropTypes from 'prop-types'
+import {Component} from 'react'
+import {withRouter} from 'react-router-dom'
 
 class ScrollToTop extends Component {
   componentWillUpdate(prevProps) {

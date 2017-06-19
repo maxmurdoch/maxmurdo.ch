@@ -1,27 +1,16 @@
-import {h, hh} from "react-hyperscript-helpers"
-import {Sticky} from "react-sticky"
+import {h, hh} from 'react-hyperscript-helpers'
+import {Sticky} from 'react-sticky'
 
-import sideNav from "../side-nav"
+import sideNav from '../side-nav'
 
-const SideNav = () => {
-  return h(
-    Sticky,
-    {
-      style: {
-        position: `absolute`,
-        top: 0,
-        left: 0,
-        right: `inherit`
-      },
-      stickyStyle: {
-        position: `fixed`,
-        top: 0,
-        left: 0,
-        right: `inherit`
-      }
-    },
-    [sideNav()]
-  )
+const StickySideNav = () => {
+  return h(Sticky, [
+    ({style, isSticky}) => {
+      console.log(`side nav style`, style)
+      console.log(`side nav isSticky`, isSticky)
+      return sideNav({style, isSticky})
+    }
+  ])
 }
 
-export default hh(SideNav)
+export default hh(StickySideNav)

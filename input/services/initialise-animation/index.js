@@ -2,7 +2,7 @@ import aos from 'aos'
 
 const init = () =>
   aos.init({
-    duration: 400,
+    duration: 500,
     offset: 0,
     startEvent: `load`,
     anchorPlacement: `top-bottom`,

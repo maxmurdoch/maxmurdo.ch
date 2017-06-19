@@ -16,7 +16,7 @@ const imageStyle = css({
 
 const ScreenImage = ({src, className}) =>
   div({className: container}, [
-    image({className: css(imageStyle, className), src})
+    image({className: [css(imageStyle), className], src})
   ])
 
 export default hh(ScreenImage)

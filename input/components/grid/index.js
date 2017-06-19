@@ -37,6 +37,7 @@ const Grid = ({
     flexWrap: wrap ? `wrap` : `nowrap`,
     height: `100%`,
     flexBasis: `100%`,
+    position: `relative`,
     [R.prop(`small`, media)]: {
       marginRight: `-${smallHalf}`,
       marginLeft: `-${smallHalf}`
@@ -51,19 +52,9 @@ const Grid = ({
     }
   })
 
-  return div(
-    {
-      className: gridWrapperStyle
-    },
-    [
-      div(
-        {
-          className: gridStyle
-        },
-        [children]
-      )
-    ]
-  )
+  return div({className: gridWrapperStyle}, [
+    div({className: gridStyle}, [children])
+  ])
 }
 
 Grid.propTypes = {

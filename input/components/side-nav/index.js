@@ -1,16 +1,17 @@
-import R from "ramda"
-import {h, hh, aside, nav, div} from "react-hyperscript-helpers"
-import {css} from "glamor"
-import {v4} from "uuid"
-import {Link} from "react-router-dom"
+import R from 'ramda'
+import {Component} from 'react'
+import {h, hh, aside, nav, div} from 'react-hyperscript-helpers'
+import {css} from 'glamor'
+import {v4} from 'uuid'
+import {Link} from 'react-router-dom'
 
-import text from "../../components/text"
-import space from "../../constants/space"
-import {medium, large} from "../../constants/media"
+import text from '../../components/text'
+import space from '../../constants/space'
+import {medium, large} from '../../constants/media'
 import {
   medium as mediumGutter,
   large as largeGutter
-} from "../../constants/gutter"
+} from '../../constants/gutter'
 
 const linkClass = css({
   display: `flex`,
@@ -18,102 +19,30 @@ const linkClass = css({
   alignItems: `center`,
   paddingRight: R.nth(1, space),
   margin: 0,
-  ":last-of-type": {
-    paddingRight: 0
-  }
+  ':last-of-type': {paddingRight: 0}
 })
 
 const navItems = [{to: `/info`, title: `Info`}, {to: `/work`, title: `Work`}]
-const SideNav = ({isAnimated = true}) => {
-  const className = css({
-    display: `none`,
-    height: `100%`,
-    [medium]: {
-      display: `block`,
-      position: `fixed`,
-      top: 0,
-      bottom: 0,
-      left: 0,
-      width: `calc(${mediumGutter} + ${mediumGutter})`,
-      backgroundColor: `white`
-    },
-    [large]: {
-      display: `block`,
-      position: `fixed`,
-      top: 0,
-      bottom: 0,
-      left: 0,
-      backgroundColor: `white`,
-      width: `calc(${largeGutter} + ${largeGutter})`
-    }
-  })
+class SideNav extends Component {
+  render() {
+    const {style, isAnimated = true} = this.props
 
-  return aside(
-    {
-      className
-    },
-    [
-      div(
-        {
-          className: css({
-            display: `flex`,
-            alignItems: `center`,
-            justifyContent: `center`,
-            height: `100vh`,
-            textDecoration: `none`,
-            paddingLeft: 0,
-            paddingBottom: R.nth(1, space),
-            margin: 0,
-            listStyleType: `none`,
-            [medium]: {
-              padding: 0
-            },
-            [large]: {
-              padding: 0
-            }
-          })
-        },
-        [
-          nav(
+    return aside({style}, [
+      nav(
+        R.map(({to, title}) => {
+          return h(
+            Link,
             {
-              className: css({
-                transform: `rotate(-90deg)`,
-                transformOrigin: `center`,
-                display: `flex`,
-                alignItems: `center`,
-                justifyContent: `center`
-              })
+              key: v4(),
+              className: linkClass,
+              to
             },
-            R.map(({to, title}) => {
-              const aosAttrs = {
-                "data-aos": `fade-right`,
-                "data-aos-anchor-placement": `top-bottom`
-              }
-              const linkAttrs = {
-                key: v4(),
-                className: linkClass,
-                to
-              }
-              const attrs = R.ifElse(
-                () => R.equals(isAnimated, true),
-                () => R.merge(aosAttrs, linkAttrs),
-                () => linkAttrs
-              )
-
-              return h(Link, attrs(), [
-                text(
-                  {
-                    size: 2
-                  },
-                  title
-                )
-              ])
-            }, navItems)
+            [text({size: 2}, title)]
           )
-        ]
+        }, navItems)
       )
-    ]
-  )
+    ])
+  }
 }
 
 export default hh(SideNav)

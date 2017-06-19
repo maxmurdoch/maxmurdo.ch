@@ -64,8 +64,8 @@ const TextIntro = () => {
     {
       className: css({
         backgroundColor: backgroundColor(),
-        padding: `5vmin`,
-        height: `100vmin`,
+        padding: `5vw`,
+        height: `100vh`,
         maxWidth: `100%`,
         boxSizing: `border-box`
       })

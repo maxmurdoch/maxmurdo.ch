@@ -11,7 +11,7 @@ import {
 const SiteContainer = ({children}) => {
   const className = css({
     position: `relative`,
-    width: `100%`,
+    width: `auto`,
     maxWidth: `100%`,
     margin: `0 auto`,
     boxSizing: `border-box`,

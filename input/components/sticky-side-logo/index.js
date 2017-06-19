@@ -5,24 +5,7 @@ import {Sticky} from 'react-sticky'
 import sideLogo from '../side-logo'
 
 const SideLogo = () => {
-  return h(
-    Sticky,
-    {
-      style: {
-        position: `absolute`,
-        top: 0,
-        right: 0,
-        left: `inherit`
-      },
-      stickyStyle: {
-        position: `fixed`,
-        top: 0,
-        right: 0,
-        left: `inherit`
-      }
-    },
-    [sideLogo()]
-  )
+  return h(Sticky, [({style}) => sideLogo({style})])
 }
 
 SideLogo.propTypes = {
