@@ -7,6 +7,7 @@ import aos from 'aos'
 import {medium, large} from '../../constants/media'
 import container from '../site-container'
 import logo from '../logo'
+import nav from '../nav'
 import grid from '../grid'
 import cell from '../cell'
 
@@ -57,7 +58,7 @@ class Header extends Component {
                     large: {column: 1, of: 2},
                     align: `center`
                   },
-                  [logo()]
+                  [nav()]
                 )
               ])
             ])
