@@ -1,8 +1,8 @@
 import R from 'ramda'
 import {hh, div} from 'react-hyperscript-helpers'
-import {css} from 'glamor'
 import {black} from '../../constants/colour'
 import {compose, withState, withHandlers} from 'recompose'
+import linkStyle from '../../constants/link-style'
 
 const addOpenToggle = compose(
   withState(`isOpen`, `toggle`, false),
@@ -15,44 +15,46 @@ const MenuIcon = ({isOpen, toggle}) => {
   return div(
     {
       onClick: toggle,
-      className: css({
-        position: `absolute`,
-        display: `flex`,
-        justifyContent: `center`,
-        alignItems: `center`,
-        width: 24,
-        height: 48,
-        cursor: `pointer`
-      })
+      style: R.merge(
+        {
+          position: `relative`,
+          display: `flex`,
+          justifyContent: `center`,
+          alignItems: `center`,
+          width: 32,
+          height: 64
+        },
+        linkStyle
+      )
     },
     [
       div({
-        className: css({
+        style: {
           background: R.last(black),
-          width: `24px`,
-          height: `2px`,
+          width: 32,
+          height: 2,
           position: `absolute`,
           display: `block`,
-          transition: `all 100ms ease-in-out`,
-          top: 23,
+          transition: `all 50ms ease-in-out`,
+          top: 31,
           transform: isOpen
             ? `rotate(45deg) translateY(0px)`
-            : `translateY(-4px)`
-        })
+            : `translateY(-8px)`
+        }
       }),
       div({
-        className: css({
+        style: {
           background: R.last(black),
-          width: `24px`,
-          height: `2px`,
+          width: 32,
+          height: 2,
           position: `absolute`,
           display: `block`,
-          bottom: 23,
-          transition: `all 100ms ease`,
+          bottom: 31,
+          transition: `all 50ms ease`,
           transform: isOpen
             ? `rotate(-45deg) translateY(0px)`
-            : `translateY(4px)`
-        })
+            : `translateY(8px)`
+        }
       })
     ]
   )

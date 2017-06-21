@@ -2,7 +2,6 @@ import {Component} from 'react'
 import R from 'ramda'
 import {hh, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
-import Rellax from 'rellax'
 
 import container from '../site-container'
 import text from '../text'
@@ -13,8 +12,7 @@ class SimpleIntro extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      opacity: 1,
-      rellax: ``
+      opacity: 1
     }
     this.handleScroll = this.handleScroll.bind(this)
   }
@@ -23,15 +21,8 @@ class SimpleIntro extends Component {
     window.addEventListener(`scroll`, this.handleScroll)
   }
 
-  componentDidMount() {
-    this.setState({
-      rellax: new Rellax(`.rellax`)
-    })
-  }
-
   componentWillUnmount() {
     window.removeEventListener(`scroll`, this.handleScroll)
-    this.state.rellax.destroy()
   }
 
   handleScroll() {

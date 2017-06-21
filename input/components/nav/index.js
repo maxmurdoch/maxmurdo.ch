@@ -1,9 +1,8 @@
 import {hh} from 'react-hyperscript-helpers'
-import {v4} from 'uuid'
 
 import link from '../../components/link'
 import {css} from 'glamor'
-import text from '../../components/text'
+import menuIcon from '../menu-icon'
 
 const linkClass = css({
   display: `flex`,
@@ -13,18 +12,11 @@ const linkClass = css({
 const Nav = () =>
   link(
     {
-      key: v4(),
       className: linkClass,
-      href: `#menu`
+      href: `#menu`,
+      'data-aos': `fade-up`
     },
-    [
-      text(
-        {
-          size: 2
-        },
-        `Menu`
-      )
-    ]
+    [menuIcon()]
   )
 
 export default hh(Nav)

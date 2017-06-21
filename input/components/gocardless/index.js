@@ -10,6 +10,7 @@ import screenImage from '../screen-image'
 import grid from '../grid'
 import cell from '../cell'
 import text from '../text'
+import blurLink from '../blur-link'
 
 const GoCardless = () => {
   return div(
@@ -17,7 +18,7 @@ const GoCardless = () => {
       className: css({
         paddingTop: R.nth(4, space),
         marginTop: R.nth(4, space),
-        minHeight: `100vh`,
+        minHeight: `80vh`,
         display: `flex`,
         flexDirection: `column`,
         justifyContent: `center`
@@ -43,8 +44,7 @@ const GoCardless = () => {
                 text(
                   {
                     tag: `h1`,
-                    size: 2,
-                    largeSize: 3,
+                    size: 3,
                     className: css({margin: 0})
                   },
                   `GoCardless`
@@ -71,8 +71,7 @@ const GoCardless = () => {
                 text(
                   {
                     tag: `p`,
-                    size: 2,
-                    largeSize: 3,
+                    size: 3,
                     shade: 2,
                     className: css({margin: 0})
                   },
@@ -87,17 +86,19 @@ const GoCardless = () => {
           ]
         )
       ]),
-      grid([
-        cell({bottomGutter: true}, [
-          div(
-            {
-              'data-aos': `fade-up`,
-              'data-aos-delay': 400,
-              'data-aos-offset': 100,
-              'data-aos-anchor-placement': `top-bottom`
-            },
-            [screenImage({src: goCardless1})]
-          )
+      blurLink([
+        grid([
+          cell({bottomGutter: true}, [
+            div(
+              {
+                'data-aos': `fade-up`,
+                'data-aos-delay': 400,
+                'data-aos-offset': 100,
+                'data-aos-anchor-placement': `top-bottom`
+              },
+              [screenImage({src: goCardless1})]
+            )
+          ])
         ])
       ])
     ]

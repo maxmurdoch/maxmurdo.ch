@@ -1,10 +1,10 @@
-import R from "ramda"
-import {hh} from "react-hyperscript-helpers"
-import {css} from "glamor"
+import R from 'ramda'
+import {hh} from 'react-hyperscript-helpers'
+import {css} from 'glamor'
 
-import space from "../../constants/space"
-import text from "../text"
-import link from "../link"
+import space from '../../constants/space'
+import text from '../text'
+import link from '../link'
 
 const className = css({
   display: `flex`,
@@ -24,8 +24,9 @@ const Logo = () =>
       text(
         {
           tag: `h1`,
-          size: 1,
-          className
+          size: 2,
+          className,
+          'data-aos': `fade-up`
         },
         `Max Murdoch`
       )

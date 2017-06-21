@@ -3,14 +3,12 @@ import R from 'ramda'
 import {css} from 'glamor'
 
 import space from '../../constants/space'
-import codeAtUni1 from '../../images/code-at-uni-1.png'
-import codeAtUni2 from '../../images/code-at-uni-2.png'
 
 import link from '../link'
-import screenImage from '../screen-image'
 import grid from '../grid'
 import cell from '../cell'
 import text from '../text'
+import codeAtUniImages from '../code-at-uni-images'
 
 const CodeAtUni = () => {
   return div(
@@ -44,8 +42,7 @@ const CodeAtUni = () => {
                 text(
                   {
                     tag: `h1`,
-                    size: 2,
-                    largeSize: 3,
+                    size: 3,
                     className: css({margin: 0})
                   },
                   `Code at Uni`
@@ -72,8 +69,7 @@ const CodeAtUni = () => {
                 text(
                   {
                     tag: `p`,
-                    size: 2,
-                    largeSize: 3,
+                    size: 3,
                     shade: 2,
                     className: css({margin: 0})
                   },
@@ -88,51 +84,7 @@ const CodeAtUni = () => {
           ]
         )
       ]),
-      grid(
-        {
-          align: `start`
-        },
-        [
-          cell(
-            {
-              small: {column: 1, of: 1},
-              medium: {column: 2, of: 3},
-              large: {column: 2, of: 3},
-              bottomGutter: true
-            },
-            [
-              div(
-                {
-                  'data-aos': `fade-up`,
-                  'data-aos-delay': 200,
-                  'data-aos-offset': 100,
-                  'data-aos-anchor-placement': `top-bottom`
-                },
-                [screenImage({src: codeAtUni1})]
-              )
-            ]
-          ),
-          cell(
-            {
-              small: {column: 1, of: 1},
-              medium: {column: 1, of: 3},
-              large: {column: 1, of: 3},
-              bottomGutter: true
-            },
-            [
-              div(
-                {
-                  'data-aos': `fade-up`,
-                  'data-aos-delay': 400,
-                  'data-aos-offset': 100,
-                  'data-aos-anchor-placement': `top-bottom`
-                },
-                [screenImage({src: codeAtUni2})]
-              )
-            ]
-          )
-        ]
-      )
+      codeAtUniImages()
     ]
   )
 }

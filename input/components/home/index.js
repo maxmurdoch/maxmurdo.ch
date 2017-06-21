@@ -1,14 +1,10 @@
-import R from 'ramda'
 import {Component} from 'react'
 import {withRouter} from 'react-router'
 import {css} from 'glamor'
 import {h, div} from 'react-hyperscript-helpers'
-import {StickyContainer, Sticky} from 'react-sticky'
+import {StickyContainer} from 'react-sticky'
 
-import RefreshAos from '../refresh-aos'
 import container from '../site-container'
-import stickySideNav from '../sticky-side-nav'
-import stickySideLogo from '../sticky-side-logo'
 import header from '../header'
 import stickyFooter from '../sticky-footer'
 import simpleIntro from '../simple-intro'
@@ -19,16 +15,12 @@ import {large} from '../../constants/gutter'
 
 class Home extends Component {
   render() {
-    return h(RefreshAos, [
+    return div([
       simpleIntro(),
-      div({className: css({marginTop: large})}, [
-        container([
-          h(StickyContainer, [
-            header(),
-            mathsBuilders(),
-            codeAtUni(),
-            goCardless()
-          ])
+      h(StickyContainer, [
+        header(),
+        div({className: css({marginTop: large})}, [
+          container([mathsBuilders(), codeAtUni(), goCardless()])
         ]),
         stickyFooter()
       ])

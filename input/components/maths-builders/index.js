@@ -9,7 +9,6 @@ import geometryAndMeasures from '../../images/maths-builder-geometry-and-measure
 import mathsBuilderProfile from '../../images/maths-builder-profile.svg'
 import arrowUpRight from '../../assets/arrow-up-right-big.svg'
 
-import space from '../../constants/space'
 import imageRow from '../image-row'
 import link from '../link'
 import grid from '../grid'
@@ -32,7 +31,7 @@ const MathsBuilders = ({match}) => {
         cell(
           {
             small: {column: 1, of: 1},
-            medium: {column: 1, of: 3},
+            medium: {column: 3, of: 9},
             large: {column: 3, of: 9},
             bottomGutter: true
           },
@@ -47,7 +46,7 @@ const MathsBuilders = ({match}) => {
                 text(
                   {
                     tag: `h1`,
-                    size: 2,
+                    size: 3,
                     largeSize: 3,
                     className: css({margin: 0})
                   },
@@ -60,7 +59,7 @@ const MathsBuilders = ({match}) => {
         cell(
           {
             small: {column: 1, of: 1},
-            medium: {column: 1, of: 3},
+            medium: {column: 5, of: 9},
             large: {column: 5, of: 9},
             bottomGutter: true
           },
@@ -79,7 +78,7 @@ const MathsBuilders = ({match}) => {
                 text(
                   {
                     tag: `p`,
-                    size: 2,
+                    size: 3,
                     largeSize: 3,
                     shade: 1,
                     className: css({margin: 0})
@@ -100,7 +99,7 @@ const MathsBuilders = ({match}) => {
         cell(
           {
             small: {column: 1, of: 1},
-            medium: {column: 1, of: 3},
+            medium: {column: 1, of: 9},
             large: {column: 1, of: 9},
             bottomGutter: true
           },

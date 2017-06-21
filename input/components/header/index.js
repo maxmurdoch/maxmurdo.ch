@@ -14,30 +14,22 @@ import cell from '../cell'
 const className = css({
   display: `flex`,
   flexWrap: `wrap`,
+  backgroundColor: `white`,
   justifyContent: `space-between`,
-  zIndex: 3,
+  zIndex: 5,
   transition: `box-shadow 200ms ease-in-out`,
-  [medium]: {
-    height: `10vh`
-  },
-  [large]: {
-    height: `10vh`
-  }
+  [medium]: {height: `10vh`},
+  [large]: {height: `10vh`}
 })
 
 class Header extends Component {
-  componentDidMount() {
-    aos.init()
-  }
-
   render() {
     return h(Sticky, [
       ({style}) =>
         header(
           {
             style,
-            className,
-            'data-aos': `fade-in`
+            className
           },
           [
             container([
@@ -56,7 +48,8 @@ class Header extends Component {
                     small: {column: 1, of: 1},
                     medium: {column: 1, of: 2},
                     large: {column: 1, of: 2},
-                    align: `center`
+                    align: `center`,
+                    justify: `end`
                   },
                   [nav()]
                 )

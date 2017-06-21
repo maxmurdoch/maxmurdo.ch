@@ -10,6 +10,8 @@ import Home from '../home'
 import Info from '../info'
 import MathsBuilder from '../../screens/maths-builder'
 import initialiseAnimation from '../../services/initialise-animation'
+import defaultCursor from '../../assets/cursor.svg'
+import linkStyle from '../../constants/link-style'
 
 css.insert(
   `
@@ -37,7 +39,11 @@ css.global(`*`, {
   boxSizing: `border-box`
 })
 
+css.global(`a`, linkStyle)
+css.global(`a:-webkit-any-link`, linkStyle)
+
 css.global(`:root`, {
+  cursor: `url(${defaultCursor}), default`,
   textRendering: `optimizeLegibility`,
   WebkitFontSmoothing: `antialiased`,
   maxWidth: `100%`

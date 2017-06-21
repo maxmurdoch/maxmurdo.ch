@@ -25,8 +25,9 @@ const Text = ({
   family = `sans`,
   weight = 400,
   shade = 1,
-  style = `normal`,
+  fontStyle = `normal`,
   className,
+  style,
   children,
   ...props
 }) => {
@@ -37,7 +38,7 @@ const Text = ({
       fontFamily: R.prop(family, fontFamily),
       fontWeight: weight,
       color: R.nth(R.dec(shade), shadeSet),
-      fontStyle: style,
+      fontStyle,
       lineHeight,
       margin: 0,
       [small]: {fontSize: R.nth(R.defaultTo(size)(smallSize), typeSize)},
