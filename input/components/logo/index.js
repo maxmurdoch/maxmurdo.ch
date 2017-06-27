@@ -24,7 +24,7 @@ const Logo = () =>
       text(
         {
           tag: `h1`,
-          size: 2,
+          size: 3,
           className,
           'data-aos': `fade-up`
         },

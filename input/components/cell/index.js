@@ -105,7 +105,12 @@ Cell.propTypes = {
   align: PropTypes.oneOf(validAlign),
   justify: PropTypes.oneOf(validJustify),
   grow: PropTypes.number,
-  shrink: PropTypes.number
+  shrink: PropTypes.number,
+  className: PropTypes.object,
+  style: PropTypes.object,
+  children: PropTypes.node.isRequired,
+  topGutter: PropTypes.bool,
+  bottomGutter: PropTypes.bool
 }
 
 export default hh(Cell)

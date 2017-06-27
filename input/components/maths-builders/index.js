@@ -31,8 +31,8 @@ const MathsBuilders = ({match}) => {
         cell(
           {
             small: {column: 1, of: 1},
-            medium: {column: 3, of: 9},
-            large: {column: 3, of: 9},
+            medium: {column: 2, of: 6},
+            large: {column: 2, of: 6},
             bottomGutter: true
           },
           [
@@ -59,8 +59,8 @@ const MathsBuilders = ({match}) => {
         cell(
           {
             small: {column: 1, of: 1},
-            medium: {column: 5, of: 9},
-            large: {column: 5, of: 9},
+            medium: {column: 4, of: 6},
+            large: {column: 4, of: 6},
             bottomGutter: true
           },
           [
@@ -90,49 +90,6 @@ const MathsBuilders = ({match}) => {
                       `University of Cambridge`
                     ),
                     ` to design an app teaches maths on a phone.`
-                  ]
-                )
-              ]
-            )
-          ]
-        ),
-        cell(
-          {
-            small: {column: 1, of: 1},
-            medium: {column: 1, of: 9},
-            large: {column: 1, of: 9},
-            bottomGutter: true
-          },
-          [
-            div(
-              {
-                'data-aos': `fade-in`,
-                'data-aos-delay': 400,
-                'data-aos-anchor-placement': `top-bottom`,
-                className: css({
-                  display: `flex`,
-                  width: `100%`,
-                  flexWrap: `wrap`
-                })
-              },
-              [
-                link(
-                  {
-                    className: css({
-                      marginLeft: `auto`,
-                      display: `flex`
-                    }),
-                    href: `${match.url}maths-builders`
-                  },
-                  [
-                    img({
-                      src: arrowUpRight,
-                      className: css({
-                        transform: `translateY(8px)`,
-                        width: 32,
-                        height: 32
-                      })
-                    })
                   ]
                 )
               ]

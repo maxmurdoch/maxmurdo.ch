@@ -27,7 +27,6 @@ const Text = ({
   shade = 1,
   fontStyle = `normal`,
   className,
-  style,
   children,
   ...props
 }) => {
@@ -55,7 +54,8 @@ Text.propTypes = {
   tag: PropTypes.string,
   className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   family: PropTypes.oneOf([`sans`, `mono`]),
-  weight: PropTypes.number
+  weight: PropTypes.number,
+  style: PropTypes.object
 }
 
 export default hh(Text)

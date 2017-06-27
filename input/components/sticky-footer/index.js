@@ -6,7 +6,7 @@ import container from '../site-container'
 import text from '../text'
 import link from '../link'
 import space from '../../constants/space'
-import menuIcon from '../menu-icon'
+import menuIcon from '../../containers/menu-icon'
 import {medium, large} from '../../constants/media'
 
 const StickyFooter = () =>

@@ -1,9 +1,18 @@
 import {Component} from 'react'
+import {createStore, applyMiddleware} from 'redux'
+import {Provider} from 'react-redux'
+import {composeWithDevTools} from 'redux-devtools-extension'
+
+import createHistory from 'history/createBrowserHistory'
+import {Route} from 'react-router-dom'
+import {ConnectedRouter, routerMiddleware} from 'react-router-redux'
+
 import {h, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
-import createHistory from 'history/createBrowserHistory'
 
+import menuNoScroll from '../../containers/menu-no-scroll'
+import menu from '../../containers/menu'
+import reducer from '../../store/reducers'
 import ScrollToTop from '../scroll-to-top'
 import {small, medium, large} from '../../constants/media'
 import Home from '../home'
@@ -49,6 +58,8 @@ css.global(`:root`, {
   maxWidth: `100%`
 })
 
+const router = routerMiddleware(history)
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(router)))
 const history = createHistory()
 
 class App extends Component {
@@ -57,12 +68,17 @@ class App extends Component {
   }
 
   render() {
-    return h(Router, {history}, [
-      h(ScrollToTop, [
-        div({className: css({width: `100%`})}, [
-          h(Route, {exact: true, path: `/`, component: Home}),
-          h(Route, {path: `/info`, component: Info}),
-          h(Route, {path: `/maths-builders`, component: MathsBuilder})
+    return h(Provider, {store}, [
+      h(ConnectedRouter, {history}, [
+        h(ScrollToTop, [
+          div({className: css({width: `100%`})}, [
+            menuNoScroll([
+              menu(),
+              h(Route, {exact: true, path: `/`, component: Home}),
+              h(Route, {path: `/info`, component: Info}),
+              h(Route, {path: `/maths-builders`, component: MathsBuilder})
+            ])
+          ])
         ])
       ])
     ])
