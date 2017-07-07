@@ -25,7 +25,6 @@
   "author": "Max Murdoch, max@maxmurdo.ch",
   "license": "ISC",
   "dependencies": {
-    "aos": "^2.1.1",
     "babel-tape-runner": "^2.0.1",
     "chroma-js": "^1.2.2",
     "glamor-reset": "^3.0.0-1",
