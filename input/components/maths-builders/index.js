@@ -33,23 +33,14 @@ const MathsBuilders = () => {
             bottomGutter: true
           },
           [
-            div(
+            text(
               {
-                'data-aos': 'fade-in',
-                'data-aos-delay': 200,
-                'data-aos-anchor-placement': 'top-bottom'
+                tag: 'h1',
+                size: 3,
+                largeSize: 3,
+                className: css({margin: 0})
               },
-              [
-                text(
-                  {
-                    tag: 'h1',
-                    size: 3,
-                    largeSize: 3,
-                    className: css({margin: 0})
-                  },
-                  'Maths Builders'
-                )
-              ]
+              'Maths Builders'
             )
           ]
         ),
@@ -61,34 +52,21 @@ const MathsBuilders = () => {
             bottomGutter: true
           },
           [
-            div(
+            text(
               {
-                'data-aos': 'fade-in',
-                'data-aos-delay': 400,
-                'data-aos-anchor-placement': 'top-bottom',
-                className: css({
-                  display: 'flex',
-                  flexWrap: 'wrap'
-                })
+                tag: 'p',
+                size: 3,
+                largeSize: 3,
+                shade: 2,
+                className: css({margin: 0})
               },
               [
-                text(
-                  {
-                    tag: 'p',
-                    size: 3,
-                    largeSize: 3,
-                    shade: 2,
-                    className: css({margin: 0})
-                  },
-                  [
-                    'I worked with the ',
-                    link(
-                      {target: 'external', to: 'http://www.eng.cam.ac.uk/'},
-                      'University of Cambridge'
-                    ),
-                    ' to design an app teaches maths on a phone.'
-                  ]
-                )
+                'I worked with the ',
+                link(
+                  {target: 'external', to: 'http://www.eng.cam.ac.uk/'},
+                  'University of Cambridge'
+                ),
+                ' to design an app teaches maths on a phone.'
               ]
             )
           ]

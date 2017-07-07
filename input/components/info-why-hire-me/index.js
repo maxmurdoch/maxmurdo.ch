@@ -20,10 +20,7 @@ const InfoIntro = () => {
               flexDirection: 'column',
               paddingLeft: 0,
               margin: 0
-            }),
-            'data-aos': 'fade-in',
-            'data-aos-delay': 200,
-            'data-aos-anchor-placement': 'top-bottom'
+            })
           },
           [
             text(

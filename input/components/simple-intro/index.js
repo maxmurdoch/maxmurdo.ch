@@ -56,11 +56,7 @@ class SimpleIntro extends Component {
                     tag: 'h1',
                     smallSize: 4,
                     mediumSize: 5,
-                    largeSize: 6,
-                    'data-aos': 'fade-up',
-                    'data-aos-duration': 600,
-                    'data-aos-anchor-placement': 'top-bottom',
-                    'data-aos-easing': 'ease-in-out-sine'
+                    largeSize: 6
                   },
                   'Hi'
                 ),
@@ -69,12 +65,7 @@ class SimpleIntro extends Component {
                     tag: 'h1',
                     smallSize: 4,
                     mediumSize: 5,
-                    largeSize: 6,
-                    'data-aos': 'fade-up',
-                    'data-aos-duration': 500,
-                    'data-aos-anchor-placement': 'top-bottom',
-                    'data-aos-delay': 150,
-                    'data-aos-easing': 'ease-in-out-sine'
+                    largeSize: 6
                   },
                   'I’m Max'
                 ),
@@ -83,12 +74,7 @@ class SimpleIntro extends Component {
                     tag: 'h1',
                     smallSize: 4,
                     mediumSize: 5,
-                    largeSize: 6,
-                    'data-aos-anchor-placement': 'top-bottom',
-                    'data-aos': 'fade-up',
-                    'data-aos-duration': 400,
-                    'data-aos-delay': 300,
-                    'data-aos-easing': 'ease-in-out-sine'
+                    largeSize: 6
                   },
                   'I make digital\u00A0products'
                 )

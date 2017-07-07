@@ -21,10 +21,7 @@ const InfoWork = () => {
           text(
             {
               size: 3,
-              className: textClass,
-              'data-aos': 'fade-in',
-              'data-aos-anchor-placement': 'top-bottom',
-              'data-aos-delay': 400
+              className: textClass
             },
             'What I do'
           )
@@ -38,10 +35,7 @@ const InfoWork = () => {
         [
           div(
             {
-              className: css({display: 'flex', flexDirection: 'column'}),
-              'data-aos': 'fade-in',
-              'data-aos-anchor-placement': 'top-bottom',
-              'data-aos-delay': 600
+              className: css({display: 'flex', flexDirection: 'column'})
             },
             []
           )

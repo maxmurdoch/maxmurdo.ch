@@ -20,18 +20,7 @@ const ImageRow = ({to, images = []}) => {
         large: {column: 1, of: 3},
         justify: 'center'
       },
-      [
-        div(
-          {
-            'data-aos': 'fade-up',
-            'data-aos-delay': R.pipe(R.inc, R.multiply(200))(index),
-            'data-aos-offset': 100,
-            'data-aos-anchor-placement': 'top-bottom',
-            className: css({width: '100%'})
-          },
-          [screenImage({src})]
-        )
-      ]
+      [screenImage({src})]
     )
   }, images)
 

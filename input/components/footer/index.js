@@ -30,9 +30,7 @@ class Footer extends Component {
           cell({medium: {column: 1, of: 3}, large: {column: 1, of: 3}}, [
             ul(
               {
-                className: css({listStyle: 'none', padding: 0, margin: 0}),
-                'data-aos': 'fade-in',
-                'data-aos-duration': 600
+                className: css({listStyle: 'none', padding: 0, margin: 0})
               },
               [
                 li([
@@ -48,10 +46,7 @@ class Footer extends Component {
           cell({medium: {column: 1, of: 3}, large: {column: 1, of: 3}}, [
             ul(
               {
-                className: css({listStyle: 'none', padding: 0, margin: 0}),
-                'data-aos': 'fade-in',
-                'data-aos-delay': 200,
-                'data-aos-duration': 600
+                className: css({listStyle: 'none', padding: 0, margin: 0})
               },
               [
                 li(
@@ -106,10 +101,7 @@ class Footer extends Component {
           cell({medium: {column: 1, of: 3}, large: {column: 1, of: 3}}, [
             address(
               {
-                className: css({fontStyle: 'normal'}),
-                'data-aos': 'fade-in',
-                'data-aos-delay': 400,
-                'data-aos-duration': 600
+                className: css({fontStyle: 'normal'})
               },
               [
                 text({size: 1, className: css({margin: 0})}, [

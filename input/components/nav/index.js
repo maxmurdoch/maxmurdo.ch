@@ -13,8 +13,7 @@ const Nav = () =>
   link(
     {
       className: linkClass,
-      to: '#menu',
-      'data-aos': 'fade-up'
+      to: '#menu'
     },
     [menuIcon()]
   )

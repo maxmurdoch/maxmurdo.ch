@@ -9,7 +9,6 @@ import {
   large as largeGutter
 } from '../../constants/gutter'
 import {small, medium, large} from '../../constants/media'
-import refreshAos from '../refresh-aos'
 import container from '../site-container'
 import sideNav from '../side-nav'
 import sideLogo from '../side-logo'
@@ -20,23 +19,21 @@ import mathsBuilders from '../maths-builders'
 class Work extends Component {
   render() {
     return h(StickyContainer, [
-      refreshAos([
-        container([
-          sideNav({isAnimated: false}),
-          sideLogo({isAnimated: false}),
-          div(
-            {
-              className: css({
-                [small]: {paddingTop: smallGutter},
-                [medium]: {paddingTop: mediumGutter},
-                [large]: {paddingTop: largeGutter}
-              })
-            },
-            [mathsBuilders()]
-          ),
-          codeAtUni(),
-          goCardless()
-        ])
+      container([
+        sideNav({isAnimated: false}),
+        sideLogo({isAnimated: false}),
+        div(
+          {
+            className: css({
+              [small]: {paddingTop: smallGutter},
+              [medium]: {paddingTop: mediumGutter},
+              [large]: {paddingTop: largeGutter}
+            })
+          },
+          [mathsBuilders()]
+        ),
+        codeAtUni(),
+        goCardless()
       ])
     ])
   }

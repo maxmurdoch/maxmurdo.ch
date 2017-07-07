@@ -21,8 +21,7 @@ const Logo = () =>
       {
         tag: 'h1',
         size: 3,
-        className,
-        'data-aos': 'fade-up'
+        className
       },
       'Max Murdoch'
     )

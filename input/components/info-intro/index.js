@@ -13,10 +13,7 @@ const InfoIntro = () => {
       cell([
         div(
           {
-            className: css({display: 'flex', flexDirection: 'column'}),
-            'data-aos': 'fade-in',
-            'data-aos-delay': 200,
-            'data-aos-anchor-placement': 'top-bottom'
+            className: css({display: 'flex', flexDirection: 'column'})
           },
           [
             text(
