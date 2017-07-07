@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom'
 
 class ScrollToTop extends Component {
   componentWillUpdate(prevProps) {
-    const getPathname = R.path([`location`, `pathname`])
+    const getPathname = R.path(['location', 'pathname'])
     const newPath = getPathname(this.props)
     const prevPath = getPathname(prevProps)
 

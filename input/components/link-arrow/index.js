@@ -13,20 +13,20 @@ import space from '../../constants/space'
 const LinkArrow = ({
   className,
   text,
-  href,
+  to,
   isHovered,
   onMouseLeave,
   onMouseEnter
 }) => {
   return linkComponent(
     {
-      href,
+      to,
       onMouseEnter,
       onMouseLeave,
       className: css(
         {
-          display: `inline-flex`,
-          alignItems: `center`
+          display: 'inline-flex',
+          alignItems: 'center'
         },
         className
       )
@@ -34,7 +34,7 @@ const LinkArrow = ({
     [
       textComponent(
         {
-          tag: `p`,
+          tag: 'p',
           size: 2,
           largeSize: 3,
           shade: 2,
@@ -45,15 +45,15 @@ const LinkArrow = ({
       span(
         {
           style: {
-            transform: isHovered ? `translateX(6px)` : `translateX(0)`
+            transform: isHovered ? 'translateX(6px)' : 'translateX(0)'
           },
           className: css({
-            WebkitBackfaceVisibility: `hidden`,
-            WebkitTransform: `translateZ(0) scale(1.0, 1.0)`,
+            WebkitBackfaceVisibility: 'hidden',
+            WebkitTransform: 'translateZ(0) scale(1.0, 1.0)',
             marginLeft: R.nth(0, space),
-            transition: `250ms transform`,
-            transformOrigin: `center`,
-            willChange: `transform`
+            transition: '250ms transform',
+            transformOrigin: 'center',
+            willChange: 'transform'
           })
         },
         [h(Arrow, {strokeWidth: 1})]

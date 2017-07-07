@@ -1,5 +1,5 @@
-import R from "ramda"
-import space, {numScale, appendUnit} from "./space"
+import R from 'ramda'
+import space, {numScale, appendUnit} from './space'
 
 const small = R.nth(3, space)
 const smallHalf = R.pipe(R.divide(R.__, 2), R.toString, appendUnit)(

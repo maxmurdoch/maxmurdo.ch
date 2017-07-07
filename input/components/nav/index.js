@@ -5,16 +5,16 @@ import {css} from 'glamor'
 import menuIcon from '../../containers/menu-icon'
 
 const linkClass = css({
-  display: `flex`,
-  alignItems: `center`
+  display: 'flex',
+  alignItems: 'center'
 })
 
 const Nav = () =>
   link(
     {
       className: linkClass,
-      href: `#menu`,
-      'data-aos': `fade-up`
+      to: '#menu',
+      'data-aos': 'fade-up'
     },
     [menuIcon()]
   )

@@ -11,21 +11,21 @@ import {
 } from '../../constants/typography'
 import {black} from '../../constants/colour'
 
-css.global(`::selection`, {
-  backgroundColor: `blue`,
-  color: `white`
+css.global('::selection', {
+  backgroundColor: 'blue',
+  color: 'white'
 })
 
 const Text = ({
-  tag = `p`,
+  tag = 'p',
   size = 2,
   smallSize,
   mediumSize,
   largeSize,
-  family = `sans`,
+  family = 'sans',
   weight = 400,
   shade = 1,
-  fontStyle = `normal`,
+  fontStyle = 'normal',
   className,
   children,
   ...props
@@ -53,7 +53,7 @@ const Text = ({
 Text.propTypes = {
   tag: PropTypes.string,
   className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  family: PropTypes.oneOf([`sans`, `mono`]),
+  family: PropTypes.oneOf(['sans', 'mono']),
   weight: PropTypes.number,
   style: PropTypes.object
 }

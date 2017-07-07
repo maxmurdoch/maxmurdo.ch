@@ -7,30 +7,25 @@ import text from '../text'
 import link from '../link'
 
 const className = css({
-  display: `flex`,
+  display: 'flex',
   paddingTop: R.nth(2, space),
   paddingBottom: R.nth(1, space),
-  alignSelf: `stretch`,
-  alignItems: `center`,
+  alignSelf: 'stretch',
+  alignItems: 'center',
   lineHeight: 1
 })
 
 const Logo = () =>
-  link(
-    {
-      href: `/`
-    },
-    [
-      text(
-        {
-          tag: `h1`,
-          size: 3,
-          className,
-          'data-aos': `fade-up`
-        },
-        `Max Murdoch`
-      )
-    ]
-  )
+  link({to: '/'}, [
+    text(
+      {
+        tag: 'h1',
+        size: 3,
+        className,
+        'data-aos': 'fade-up'
+      },
+      'Max Murdoch'
+    )
+  ])
 
 export default hh(Logo)

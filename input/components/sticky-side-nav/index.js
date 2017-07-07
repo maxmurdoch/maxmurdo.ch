@@ -6,8 +6,8 @@ import sideNav from '../side-nav'
 const StickySideNav = () => {
   return h(Sticky, [
     ({style, isSticky}) => {
-      console.log(`side nav style`, style)
-      console.log(`side nav isSticky`, isSticky)
+      console.log('side nav style', style)
+      console.log('side nav isSticky', isSticky)
       return sideNav({style, isSticky})
     }
   ])

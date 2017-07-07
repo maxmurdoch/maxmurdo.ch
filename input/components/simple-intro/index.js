@@ -18,11 +18,11 @@ class SimpleIntro extends Component {
   }
 
   componentWillMount() {
-    window.addEventListener(`scroll`, this.handleScroll)
+    window.addEventListener('scroll', this.handleScroll)
   }
 
   componentWillUnmount() {
-    window.removeEventListener(`scroll`, this.handleScroll)
+    window.removeEventListener('scroll', this.handleScroll)
   }
 
   handleScroll() {
@@ -39,58 +39,58 @@ class SimpleIntro extends Component {
       div(
         {
           className: css({
-            boxSizing: `border-box`,
-            overflowX: `hidden`,
-            height: `100vh`,
-            maxWidth: `100%`,
-            width: `100vw`
+            boxSizing: 'border-box',
+            overflowX: 'hidden',
+            height: '90vh',
+            maxWidth: '100%',
+            width: '100vw'
           }),
           style: {opacity: this.state.opacity}
         },
         [
-          grid({align: `center`}, [
-            cell({align: `center`}, [
-              div({className: `rellax`, 'data-rellax-speed': -4}, [
+          grid({align: 'center'}, [
+            cell({align: 'center'}, [
+              div({className: 'rellax', 'data-rellax-speed': -4}, [
                 text(
                   {
-                    tag: `h1`,
+                    tag: 'h1',
                     smallSize: 4,
                     mediumSize: 5,
                     largeSize: 6,
-                    'data-aos': `fade-up`,
+                    'data-aos': 'fade-up',
                     'data-aos-duration': 600,
-                    'data-aos-anchor-placement': `top-bottom`,
-                    'data-aos-easing': `ease-in-out-sine`
+                    'data-aos-anchor-placement': 'top-bottom',
+                    'data-aos-easing': 'ease-in-out-sine'
                   },
-                  `Hi`
+                  'Hi'
                 ),
                 text(
                   {
-                    tag: `h1`,
+                    tag: 'h1',
                     smallSize: 4,
                     mediumSize: 5,
                     largeSize: 6,
-                    'data-aos': `fade-up`,
+                    'data-aos': 'fade-up',
                     'data-aos-duration': 500,
-                    'data-aos-anchor-placement': `top-bottom`,
+                    'data-aos-anchor-placement': 'top-bottom',
                     'data-aos-delay': 150,
-                    'data-aos-easing': `ease-in-out-sine`
+                    'data-aos-easing': 'ease-in-out-sine'
                   },
-                  `I’m Max`
+                  'I’m Max'
                 ),
                 text(
                   {
-                    tag: `h1`,
+                    tag: 'h1',
                     smallSize: 4,
                     mediumSize: 5,
                     largeSize: 6,
-                    'data-aos-anchor-placement': `top-bottom`,
-                    'data-aos': `fade-up`,
+                    'data-aos-anchor-placement': 'top-bottom',
+                    'data-aos': 'fade-up',
                     'data-aos-duration': 400,
                     'data-aos-delay': 300,
-                    'data-aos-easing': `ease-in-out-sine`
+                    'data-aos-easing': 'ease-in-out-sine'
                   },
-                  `I make digital\u00A0products`
+                  'I make digital\u00A0products'
                 )
               ])
             ])

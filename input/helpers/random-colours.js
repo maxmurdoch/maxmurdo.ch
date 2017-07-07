@@ -1,5 +1,5 @@
-import chroma from "chroma-js"
-import R from "ramda"
+import chroma from 'chroma-js'
+import R from 'ramda'
 
 const randomScale = () =>
   chroma.scale([chroma.random(), chroma.random()]).colors(8)
@@ -14,7 +14,7 @@ const contrastChecker = (scale = randomScale()) => {
   if (isValid) {
     return [R.head(scale), R.last(scale)]
   }
-  console.log(`Tail function called`)
+  console.log('Tail function called')
   return contrastChecker(randomScale())
 }
 

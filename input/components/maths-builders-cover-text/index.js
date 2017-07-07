@@ -1,14 +1,14 @@
-import {css} from "glamor"
+import {css} from 'glamor'
 
-import grid from "../grid"
-import cell from "../cell"
-import text from "../text"
-import link from "../link"
+import grid from '../grid'
+import cell from '../cell'
+import text from '../text'
+import link from '../link'
 
 const mathsBuildersCoverText = () =>
   grid(
     {
-      align: `center`
+      align: 'center'
     },
     [
       cell(
@@ -24,8 +24,8 @@ const mathsBuildersCoverText = () =>
         },
         [
           text(
-            {tag: `h1`, size: 3, className: css({width: `100%`, margin: 0})},
-            `Maths Builders`
+            {tag: 'h1', size: 3, className: css({width: '100%', margin: 0})},
+            'Maths Builders'
           )
         ]
       ),
@@ -42,14 +42,14 @@ const mathsBuildersCoverText = () =>
         },
         [
           text(
-            {tag: `p`, size: 2, className: css({width: `100%`, margin: 0})},
+            {tag: 'p', size: 2, className: css({width: '100%', margin: 0})},
             [
-              `I worked with the `,
+              'I worked with the ',
               link(
-                {href: `http://www.eng.cam.ac.uk/`},
-                `University of Cambridge`
+                {to: 'http://www.eng.cam.ac.uk/'},
+                'University of Cambridge'
               ),
-              ` to design an app that brings GCSE maths to mobile.`
+              ' to design an app that brings GCSE maths to mobile.'
             ]
           )
         ]

@@ -1,9 +1,6 @@
 {
   "parser": "babel-eslint",
-  "plugins": [
-    "react",
-    "babel"
-  ],
+  "plugins": ["react", "babel"],
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "env": {
     "browser": true,
@@ -13,7 +10,7 @@
   "parserOptions": {
     "ecmaVersion": 6,
     "ecmaFeatures": {
-      "jsx": true,
+      "jsx": true
     },
     "sourceType": "module"
   },
@@ -21,7 +18,7 @@
     "semi": ["error", "never"],
     "object-curly-spacing": ["error", "never"],
     "array-bracket-spacing": ["error", "never"],
-    "quotes": [2, "backtick", "avoid-escape"],
+    "quotes": [2, "single"],
     "comma-dangle": ["error", "never"]
   }
 }

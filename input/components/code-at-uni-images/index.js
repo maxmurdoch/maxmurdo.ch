@@ -8,8 +8,8 @@ import grid from '../grid'
 import cell from '../cell'
 
 const CodeAtUniImages = () =>
-  blurLink([
-    grid({align: `start`}, [
+  blurLink({to: '/code-at-uni'}, [
+    grid({align: 'start'}, [
       cell(
         {
           small: {column: 1, of: 1},
@@ -17,17 +17,7 @@ const CodeAtUniImages = () =>
           large: {column: 2, of: 3},
           bottomGutter: true
         },
-        [
-          div(
-            {
-              'data-aos': `fade-up`,
-              'data-aos-delay': 200,
-              'data-aos-offset': 100,
-              'data-aos-anchor-placement': `top-bottom`
-            },
-            [screenImage({src: codeAtUni1})]
-          )
-        ]
+        [screenImage({src: codeAtUni1})]
       ),
       cell(
         {
@@ -36,17 +26,7 @@ const CodeAtUniImages = () =>
           large: {column: 1, of: 3},
           bottomGutter: true
         },
-        [
-          div(
-            {
-              'data-aos': `fade-up`,
-              'data-aos-delay': 400,
-              'data-aos-offset': 100,
-              'data-aos-anchor-placement': `top-bottom`
-            },
-            [screenImage({src: codeAtUni2})]
-          )
-        ]
+        [screenImage({src: codeAtUni2})]
       )
     ])
   ])

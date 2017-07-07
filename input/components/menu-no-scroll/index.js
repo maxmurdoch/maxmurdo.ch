@@ -5,7 +5,7 @@ import {div} from 'react-hyperscript-helpers'
 class MenuNoScroll extends Component {
   componentWillReceiveProps(nextProps) {
     const {isOpen} = nextProps
-    // document.body.style.overflow = isOpen ? `hidden` : `auto`
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto'
   }
 
   render() {

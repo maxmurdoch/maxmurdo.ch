@@ -26,7 +26,7 @@ class Info extends Component {
   render() {
     return container([
       h(RefreshAos, [
-        h(StickyContainer, {className: css({height: `100%`})}, [
+        h(StickyContainer, {className: css({height: '100%'})}, [
           sideNav({isAnimated: false}),
           sideLogo({isAnimated: false}),
           div(

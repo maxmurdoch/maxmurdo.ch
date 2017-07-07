@@ -13,12 +13,12 @@ const StickyFooter = () =>
   footer(
     {
       className: css({
-        backgroundColor: `white`,
-        width: `100%`,
-        position: `fixed`,
+        backgroundColor: 'white',
+        width: '100%',
+        position: 'fixed',
         top: 0,
-        [medium]: {display: `none`},
-        [large]: {display: `none`}
+        [medium]: {display: 'none'},
+        [large]: {display: 'none'}
       })
     },
     [
@@ -26,11 +26,11 @@ const StickyFooter = () =>
         nav(
           {
             className: css({
-              position: `relative`,
-              display: `flex`,
-              width: `100%`,
-              flex: `1 1 100%`,
-              justifyContent: `flex-end`
+              position: 'relative',
+              display: 'flex',
+              width: '100%',
+              flex: '1 1 100%',
+              justifyContent: 'flex-end'
             })
           },
           [menuIcon()]

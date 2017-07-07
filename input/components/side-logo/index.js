@@ -14,12 +14,12 @@ class SideLogo extends Component {
       h(
         Link,
         {
-          to: `/`,
+          to: '/',
           className: css({
-            textDecoration: `none`
+            textDecoration: 'none'
           })
         },
-        [text({size: 2, tag: `h1`}, [`Max\u00A0Murdoch`])]
+        [text({size: 2, tag: 'h1'}, ['Max\u00A0Murdoch'])]
       )
     ])
   }

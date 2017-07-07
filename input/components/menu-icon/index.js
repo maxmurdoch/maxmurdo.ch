@@ -1,22 +1,75 @@
 import R from 'ramda'
 import {css} from 'glamor'
-import {div} from 'react-hyperscript-helpers'
+import {hh, button, span} from 'react-hyperscript-helpers'
 
 import {black} from '../../constants/colour'
 import linkStyle from '../../constants/link-style'
 import {medium, large} from '../../constants/media'
 
-const MenuIcon = ({isOpen, toggle}) => {
-  return div(
+const topBar = hh(({isOpen}) =>
+  span({
+    className: css({
+      background: R.last(black),
+      position: 'absolute',
+      display: 'block',
+      transition: 'all 50ms ease-in-out',
+      top: 11,
+      transform: isOpen ? 'rotate(45deg) translateY(0px)' : 'translateY(-6px)',
+      width: 24,
+      height: 2,
+      [medium]: {
+        width: 32,
+        top: 15,
+        transform: isOpen ? 'rotate(45deg) translateY(0px)' : 'translateY(-8px)'
+      },
+      [large]: {
+        width: 32,
+        top: 15,
+        transform: isOpen ? 'rotate(45deg) translateY(0px)' : 'translateY(-8px)'
+      }
+    })
+  })
+)
+
+const bottomBar = hh(({isOpen}) =>
+  span({
+    className: css({
+      background: R.last(black),
+      position: 'absolute',
+      display: 'block',
+      bottom: 11,
+      transition: 'all 50ms ease',
+      transform: isOpen ? 'rotate(-45deg) translateY(0px)' : 'translateY(6px)',
+      width: 24,
+      height: 2,
+      [medium]: {
+        width: 32,
+        bottom: 15,
+        transform: isOpen ? 'rotate(-45deg) translateY(0px)' : 'translateY(8px)'
+      },
+      [large]: {
+        width: 32,
+        bottom: 15,
+        transform: isOpen ? 'rotate(-45deg) translateY(0px)' : 'translateY(8px)'
+      }
+    })
+  })
+)
+
+const menuIconContainer = hh(({onClick, children}) =>
+  button(
     {
-      onClick: toggle,
+      onClick,
       className: css(
         {
-          position: `relative`,
+          ':focus': {outline: 'none'},
+          backgroundColor: 'transparent',
+          border: 'none',
+          position: 'relative',
           zIndex: 3,
-          display: `flex`,
-          justifyContent: `center`,
-          alignItems: `center`,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           width: 24,
           height: 24,
           [medium]: {
@@ -31,65 +84,15 @@ const MenuIcon = ({isOpen, toggle}) => {
         linkStyle
       )
     },
-    [
-      div({
-        className: css({
-          background: R.last(black),
-          position: `absolute`,
-          display: `block`,
-          transition: `all 50ms ease-in-out`,
-          top: 11,
-          transform: isOpen
-            ? `rotate(45deg) translateY(0px)`
-            : `translateY(-6px)`,
-          width: 24,
-          height: 2,
-          [medium]: {
-            width: 32,
-            top: 15,
-            transform: isOpen
-              ? `rotate(45deg) translateY(0px)`
-              : `translateY(-8px)`
-          },
-          [large]: {
-            width: 32,
-            top: 15,
-            transform: isOpen
-              ? `rotate(45deg) translateY(0px)`
-              : `translateY(-8px)`
-          }
-        })
-      }),
-      div({
-        className: css({
-          background: R.last(black),
-          position: `absolute`,
-          display: `block`,
-          bottom: 11,
-          transition: `all 50ms ease`,
-          transform: isOpen
-            ? `rotate(-45deg) translateY(0px)`
-            : `translateY(6px)`,
-          width: 24,
-          height: 2,
-          [medium]: {
-            width: 32,
-            bottom: 15,
-            transform: isOpen
-              ? `rotate(-45deg) translateY(0px)`
-              : `translateY(8px)`
-          },
-          [large]: {
-            width: 32,
-            bottom: 15,
-            transform: isOpen
-              ? `rotate(-45deg) translateY(0px)`
-              : `translateY(8px)`
-          }
-        })
-      })
-    ]
+    [children]
   )
+)
+
+const MenuIcon = ({isOpen, toggle}) => {
+  return menuIconContainer({onClick: toggle}, [
+    topBar({isOpen}),
+    bottomBar({isOpen})
+  ])
 }
 
 export default MenuIcon

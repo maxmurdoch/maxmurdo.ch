@@ -10,7 +10,7 @@ import grid from '../grid'
 import cell from '../cell'
 import blurLink from '../blur-link'
 
-const ImageRow = ({images = []}) => {
+const ImageRow = ({to, images = []}) => {
   const mapWithIndex = R.addIndex(R.map)
   const cells = mapWithIndex((src, index) => {
     return cell(
@@ -18,16 +18,16 @@ const ImageRow = ({images = []}) => {
         small: {column: 1, of: 1},
         medium: {column: 1, of: 3},
         large: {column: 1, of: 3},
-        justify: `center`
+        justify: 'center'
       },
       [
         div(
           {
-            'data-aos': `fade-up`,
+            'data-aos': 'fade-up',
             'data-aos-delay': R.pipe(R.inc, R.multiply(200))(index),
             'data-aos-offset': 100,
-            'data-aos-anchor-placement': `top-bottom`,
-            className: css({width: `100%`})
+            'data-aos-anchor-placement': 'top-bottom',
+            className: css({width: '100%'})
           },
           [screenImage({src})]
         )
@@ -35,7 +35,7 @@ const ImageRow = ({images = []}) => {
     )
   }, images)
 
-  return blurLink([grid(cells)])
+  return blurLink({to}, [grid(cells)])
 }
 
 ImageRow.propTypes = {

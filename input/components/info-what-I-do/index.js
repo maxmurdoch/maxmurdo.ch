@@ -1,12 +1,12 @@
-import {css} from "glamor"
-import {hh, div} from "react-hyperscript-helpers"
+import {css} from 'glamor'
+import {hh, div} from 'react-hyperscript-helpers'
 
-import grid from "../grid"
-import cell from "../cell"
-import text from "../../components/text"
+import grid from '../grid'
+import cell from '../cell'
+import text from '../../components/text'
 
 const textClass = css({
-  marginBottom: `1em`
+  marginBottom: '1em'
 })
 
 const InfoWork = () => {
@@ -22,11 +22,11 @@ const InfoWork = () => {
             {
               size: 3,
               className: textClass,
-              "data-aos": `fade-in`,
-              "data-aos-anchor-placement": `top-bottom`,
-              "data-aos-delay": 400
+              'data-aos': 'fade-in',
+              'data-aos-anchor-placement': 'top-bottom',
+              'data-aos-delay': 400
             },
-            `What I do`
+            'What I do'
           )
         ]
       ),
@@ -38,10 +38,10 @@ const InfoWork = () => {
         [
           div(
             {
-              className: css({display: `flex`, flexDirection: `column`}),
-              "data-aos": `fade-in`,
-              "data-aos-anchor-placement": `top-bottom`,
-              "data-aos-delay": 600
+              className: css({display: 'flex', flexDirection: 'column'}),
+              'data-aos': 'fade-in',
+              'data-aos-anchor-placement': 'top-bottom',
+              'data-aos-delay': 600
             },
             []
           )

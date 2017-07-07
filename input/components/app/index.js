@@ -7,6 +7,7 @@ import createHistory from 'history/createBrowserHistory'
 import {Route} from 'react-router-dom'
 import {ConnectedRouter, routerMiddleware} from 'react-router-redux'
 
+import {StickyContainer} from 'react-sticky'
 import {h, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
 
@@ -16,7 +17,6 @@ import reducer from '../../store/reducers'
 import ScrollToTop from '../scroll-to-top'
 import {small, medium, large} from '../../constants/media'
 import Home from '../home'
-import Info from '../info'
 import MathsBuilder from '../../screens/maths-builder'
 import initialiseAnimation from '../../services/initialise-animation'
 import defaultCursor from '../../assets/cursor.svg'
@@ -44,18 +44,18 @@ ${large} {
 `
 )
 
-css.global(`*`, {
-  boxSizing: `border-box`
+css.global('*', {
+  boxSizing: 'border-box'
 })
 
-css.global(`a`, linkStyle)
-css.global(`a:-webkit-any-link`, linkStyle)
+css.global('a', linkStyle)
+css.global('a:-webkit-any-link', linkStyle)
 
-css.global(`:root`, {
+css.global(':root', {
   cursor: `url(${defaultCursor}), default`,
-  textRendering: `optimizeLegibility`,
-  WebkitFontSmoothing: `antialiased`,
-  maxWidth: `100%`
+  textRendering: 'optimizeLegibility',
+  WebkitFontSmoothing: 'antialiased',
+  maxWidth: '100%'
 })
 
 const router = routerMiddleware(history)
@@ -70,13 +70,19 @@ class App extends Component {
   render() {
     return h(Provider, {store}, [
       h(ConnectedRouter, {history}, [
-        h(ScrollToTop, [
-          div({className: css({width: `100%`})}, [
-            menuNoScroll([
-              menu(),
-              h(Route, {exact: true, path: `/`, component: Home}),
-              h(Route, {path: `/info`, component: Info}),
-              h(Route, {path: `/maths-builders`, component: MathsBuilder})
+        h(StickyContainer, [
+          h(ScrollToTop, [
+            div({className: css({width: '100%'})}, [
+              menuNoScroll([
+                menu([
+                  h(Route, {exact: true, path: '/', component: Home}),
+                  h(Route, {
+                    exact: true,
+                    path: '/maths-builders',
+                    component: MathsBuilder
+                  })
+                ])
+              ])
             ])
           ])
         ])

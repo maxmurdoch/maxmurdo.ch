@@ -18,10 +18,10 @@ const GoCardless = () => {
       className: css({
         paddingTop: R.nth(4, space),
         marginTop: R.nth(4, space),
-        minHeight: `80vh`,
-        display: `flex`,
-        flexDirection: `column`,
-        justifyContent: `center`
+        minHeight: '80vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
       })
     },
     [
@@ -36,18 +36,18 @@ const GoCardless = () => {
           [
             div(
               {
-                'data-aos': `fade-in`,
+                'data-aos': 'fade-in',
                 'data-aos-delay': 200,
-                'data-aos-anchor-placement': `top-bottom`
+                'data-aos-anchor-placement': 'top-bottom'
               },
               [
                 text(
                   {
-                    tag: `h1`,
+                    tag: 'h1',
                     size: 3,
                     className: css({margin: 0})
                   },
-                  `GoCardless`
+                  'GoCardless'
                 )
               ]
             )
@@ -63,22 +63,22 @@ const GoCardless = () => {
           [
             div(
               {
-                'data-aos': `fade-in`,
+                'data-aos': 'fade-in',
                 'data-aos-delay': 400,
-                'data-aos-anchor-placement': `top-bottom`
+                'data-aos-anchor-placement': 'top-bottom'
               },
               [
                 text(
                   {
-                    tag: `p`,
+                    tag: 'p',
                     size: 3,
                     shade: 2,
                     className: css({margin: 0})
                   },
                   [
-                    `I spent 2 years at `,
-                    link({href: `https://gocardless.com`}, [`GoCardless`]),
-                    ` doing a mix of design and full-stack engineering during a major redo of the core product.`
+                    'I spent 2 years at ',
+                    link({to: 'https://gocardless.com'}, ['GoCardless']),
+                    ' doing a mix of design and full-stack engineering during a major redo of the core product.'
                   ]
                 )
               ]
@@ -86,15 +86,15 @@ const GoCardless = () => {
           ]
         )
       ]),
-      blurLink([
+      blurLink({to: '/gocardless'}, [
         grid([
           cell({bottomGutter: true}, [
             div(
               {
-                'data-aos': `fade-up`,
+                'data-aos': 'fade-up',
                 'data-aos-delay': 400,
                 'data-aos-offset': 100,
-                'data-aos-anchor-placement': `top-bottom`
+                'data-aos-anchor-placement': 'top-bottom'
               },
               [screenImage({src: goCardless1})]
             )

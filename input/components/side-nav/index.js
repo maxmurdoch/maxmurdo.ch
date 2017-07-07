@@ -14,15 +14,15 @@ import {
 } from '../../constants/gutter'
 
 const linkClass = css({
-  display: `flex`,
-  textDecoration: `none`,
-  alignItems: `center`,
+  display: 'flex',
+  textDecoration: 'none',
+  alignItems: 'center',
   paddingRight: R.nth(1, space),
   margin: 0,
   ':last-of-type': {paddingRight: 0}
 })
 
-const navItems = [{to: `/info`, title: `Info`}, {to: `/work`, title: `Work`}]
+const navItems = [{to: '/info', title: 'Info'}, {to: '/work', title: 'Work'}]
 class SideNav extends Component {
   render() {
     const {style, isAnimated = true} = this.props

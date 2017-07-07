@@ -16,10 +16,10 @@ const CodeAtUni = () => {
       className: css({
         paddingTop: R.nth(4, space),
         marginTop: R.nth(4, space),
-        minHeight: `100vh`,
-        display: `flex`,
-        flexDirection: `column`,
-        justifyContent: `center`
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
       })
     },
     [
@@ -34,18 +34,18 @@ const CodeAtUni = () => {
           [
             div(
               {
-                'data-aos': `fade-in`,
+                'data-aos': 'fade-in',
                 'data-aos-delay': 200,
-                'data-aos-anchor-placement': `top-bottom`
+                'data-aos-anchor-placement': 'top-bottom'
               },
               [
                 text(
                   {
-                    tag: `h1`,
+                    tag: 'h1',
                     size: 3,
                     className: css({margin: 0})
                   },
-                  `Code at Uni`
+                  'Code at Uni'
                 )
               ]
             )
@@ -61,22 +61,22 @@ const CodeAtUni = () => {
           [
             div(
               {
-                'data-aos': `fade-in`,
+                'data-aos': 'fade-in',
                 'data-aos-delay': 400,
-                'data-aos-anchor-placement': `top-bottom`
+                'data-aos-anchor-placement': 'top-bottom'
               },
               [
                 text(
                   {
-                    tag: `p`,
+                    tag: 'p',
                     size: 3,
                     shade: 2,
                     className: css({margin: 0})
                   },
                   [
-                    `I made a v1 brand and website for `,
-                    link({href: `http://www.codeatuni.com/`}, [`Code at Uni`]),
-                    `, the new education startup that wants to teach uni students to code.`
+                    'I made a v1 brand and website for ',
+                    link({to: 'http://www.codeatuni.com/'}, ['Code at Uni']),
+                    ', the new education startup that wants to teach uni students to code.'
                   ]
                 )
               ]
