@@ -32,7 +32,7 @@ const family = {
   serif
 }
 
-const numScale = R.scan(n => R.multiply(n, 1.25), 0.9, R.range(1, 7))
+const numScale = R.scan(n => R.multiply(n, 1.25), 0.9, R.range(1, 10))
 const appendRem = R.partialRight(R.concat, ['rem'])
 const size = R.map(appendRem, R.map(R.toString, numScale))
 
