@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import {css} from 'glamor'
 import {Component} from 'react'
 import {div} from 'react-hyperscript-helpers'
 
@@ -9,7 +10,14 @@ class MenuNoScroll extends Component {
   }
 
   render() {
-    return div([this.props.children])
+    return div(
+      {
+        className: css({
+          position: 'relative'
+        })
+      },
+      [this.props.children]
+    )
   }
 }
 

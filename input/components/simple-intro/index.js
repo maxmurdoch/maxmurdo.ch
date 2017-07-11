@@ -1,6 +1,9 @@
 import {Component} from 'react'
-import R from 'ramda'
-import {hh, div} from 'react-hyperscript-helpers'
+import {h, hh, div} from 'react-hyperscript-helpers'
+import {TrackDocument, Track} from 'react-track'
+import {topTop, getDocumentRect} from 'react-track/tracking-formulas'
+import {tween} from 'react-imation'
+import {translate3d} from 'react-imation/tween-value-factories'
 import {css} from 'glamor'
 
 import container from '../site-container'
@@ -14,76 +17,92 @@ class SimpleIntro extends Component {
     this.state = {
       opacity: 1
     }
-    this.handleScroll = this.handleScroll.bind(this)
-  }
-
-  componentWillMount() {
-    window.addEventListener('scroll', this.handleScroll)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll)
-  }
-
-  handleScroll() {
-    const opacity = R.subtract(
-      0.8,
-      R.multiply(R.divide(document.body.scrollTop, 1000), 2)
-    ).toFixed(2)
-    if (opacity >= R.negate(0.1)) {
-      this.setState({opacity})
-    }
   }
 
   render() {
-    return container([
-      div(
-        {
-          className: css({
-            boxSizing: 'border-box',
-            overflowX: 'hidden',
-            height: '90vh',
-            maxWidth: '100%',
-            width: '100vw'
-          }),
-          style: {opacity: this.state.opacity}
-        },
-        [
-          grid({align: 'center'}, [
-            cell({align: 'center'}, [
-              div({className: 'rellax', 'data-rellax-speed': -4}, [
-                text(
-                  {
-                    tag: 'h1',
-                    smallSize: 4,
-                    mediumSize: 5,
-                    largeSize: 6
-                  },
-                  'Hi'
-                ),
-                text(
-                  {
-                    tag: 'h1',
-                    smallSize: 4,
-                    mediumSize: 5,
-                    largeSize: 6
-                  },
-                  'I’m Max'
-                ),
-                text(
-                  {
-                    tag: 'h1',
-                    smallSize: 4,
-                    mediumSize: 5,
-                    largeSize: 6
-                  },
-                  'I make digital\u00A0products'
-                )
+    return h(TrackDocument, {formulas: [getDocumentRect, topTop]}, [
+      (rect, topTop) => {
+        return container([
+          div(
+            {
+              className: css({
+                boxSizing: 'border-box',
+                overflowX: 'hidden',
+                height: '100vh',
+                maxWidth: '100%',
+                width: '100vw'
+              })
+            },
+            [
+              grid({align: 'center'}, [
+                cell({align: 'center'}, [
+                  h(
+                    Track,
+                    {
+                      component: 'div',
+                      formulas: [topTop]
+                    },
+                    [
+                      (Div, posTopTop) => {
+                        return h(
+                          Div,
+                          {
+                            style: tween(scrollY, [
+                              [
+                                0,
+                                {
+                                  opacity: 1,
+                                  transform: translate3d(0, 0, 0)
+                                }
+                              ],
+                              [
+                                posTopTop,
+                                {
+                                  opacity: 0,
+                                  transform: translate3d(0, 200, 0)
+                                }
+                              ]
+                            ])
+                          },
+                          [
+                            text(
+                              {
+                                tag: 'h1',
+                                smallSize: 4,
+                                mediumSize: 5,
+                                largeSize: 7
+                              },
+                              'Hi'
+                            ),
+                            text(
+                              {
+                                tag: 'h1',
+                                smallSize: 4,
+                                mediumSize: 5,
+                                largeSize: 7
+                              },
+                              'I’m Max'
+                            ),
+                            text(
+                              {
+                                tag: 'h1',
+                                smallSize: 4,
+                                mediumSize: 5,
+                                largeSize: 7
+                              },
+                              'I make digital\u00A0products'
+                            )
+                          ]
+                        )
+                      }
+                    ]
+                  )
+                ])
               ])
-            ])
-          ])
-        ]
-      )
+            ]
+          )
+        ])
+      }
     ])
   }
 }

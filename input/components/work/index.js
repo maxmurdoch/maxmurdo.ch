@@ -1,6 +1,5 @@
 import {Component} from 'react'
 import {h, div} from 'react-hyperscript-helpers'
-import {StickyContainer} from 'react-sticky'
 import {css} from 'glamor'
 
 import {
@@ -18,23 +17,21 @@ import mathsBuilders from '../maths-builders'
 
 class Work extends Component {
   render() {
-    return h(StickyContainer, [
-      container([
-        sideNav({isAnimated: false}),
-        sideLogo({isAnimated: false}),
-        div(
-          {
-            className: css({
-              [small]: {paddingTop: smallGutter},
-              [medium]: {paddingTop: mediumGutter},
-              [large]: {paddingTop: largeGutter}
-            })
-          },
-          [mathsBuilders()]
-        ),
-        codeAtUni(),
-        goCardless()
-      ])
+    return container([
+      sideNav({isAnimated: false}),
+      sideLogo({isAnimated: false}),
+      div(
+        {
+          className: css({
+            [small]: {paddingTop: smallGutter},
+            [medium]: {paddingTop: mediumGutter},
+            [large]: {paddingTop: largeGutter}
+          })
+        },
+        [mathsBuilders()]
+      ),
+      codeAtUni(),
+      goCardless()
     ])
   }
 }

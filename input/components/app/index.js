@@ -7,18 +7,14 @@ import createHistory from 'history/createBrowserHistory'
 import {Route} from 'react-router-dom'
 import {ConnectedRouter, routerMiddleware} from 'react-router-redux'
 
-import {StickyContainer} from 'react-sticky'
 import {h, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
 
-import menuNoScroll from '../../containers/menu-no-scroll'
-import menu from '../../containers/menu'
 import reducer from '../../store/reducers'
 import ScrollToTop from '../scroll-to-top'
 import {small, medium, large} from '../../constants/media'
 import Home from '../home'
 import MathsBuilder from '../../screens/maths-builder'
-import initialiseAnimation from '../../services/initialise-animation'
 import defaultCursor from '../../assets/cursor.svg'
 import linkStyle from '../../constants/link-style'
 
@@ -63,27 +59,17 @@ const store = createStore(reducer, composeWithDevTools(applyMiddleware(router)))
 const history = createHistory()
 
 class App extends Component {
-  componentDidMount() {
-    initialiseAnimation()
-  }
-
   render() {
     return h(Provider, {store}, [
       h(ConnectedRouter, {history}, [
-        h(StickyContainer, [
-          h(ScrollToTop, [
-            div({className: css({width: '100%'})}, [
-              menuNoScroll([
-                menu([
-                  h(Route, {exact: true, path: '/', component: Home}),
-                  h(Route, {
-                    exact: true,
-                    path: '/maths-builders',
-                    component: MathsBuilder
-                  })
-                ])
-              ])
-            ])
+        h(ScrollToTop, [
+          div({className: css({width: '100%'})}, [
+            h(Route, {exact: true, path: '/', component: Home}),
+            h(Route, {
+              exact: true,
+              path: '/maths-builders',
+              component: MathsBuilder
+            })
           ])
         ])
       ])

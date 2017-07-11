@@ -66,14 +66,14 @@ class Cell extends Component {
         paddingRight: mediumHalf,
         paddingLeft: mediumHalf,
         paddingBottom: bottomGutter ? mediumGutter : 0,
-        paddingTop: topGutter ? smallGutter : 0
+        paddingTop: topGutter ? mediumGutter : 0
       },
       [R.prop('large', media)]: {
         flexBasis: R.prop('auto', large) ? 'auto' : percent(large),
         paddingRight: largeHalf,
         paddingLeft: largeHalf,
         paddingBottom: bottomGutter ? largeGutter : 0,
-        paddingTop: topGutter ? smallGutter : 0
+        paddingTop: topGutter ? largeGutter : 0
       }
     })
 

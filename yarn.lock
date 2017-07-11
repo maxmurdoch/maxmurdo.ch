@@ -5884,7 +5884,7 @@ quick-lru@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-1.0.0.tgz#7fa80304ab72c1f81cef738739cd47d7cc0c8bff"
 
-raf@^3.3.0:
+raf@^3.1.0, raf@^3.3.0:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/raf/-/raf-3.3.2.tgz#0c13be0b5b49b46f76d6669248d527cf2b02fe27"
   dependencies:
@@ -5993,6 +5993,20 @@ react-hyperscript-helpers@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-hyperscript-helpers/-/react-hyperscript-helpers-1.2.0.tgz#56f925ba7114c9d7e82dbfacedcc9cb343bb564e"
 
+react-imation@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/react-imation/-/react-imation-0.5.3.tgz#61478ae167812849ae3bf91ed72e24d4970e0c15"
+  dependencies:
+    raf "^3.1.0"
+
+react-motion@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-motion/-/react-motion-0.5.0.tgz#1708fc2aee552900d21c1e6bed28346863e017b6"
+  dependencies:
+    performance-now "^0.2.0"
+    prop-types "^15.5.8"
+    raf "^3.1.0"
+
 react-parallax-component@^1.0.6:
   version "1.0.33"
   resolved "https://registry.yarnpkg.com/react-parallax-component/-/react-parallax-component-1.0.33.tgz#0b85fb43e5f0b743bb59e1fb6bc2101554fafeca"
@@ -6056,12 +6070,11 @@ react-slide-deck@^0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/react-slide-deck/-/react-slide-deck-0.2.3.tgz#f3c127d76a14edb9913f35adcf08b7c330bbce71"
 
-react-sticky@^6.0.0:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/react-sticky/-/react-sticky-6.0.1.tgz#356988bdcc6fc8cd2d89746d2302edce67d86687"
+react-track@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/react-track/-/react-track-0.4.4.tgz#84e59ed27643b7e61f5d36894e8e2263fa74fb50"
   dependencies:
-    prop-types "^15.5.8"
-    raf "^3.3.0"
+    raf "^3.1.0"
 
 react@15.3.2:
   version "15.3.2"

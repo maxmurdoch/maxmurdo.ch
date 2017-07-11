@@ -3,23 +3,23 @@ import {css} from 'glamor'
 import {div} from 'react-hyperscript-helpers'
 
 import container from '../../components/site-container'
-import stickyHeader from '../../components/sticky-header'
 import cell from '../../components/cell'
 import crossLink from '../../components/cross-link'
 import grid from '../../components/grid'
 import bodyText from '../../components/body-text'
 
-const Menu = ({closeMenu, isOpen, children}) => {
+const Menu = ({closeMenu, isOpen}) => {
   return div([
-    stickyHeader(),
     div(
       {
-        className: css({
-          minHeight: '100vh',
+        style: {
           position: 'fixed',
+          top: '10vh',
+          minHeight: '90vh',
           transform: isOpen ? 'translateY(0)' : 'translateY(-150%)',
+          transitionDelay: isOpen ? 0 : '100ms',
           zIndex: 2
-        })
+        }
       },
       [
         crossLink(
@@ -41,12 +41,12 @@ const Menu = ({closeMenu, isOpen, children}) => {
                               opacity: isOpen ? 1 : 0,
                               transform: isOpen
                                 ? 'translateY(0)'
-                                : 'translateY(20px)',
+                                : 'translateY(-20px)',
                               transitionDelay: isOpen
-                                ? `${R.add(R.multiply(index, 100), 200)}ms`
+                                ? `${R.add(R.multiply(index, 75), 150)}ms`
                                 : '0',
                               transitionProperty: 'opacity, transform',
-                              transitionDuration: isOpen ? '300ms' : '100ms',
+                              transitionDuration: isOpen ? '250ms' : '100ms',
                               transitionTimingFunction: 'ease-in-out'
                             })
                           },
@@ -66,20 +66,6 @@ const Menu = ({closeMenu, isOpen, children}) => {
           ]
         )
       ]
-    ),
-    div(
-      {
-        className: css({
-          filter: isOpen ? 'blur(12px) opacity(30%)' : 'none',
-          transitionDuration: '200ms',
-          transitionProperty: 'filter',
-          transitionTimingFunction: 'ease-in-out',
-          width: '100vw',
-          minHeight: '100vh',
-          height: '100%'
-        })
-      },
-      [children]
     )
   ])
 }

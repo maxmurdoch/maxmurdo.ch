@@ -11,7 +11,11 @@ const Header = () => {
     {
       className: css({
         zIndex: 6,
-        minHeight: '10vh'
+        height: '10vh',
+        display: 'flex',
+        width: '100%',
+        position: 'fixed',
+        alignItems: 'stretch'
       })
     },
     [
@@ -31,8 +35,6 @@ const Header = () => {
               small: {column: 1, of: 2},
               medium: {column: 1, of: 2},
               large: {column: 1, of: 2},
-              topGutter: true,
-              bottomGutter: true,
               align: 'center',
               justify: 'end'
             },

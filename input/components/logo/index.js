@@ -8,7 +8,7 @@ import link from '../link'
 
 const className = css({
   display: 'flex',
-  paddingTop: R.nth(2, space),
+  paddingTop: R.nth(1, space),
   paddingBottom: R.nth(1, space),
   alignSelf: 'stretch',
   alignItems: 'center',
