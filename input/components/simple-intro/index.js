@@ -26,10 +26,11 @@ class SimpleIntro extends Component {
   }
 
   handleScroll() {
-    const scrollTop = document.body.scrollTop
-    const speed = R.divide(scrollTop, R.divide(window.innerHeight, 2))
-    const opacity = R.subtract(0.8, speed)
-    if (R.gte(opacity, 0)) {
+    const opacity = R.subtract(
+      0.8,
+      R.multiply(R.divide(document.body.scrollTop, 1000), 2)
+    ).toFixed(2)
+    if (opacity >= R.negate(0.1)) {
       this.setState({opacity})
     }
   }
