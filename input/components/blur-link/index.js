@@ -25,7 +25,15 @@ const viewProjectCell = ({to, isHovered}) =>
       },
       to
     },
-    [text({size: 3}, 'View project')]
+    [
+      text(
+        {
+          size: 3,
+          'data-aos': 'fade-in'
+        },
+        'View project'
+      )
+    ]
   )
 
 const BlurLink = ({to, isHovered, onMouseEnter, onMouseLeave, children}) =>

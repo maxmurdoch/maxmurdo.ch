@@ -12,12 +12,19 @@ import {
   large as largeGutter
 } from '../../constants/gutter'
 import infoIntro from '../info-intro'
+import RefreshAos from '../refresh-aos'
 import howIWork from '../info-how-I-work'
 import whyHireMe from '../info-why-hire-me'
+import init from '../../services/initialise-animation'
 
 class Info extends Component {
+  componentDidMount() {
+    init()
+  }
+
   render() {
     return container([
+<<<<<<< HEAD
       sideNav({isAnimated: false}),
       sideLogo({isAnimated: false}),
       div(
@@ -33,6 +40,27 @@ class Info extends Component {
         },
         [infoIntro(), howIWork(), whyHireMe()]
       )
+=======
+      h(RefreshAos, [
+        h(StickyContainer, {className: css({height: '100%'})}, [
+          sideNav({isAnimated: false}),
+          sideLogo({isAnimated: false}),
+          div(
+            {
+              className: css({
+                [small]: {paddingTop: smallGutter, paddingBottom: smallGutter},
+                [medium]: {
+                  paddingTop: mediumGutter,
+                  paddingBottom: mediumGutter
+                },
+                [large]: {paddingTop: largeGutter, paddingBottom: largeGutter}
+              })
+            },
+            [infoIntro(), howIWork(), whyHireMe()]
+          )
+        ])
+      ])
+>>>>>>> parent of 56f2d68... Remove data-aos elements
     ])
   }
 }

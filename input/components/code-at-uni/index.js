@@ -32,13 +32,22 @@ const CodeAtUni = () => {
             bottomGutter: true
           },
           [
-            text(
+            div(
               {
-                tag: 'h1',
-                size: 3,
-                className: css({margin: 0})
+                'data-aos': 'fade-in',
+                'data-aos-delay': 200,
+                'data-aos-anchor-placement': 'top-bottom'
               },
-              'Code at Uni'
+              [
+                text(
+                  {
+                    tag: 'h1',
+                    size: 3,
+                    className: css({margin: 0})
+                  },
+                  'Code at Uni'
+                )
+              ]
             )
           ]
         ),
@@ -50,17 +59,26 @@ const CodeAtUni = () => {
             bottomGutter: true
           },
           [
-            text(
+            div(
               {
-                tag: 'p',
-                size: 3,
-                shade: 2,
-                className: css({margin: 0})
+                'data-aos': 'fade-in',
+                'data-aos-delay': 400,
+                'data-aos-anchor-placement': 'top-bottom'
               },
               [
-                'I made a v1 brand and website for ',
-                link({to: 'http://www.codeatuni.com/'}, ['Code at Uni']),
-                ', the new education startup that wants to teach uni students to code.'
+                text(
+                  {
+                    tag: 'p',
+                    size: 3,
+                    shade: 2,
+                    className: css({margin: 0})
+                  },
+                  [
+                    'I made a v1 brand and website for ',
+                    link({to: 'http://www.codeatuni.com/'}, ['Code at Uni']),
+                    ', the new education startup that wants to teach uni students to code.'
+                  ]
+                )
               ]
             )
           ]

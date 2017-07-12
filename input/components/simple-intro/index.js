@@ -20,6 +20,7 @@ class SimpleIntro extends Component {
   }
 
   render() {
+<<<<<<< HEAD
     return h(TrackDocument, {formulas: [getDocumentRect, topTop]}, [
       (rect, topTop) => {
         return container([
@@ -98,6 +99,65 @@ class SimpleIntro extends Component {
                     ]
                   )
                 ])
+=======
+    return container([
+      div(
+        {
+          className: css({
+            boxSizing: 'border-box',
+            overflowX: 'hidden',
+            height: '90vh',
+            maxWidth: '100%',
+            width: '100vw'
+          }),
+          style: {opacity: this.state.opacity}
+        },
+        [
+          grid({align: 'center'}, [
+            cell({align: 'center'}, [
+              div({className: 'rellax', 'data-rellax-speed': -4}, [
+                text(
+                  {
+                    tag: 'h1',
+                    smallSize: 4,
+                    mediumSize: 5,
+                    largeSize: 6,
+                    'data-aos': 'fade-up',
+                    'data-aos-duration': 600,
+                    'data-aos-anchor-placement': 'top-bottom',
+                    'data-aos-easing': 'ease-in-out-sine'
+                  },
+                  'Hi'
+                ),
+                text(
+                  {
+                    tag: 'h1',
+                    smallSize: 4,
+                    mediumSize: 5,
+                    largeSize: 6,
+                    'data-aos': 'fade-up',
+                    'data-aos-duration': 500,
+                    'data-aos-anchor-placement': 'top-bottom',
+                    'data-aos-delay': 150,
+                    'data-aos-easing': 'ease-in-out-sine'
+                  },
+                  'I’m Max'
+                ),
+                text(
+                  {
+                    tag: 'h1',
+                    smallSize: 4,
+                    mediumSize: 5,
+                    largeSize: 6,
+                    'data-aos-anchor-placement': 'top-bottom',
+                    'data-aos': 'fade-up',
+                    'data-aos-duration': 400,
+                    'data-aos-delay': 300,
+                    'data-aos-easing': 'ease-in-out-sine'
+                  },
+                  'I make digital\u00A0products'
+                )
+>>>>>>> parent of 56f2d68... Remove data-aos elements
               ])
             ]
           )

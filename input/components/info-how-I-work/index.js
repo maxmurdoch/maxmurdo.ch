@@ -18,7 +18,9 @@ const InfoWork = () => {
           {
             size: 4,
             style: 'italic',
-            className: textClass
+            className: textClass,
+            'data-aos': 'fade-in',
+            'data-aos-anchor-placement': 'top-bottom'
           },
           'How I work'
         )
@@ -26,7 +28,10 @@ const InfoWork = () => {
       cell([
         div(
           {
-            className: css({display: 'flex', flexDirection: 'column'})
+            className: css({display: 'flex', flexDirection: 'column'}),
+            'data-aos': 'fade-in',
+            'data-aos-anchor-placement': 'top-bottom',
+            'data-aos-delay': 200
           },
           [
             text(
@@ -37,8 +42,7 @@ const InfoWork = () => {
               'I like to build, launch and iterate rather than ',
               link(
                 {
-                  to:
-                    'https://m.signalvnoise.com/planning-is-guessing-66fd2cea3f50',
+                  to: 'https://m.signalvnoise.com/planning-is-guessing-66fd2cea3f50',
                   target: 'external'
                 },
                 'plan extensively'

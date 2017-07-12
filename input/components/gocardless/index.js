@@ -34,13 +34,22 @@ const GoCardless = () => {
             bottomGutter: true
           },
           [
-            text(
+            div(
               {
-                tag: 'h1',
-                size: 3,
-                className: css({margin: 0})
+                'data-aos': 'fade-in',
+                'data-aos-delay': 200,
+                'data-aos-anchor-placement': 'top-bottom'
               },
-              'GoCardless'
+              [
+                text(
+                  {
+                    tag: 'h1',
+                    size: 3,
+                    className: css({margin: 0})
+                  },
+                  'GoCardless'
+                )
+              ]
             )
           ]
         ),
@@ -52,24 +61,45 @@ const GoCardless = () => {
             bottomGutter: true
           },
           [
-            text(
+            div(
               {
-                tag: 'p',
-                size: 3,
-                shade: 2,
-                className: css({margin: 0})
+                'data-aos': 'fade-in',
+                'data-aos-delay': 400,
+                'data-aos-anchor-placement': 'top-bottom'
               },
               [
-                'I spent 2 years at ',
-                link({to: 'https://gocardless.com'}, ['GoCardless']),
-                ' doing a mix of design and full-stack engineering during a major redo of the core product.'
+                text(
+                  {
+                    tag: 'p',
+                    size: 3,
+                    shade: 2,
+                    className: css({margin: 0})
+                  },
+                  [
+                    'I spent 2 years at ',
+                    link({to: 'https://gocardless.com'}, ['GoCardless']),
+                    ' doing a mix of design and full-stack engineering during a major redo of the core product.'
+                  ]
+                )
               ]
             )
           ]
         )
       ]),
       blurLink({to: '/gocardless'}, [
-        grid([cell({bottomGutter: true}, [screenImage({src: goCardless1})])])
+        grid([
+          cell({bottomGutter: true}, [
+            div(
+              {
+                'data-aos': 'fade-up',
+                'data-aos-delay': 400,
+                'data-aos-offset': 100,
+                'data-aos-anchor-placement': 'top-bottom'
+              },
+              [screenImage({src: goCardless1})]
+            )
+          ])
+        ])
       ])
     ]
   )
