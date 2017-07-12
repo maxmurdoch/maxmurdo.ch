@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import 'aos/dist/aos.css'
 import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 import {composeWithDevTools} from 'redux-devtools-extension'
@@ -10,6 +11,7 @@ import {ConnectedRouter, routerMiddleware} from 'react-router-redux'
 import {h, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
 
+import initialiseAnimation from '../../services/initialise-animation'
 import reducer from '../../store/reducers'
 import ScrollToTop from '../scroll-to-top'
 import {small, medium, large} from '../../constants/media'
@@ -59,6 +61,10 @@ const store = createStore(reducer, composeWithDevTools(applyMiddleware(router)))
 const history = createHistory()
 
 class App extends Component {
+  componentDidMount() {
+    initialiseAnimation()
+  }
+
   render() {
     return h(Provider, {store}, [
       h(ConnectedRouter, {history}, [
