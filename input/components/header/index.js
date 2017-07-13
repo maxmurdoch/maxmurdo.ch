@@ -5,6 +5,7 @@ import grid from '../grid'
 import logo from '../logo'
 import menuIcon from '../../containers/menu-icon'
 import cell from '../cell'
+import {small} from '../../constants/media'
 
 const Header = () => {
   return div([
@@ -18,7 +19,10 @@ const Header = () => {
           display: 'flex',
           width: '100%',
           position: 'fixed',
-          alignItems: 'stretch'
+          alignItems: 'stretch',
+          [small]: {
+            bottom: 0
+          }
         })
       },
       [
