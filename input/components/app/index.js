@@ -24,19 +24,19 @@ css.insert(
   `
 ${small} {
   :root {
-    font-size: calc(8px + 0.4vmax);
+    font-size: calc(8px + 0.4vh);
   }
 }
 
 ${medium} {
   :root {
-    font-size: calc(1.3vmax);
+    font-size: calc(1.6vh);
   }
 }
 
 ${large} {
   :root {
-    font-size: calc(1vmax);
+    font-size: calc(2vh);
   }
 }
 `
@@ -62,7 +62,7 @@ const history = createHistory()
 
 class App extends Component {
   componentDidMount() {
-    initialiseAnimation()
+    window.addEventListener('load', initialiseAnimation)
   }
 
   render() {
