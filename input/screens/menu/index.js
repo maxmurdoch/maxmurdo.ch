@@ -15,6 +15,10 @@ const Menu = ({closeMenu, isOpen}) => {
         style: {
           position: 'fixed',
           top: '10vh',
+          bottom: 0,
+          right: 0,
+          left: 0,
+          overflowY: 'scroll',
           minHeight: '90vh',
           transform: isOpen ? 'translateY(0)' : 'translateY(-150%)',
           transitionDelay: isOpen ? 0 : '100ms',
@@ -36,6 +40,8 @@ const Menu = ({closeMenu, isOpen}) => {
                       (text, index) => {
                         return bodyText(
                           {
+                            smallSize: 3,
+                            mediumSize: 3,
                             size: 5,
                             className: css({
                               opacity: isOpen ? 1 : 0,
