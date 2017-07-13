@@ -20,9 +20,7 @@ const Logo = () =>
     text(
       {
         tag: 'h1',
-        smallSize: 1,
-        mediumSize: 2,
-        size: 3,
+        size: 2,
         className
       },
       'Max Murdoch'
