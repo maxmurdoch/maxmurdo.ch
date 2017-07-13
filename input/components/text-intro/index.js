@@ -25,91 +25,110 @@ const TextIntro = () => {
         },
         [
           grid({wrap: false, align: 'center'}, [
-            cell({align: 'center'}, [
-              h(TrackedDiv, {formulas: [topTop]}, [
-                posTopTop => {
-                  console.log(scrollY)
-                  return text(
-                    {
-                      size: 4,
-                      style: tween(scrollY, [
-                        [
-                          0,
-                          {
-                            opacity: 1,
-                            transform: translate3d(0, 0, 0)
-                          }
-                        ],
-                        [
-                          posTopTop,
-                          {
-                            opacity: 0,
-                            transform: translate3d(0, 200, 0)
-                          }
-                        ]
-                      ])
-                    },
-                    'Hi I\'m Max'
-                  )
-                }
-              ])
-            ]),
-            cell({align: 'end'}, [
-              h(TrackedDiv, {formulas: [topTop]}, [
-                posTopTop => {
-                  return text(
-                    {
-                      size: 4,
-                      style: tween(scrollY, [
-                        [
-                          0,
-                          {
-                            opacity: 1,
-                            transform: translate3d(0, 0, 0)
-                          }
-                        ],
-                        [
-                          posTopTop,
-                          {
-                            opacity: 0,
-                            transform: translate3d(0, -700, 0)
-                          }
-                        ]
-                      ])
-                    },
-                    'I design & build'
-                  )
-                }
-              ])
-            ]),
-            cell({align: 'start'}, [
-              h(TrackedDiv, {formulas: [topTop]}, [
-                posTopTop => {
-                  return text(
-                    {
-                      size: 4,
-                      style: tween(scrollY, [
-                        [
-                          0,
-                          {
-                            opacity: 1,
-                            transform: translate3d(0, 0, 0)
-                          }
-                        ],
-                        [
-                          500,
-                          {
-                            opacity: 0,
-                            transform: translate3d(0, 800, 0)
-                          }
-                        ]
-                      ])
-                    },
-                    'digital products'
-                  )
-                }
-              ])
-            ])
+            cell(
+              {
+                align: 'center',
+                'data-aos': 'fade-in'
+              },
+              [
+                h(TrackedDiv, {formulas: [topTop]}, [
+                  posTopTop => {
+                    return text(
+                      {
+                        size: 4,
+                        style: tween(scrollY, [
+                          [
+                            0,
+                            {
+                              opacity: 1,
+                              transform: translate3d(0, 0, 0)
+                            }
+                          ],
+                          [
+                            posTopTop,
+                            {
+                              opacity: 0,
+                              transform: translate3d(0, 200, 0)
+                            }
+                          ]
+                        ])
+                      },
+                      'Hi I\'m Max'
+                    )
+                  }
+                ])
+              ]
+            ),
+            cell(
+              {
+                align: 'end',
+                'data-aos': 'fade-in',
+                'data-aos-delay': 150
+              },
+              [
+                h(TrackedDiv, {formulas: [topTop]}, [
+                  posTopTop => {
+                    return text(
+                      {
+                        size: 4,
+                        style: tween(scrollY, [
+                          [
+                            0,
+                            {
+                              opacity: 1,
+                              transform: translate3d(0, 0, 0)
+                            }
+                          ],
+                          [
+                            posTopTop,
+                            {
+                              opacity: 0,
+                              transform: translate3d(0, -700, 0)
+                            }
+                          ]
+                        ])
+                      },
+                      'I design & build'
+                    )
+                  }
+                ])
+              ]
+            ),
+            cell(
+              {
+                align: 'start',
+                'data-aos': 'fade-in',
+                'data-aos-delay': 300
+              },
+              [
+                h(TrackedDiv, {formulas: [topTop]}, [
+                  posTopTop => {
+                    return text(
+                      {
+                        size: 4,
+                        style: tween(scrollY, [
+                          [
+                            0,
+                            {
+                              opacity: 1,
+                              transform: translate3d(0, 0, 0)
+                            }
+                          ],
+                          [
+                            500,
+                            {
+                              opacity: 0,
+                              transform: translate3d(0, 800, 0)
+                            }
+                          ]
+                        ])
+                      },
+                      'digital products'
+                    )
+                  }
+                ])
+              ]
+            )
           ])
         ]
       )
