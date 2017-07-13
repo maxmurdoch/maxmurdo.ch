@@ -4,6 +4,8 @@ import graphikRegular from '../assets/fonts/graphik/Graphik-Regular-Web.woff'
 import graphikRegularItalicEot from '../assets/fonts/graphik/Graphik-RegularItalic.eot'
 import graphikRegularItalicWoff from '../assets/fonts/graphik/Graphik-RegularItalic.woff'
 import graphikRegularItalicTtf from '../assets/fonts/graphik/Graphik-RegularItalic.ttf'
+import gtAmericaRegularWoff from '../assets/fonts/gt-america/GT-America-Standard-Light.woff'
+import gtAmericaExtendedBlackWoff from '../assets/fonts/gt-america/GT-America-Extended-Black.woff'
 
 const lineHeight = 1.5
 
@@ -23,10 +25,26 @@ const graphik = css.fontFace({
   src: `url(${graphikRegular})`
 })
 
-const sans = `${graphik}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif`
+const gtAmerica = css.fontFace({
+  fontFamily: 'GT America',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  src: `url(${gtAmericaRegularWoff})`
+})
+
+const gtAmericaBlack = css.fontFace({
+  fontFamily: 'GT America Extended',
+  fontStyle: 'normal',
+  fontWeight: 900,
+  src: `url(${gtAmericaExtendedBlackWoff})`
+})
+
+const sans = `${gtAmerica}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif`
+const wide = `${gtAmericaBlack}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif`
 const mono = '\'Space Mono\', monospace'
 const serif = '"Untitled Serif", Times, Times New Roman, serif'
 const family = {
+  wide,
   sans,
   mono,
   serif
