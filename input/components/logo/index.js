@@ -20,9 +20,10 @@ const Logo = () =>
     text(
       {
         tag: 'h1',
+        smallSize: 1,
+        mediumSize: 2,
         size: 3,
-        className,
-        'data-aos': 'fade-up'
+        className
       },
       'Max Murdoch'
     )

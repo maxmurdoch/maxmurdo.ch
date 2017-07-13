@@ -8,7 +8,6 @@ const LinkWrapper = ({
   color = 'inherit',
   to,
   className,
-  target = 'internal',
   onMouseEnter,
   onMouseLeave,
   children,
@@ -28,8 +27,6 @@ const LinkWrapper = ({
     className
   )
 
-  const targetMap = {internal: '_self', external: '_blank'}
-
   return h(
     Link,
     {
@@ -37,7 +34,6 @@ const LinkWrapper = ({
       onMouseEnter,
       onMouseLeave,
       className: linkStyle,
-      target: R.prop(target, targetMap),
       ...props
     },
     [children]

@@ -9,6 +9,8 @@ import cell from '../cell'
 const Header = () => {
   return div(
     {
+      'data-aos': 'fade-in',
+      'data-aos-delay': 800,
       className: css({
         zIndex: 6,
         height: '10vh',

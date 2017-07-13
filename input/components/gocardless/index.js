@@ -44,7 +44,9 @@ const GoCardless = () => {
                 text(
                   {
                     tag: 'h1',
-                    size: 3,
+                    smallSize: 1,
+                    mediumSize: 2,
+                    largeSize: 3,
                     className: css({margin: 0})
                   },
                   'GoCardless'
@@ -71,7 +73,9 @@ const GoCardless = () => {
                 text(
                   {
                     tag: 'p',
-                    size: 3,
+                    smallSize: 1,
+                    mediumSize: 2,
+                    largeSize: 3,
                     shade: 2,
                     className: css({margin: 0})
                   },
