@@ -1,21 +1,22 @@
 import {h, hh, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
-import {TrackDocument, Track} from 'react-track'
+import {TrackDocument, TrackedDiv} from 'react-track'
 import {calculateScrollY, topTop} from 'react-track/tracking-formulas'
 import {tween} from 'react-imation'
-import {rgba} from 'react-imation/tween-value-factories'
+import {translate3d} from 'react-imation/tween-value-factories'
 
 import text from '../text'
 import grid from '../grid'
+import cell from '../cell'
 
 const TextIntro = () => {
-  return h(TrackDocument, {formulas: [calculateScrollY]}, [
-    scrollY =>
+  return h(TrackDocument, {formulas: [calculateScrollY, topTop]}, [
+    (scrollY, topTop) =>
       div(
         {
           className: css({
             padding: '5vw',
-            height: '100vh',
+            height: '90vh',
             maxWidth: '100%',
             boxSizing: 'border-box',
             display: 'flex',
@@ -23,38 +24,93 @@ const TextIntro = () => {
           })
         },
         [
-          grid(
-            {
-              align: 'center'
-            },
-            [
-              h(Track, {component: 'div'}, [
-                Div => {
+          grid({wrap: false, align: 'center'}, [
+            cell({align: 'center'}, [
+              h(TrackedDiv, {formulas: [topTop]}, [
+                posTopTop => {
                   console.log(scrollY)
-                  return h(
-                    Div,
+                  return text(
                     {
+                      size: 4,
                       style: tween(scrollY, [
-                        [0, {backgroundColor: rgba(0, 0, 170, 1)}],
-                        [200, {backgroundColor: rgba(40, 73, 7, 1)}],
-                        [400, {backgroundColor: rgba(170, 0, 0, 1)}],
-                        [600, {backgroundColor: rgba(92, 131, 47, 1)}]
+                        [
+                          0,
+                          {
+                            opacity: 1,
+                            transform: translate3d(0, 0, 0)
+                          }
+                        ],
+                        [
+                          posTopTop,
+                          {
+                            opacity: 0,
+                            transform: translate3d(0, 200, 0)
+                          }
+                        ]
                       ])
                     },
-                    [
-                      text(
-                        {
-                          size: 4,
-                          className: css({color: 'white'})
-                        },
-                        'Hi I\'m Max'
-                      )
-                    ]
+                    'Hi I\'m Max'
                   )
                 }
               ])
-            ]
-          )
+            ]),
+            cell({align: 'end'}, [
+              h(TrackedDiv, {formulas: [topTop]}, [
+                posTopTop => {
+                  return text(
+                    {
+                      size: 4,
+                      style: tween(scrollY, [
+                        [
+                          0,
+                          {
+                            opacity: 1,
+                            transform: translate3d(0, 0, 0)
+                          }
+                        ],
+                        [
+                          posTopTop,
+                          {
+                            opacity: 0,
+                            transform: translate3d(0, -700, 0)
+                          }
+                        ]
+                      ])
+                    },
+                    'I design & build'
+                  )
+                }
+              ])
+            ]),
+            cell({align: 'start'}, [
+              h(TrackedDiv, {formulas: [topTop]}, [
+                posTopTop => {
+                  return text(
+                    {
+                      size: 4,
+                      style: tween(scrollY, [
+                        [
+                          0,
+                          {
+                            opacity: 1,
+                            transform: translate3d(0, 0, 0)
+                          }
+                        ],
+                        [
+                          500,
+                          {
+                            opacity: 0,
+                            transform: translate3d(0, 800, 0)
+                          }
+                        ]
+                      ])
+                    },
+                    'digital products'
+                  )
+                }
+              ])
+            ])
+          ])
         ]
       )
   ])

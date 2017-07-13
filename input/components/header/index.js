@@ -7,45 +7,52 @@ import menuIcon from '../../containers/menu-icon'
 import cell from '../cell'
 
 const Header = () => {
-  return div(
-    {
-      'data-aos': 'fade-in',
-      'data-aos-delay': 800,
-      className: css({
-        zIndex: 6,
-        height: '10vh',
-        display: 'flex',
-        width: '100%',
-        position: 'fixed',
-        alignItems: 'stretch'
-      })
-    },
-    [
-      container([
-        grid({justify: 'between', align: 'center'}, [
-          cell(
-            {
-              small: {column: 1, of: 2},
-              medium: {column: 1, of: 2},
-              large: {column: 1, of: 2},
-              align: 'center'
-            },
-            [logo()]
-          ),
-          cell(
-            {
-              small: {column: 1, of: 2},
-              medium: {column: 1, of: 2},
-              large: {column: 1, of: 2},
-              align: 'center',
-              justify: 'end'
-            },
-            [menuIcon()]
-          )
+  return div([
+    div(
+      {
+        'data-aos': 'fade-in',
+        'data-aos-delay': 800,
+        className: css({
+          zIndex: 6,
+          height: '10vh',
+          display: 'flex',
+          width: '100%',
+          position: 'fixed',
+          alignItems: 'stretch'
+        })
+      },
+      [
+        container([
+          grid({justify: 'between', align: 'center'}, [
+            cell(
+              {
+                small: {column: 1, of: 2},
+                medium: {column: 1, of: 2},
+                large: {column: 1, of: 2},
+                align: 'center'
+              },
+              [logo()]
+            ),
+            cell(
+              {
+                small: {column: 1, of: 2},
+                medium: {column: 1, of: 2},
+                large: {column: 1, of: 2},
+                align: 'center',
+                justify: 'end'
+              },
+              [menuIcon()]
+            )
+          ])
         ])
-      ])
-    ]
-  )
+      ]
+    ),
+    div({
+      className: css({
+        paddingBottom: '10vh'
+      })
+    })
+  ])
 }
 
 export default Header
