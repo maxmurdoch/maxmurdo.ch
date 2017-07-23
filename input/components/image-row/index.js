@@ -4,11 +4,11 @@ import {css} from 'glamor'
 import {compose} from 'recompose'
 import R from 'ramda'
 
+import slideUpLink from '../slide-up-link'
 import toggleHover from '../toggle-hover'
 import screenImage from '../screen-image'
 import grid from '../grid'
 import cell from '../cell'
-import blurLink from '../blur-link'
 
 const ImageRow = ({to, images = []}) => {
   const mapWithIndex = R.addIndex(R.map)
@@ -35,7 +35,7 @@ const ImageRow = ({to, images = []}) => {
     )
   }, images)
 
-  return blurLink({to}, [grid(cells)])
+  return slideUpLink({to}, [grid(cells)])
 }
 
 ImageRow.propTypes = {

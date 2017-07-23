@@ -53,7 +53,7 @@ const TextIntro = () => {
                           ]
                         ])
                       },
-                      'Hi I\'m Max'
+                      'Hi, I’m Max'
                     )
                   }
                 ])
