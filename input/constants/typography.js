@@ -39,7 +39,7 @@ const gtAmericaBlack = css.fontFace({
   src: `url(${gtAmericaExtendedBlackWoff})`
 })
 
-const sans = `${gtAmerica}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif`
+const sans = `${graphik}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif`
 const wide = `${gtAmericaBlack}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif`
 const mono = '\'Space Mono\', monospace'
 const serif = '"Untitled Serif", Times, Times New Roman, serif'

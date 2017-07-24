@@ -24,27 +24,28 @@ css.insert(
   `
 ${small} {
   :root {
-    font-size: calc(8px + 0.4vh);
+    font-size: calc(8px + 0.4vmin);
+    font-size: calc(8px + 0.4vm);
   }
 }
 
 ${medium} {
   :root {
-    font-size: calc(1.6vh);
+    font-size: calc(1.6vmin);
+    font-size: calc(1.6vm);
   }
 }
 
 ${large} {
   :root {
-    font-size: calc(2vh);
+    font-size: calc(2vmin);
+    font-size: calc(2vm);
   }
 }
 `
 )
 
-css.global('*', {
-  boxSizing: 'border-box'
-})
+css.global('*', {boxSizing: 'border-box'})
 
 css.global('a', linkStyle)
 css.global('a:-webkit-any-link', linkStyle)

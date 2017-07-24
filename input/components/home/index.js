@@ -8,8 +8,7 @@ import menu from '../../containers/menu'
 import menuBlur from '../../containers/menu-blur'
 import header from '../header'
 import container from '../site-container'
-import simpleIntro from '../simple-intro'
-import textIntro from '../text-intro'
+import colourIntro from '../colour-intro'
 import goCardless from '../gocardless'
 import codeAtUni from '../code-at-uni'
 import mathsBuilders from '../maths-builders'
@@ -22,7 +21,7 @@ class Home extends Component {
         header(),
         menu(),
         menuBlur([
-          textIntro(),
+          colourIntro(),
           div({className: css({marginTop: large})}, [
             container([mathsBuilders(), codeAtUni(), goCardless()])
           ])

@@ -8,7 +8,6 @@ import {
 } from 'react-track/tracking-formulas'
 import {tween} from 'react-imation'
 import {translate3d} from 'react-imation/tween-value-factories'
-import {css} from 'glamor'
 
 import container from '../site-container'
 import text from '../text'

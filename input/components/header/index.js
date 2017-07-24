@@ -7,6 +7,8 @@ import menuIcon from '../../containers/menu-icon'
 import cell from '../cell'
 import {small} from '../../constants/media'
 
+const HEADER_HEIGHT = '10vh'
+
 const Header = () => {
   return div([
     div(
@@ -15,14 +17,12 @@ const Header = () => {
         'data-aos-delay': 800,
         className: css({
           zIndex: 6,
-          height: '10vh',
+          height: HEADER_HEIGHT,
           display: 'flex',
           width: '100%',
           position: 'fixed',
           alignItems: 'stretch',
-          [small]: {
-            bottom: 0
-          }
+          [small]: {bottom: 0}
         })
       },
       [
@@ -50,13 +50,10 @@ const Header = () => {
           ])
         ])
       ]
-    ),
-    div({
-      className: css({
-        paddingBottom: '10vh'
-      })
-    })
+    )
   ])
 }
 
 export default Header
+
+export {HEADER_HEIGHT}

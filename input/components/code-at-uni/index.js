@@ -42,9 +42,7 @@ const CodeAtUni = () => {
                 text(
                   {
                     tag: 'h1',
-                    smallSize: 1,
-                    mediumSize: 2,
-                    largeSize: 3,
+                    size: 3,
                     className: css({margin: 0})
                   },
                   'Code at Uni'
@@ -71,9 +69,7 @@ const CodeAtUni = () => {
                 text(
                   {
                     tag: 'p',
-                    smallSize: 1,
-                    mediumSize: 2,
-                    largeSize: 3,
+                    size: 3,
                     shade: 2,
                     className: css({margin: 0})
                   },

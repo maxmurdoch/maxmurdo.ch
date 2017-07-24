@@ -7,23 +7,27 @@ import cell from '../../components/cell'
 import crossLink from '../../components/cross-link'
 import grid from '../../components/grid'
 import bodyText from '../../components/body-text'
+import {medium, large} from '../../constants/media'
+import {HEADER_HEIGHT} from '../../components/header'
 
 const Menu = ({closeMenu, isOpen}) => {
   return div([
     div(
       {
-        style: {
+        className: css({
           position: 'fixed',
-          top: '10vh',
+          top: 0,
           bottom: 0,
           right: 0,
           left: 0,
           overflowY: 'scroll',
-          minHeight: '90vh',
+          height: '100vh',
           transform: isOpen ? 'translateY(0)' : 'translateY(-150%)',
           transitionDelay: isOpen ? 0 : '100ms',
-          zIndex: 2
-        }
+          zIndex: 2,
+          [medium]: {top: HEADER_HEIGHT},
+          [large]: {top: HEADER_HEIGHT}
+        })
       },
       [
         crossLink(
@@ -34,14 +38,14 @@ const Menu = ({closeMenu, isOpen}) => {
           [
             container([
               grid({justify: 'between', align: 'center'}, [
-                cell([
+                cell({topGutter: true}, [
                   div(
                     R.addIndex(R.map)(
                       (text, index) => {
                         return bodyText(
                           {
                             smallSize: 3,
-                            mediumSize: 3,
+                            mediumSize: 4,
                             size: 5,
                             className: css({
                               opacity: isOpen ? 1 : 0,
@@ -60,9 +64,9 @@ const Menu = ({closeMenu, isOpen}) => {
                         )
                       },
                       [
-                        'Hi, I\'m Max. I design and build digital products.',
+                        'Hi, I’m Max. I design and build digital products.',
                         'I tend to take responsibility for the design and build of project from beginning to end and tend not to do incremental optimisation work.',
-                        'I\'m booked till September, but if you would like to talk about working together, please get in touch.'
+                        'I’m booked till September, but if you would like to talk about working together, please get in touch.'
                       ]
                     )
                   )
