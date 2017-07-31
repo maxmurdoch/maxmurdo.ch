@@ -25,7 +25,8 @@ const Grid = ({
 
   const gridWrapperStyle = css({
     height: '100%',
-    width: '100%'
+    width: '100%',
+    maxWidth: '100%'
   })
 
   const gridStyle = css({

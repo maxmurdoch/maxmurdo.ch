@@ -1,17 +1,18 @@
 import R from 'ramda'
+import {Flex} from 'reflexbox'
 import {css} from 'glamor'
-import {div} from 'react-hyperscript-helpers'
+import {h, div} from 'react-hyperscript-helpers'
 
 import container from '../../components/site-container'
 import cell from '../../components/cell'
 import crossLink from '../../components/cross-link'
 import grid from '../../components/grid'
+import header from '../../components/header'
 import bodyText from '../../components/body-text'
-import {medium, large} from '../../constants/media'
-import {HEADER_HEIGHT} from '../../components/header'
 
 const Menu = ({closeMenu, isOpen}) => {
-  return div([
+  return h(Flex, [
+    header(),
     div(
       {
         className: css({
@@ -24,9 +25,7 @@ const Menu = ({closeMenu, isOpen}) => {
           height: '100vh',
           transform: isOpen ? 'translateY(0)' : 'translateY(-150%)',
           transitionDelay: isOpen ? 0 : '100ms',
-          zIndex: 2,
-          [medium]: {top: HEADER_HEIGHT},
-          [large]: {top: HEADER_HEIGHT}
+          zIndex: 2
         })
       },
       [
@@ -48,6 +47,7 @@ const Menu = ({closeMenu, isOpen}) => {
                             mediumSize: 4,
                             size: 5,
                             className: css({
+                              willChange: 'transform, opacity',
                               opacity: isOpen ? 1 : 0,
                               transform: isOpen
                                 ? 'translateY(0)'
@@ -64,7 +64,10 @@ const Menu = ({closeMenu, isOpen}) => {
                         )
                       },
                       [
-                        'Hi, I’m Max. I design and build digital products.',
+                        'Hi, I’m Max. This is my tiny design and programming studio.',
+                        'I tend to take responsibility for the design and build of project from beginning to end and tend not to do incremental optimisation work.',
+                        'I’m booked till September, but if you would like to talk about working together, please get in touch.',
+                        'Hi, I’m Max. This is my tiny design and programming studio.',
                         'I tend to take responsibility for the design and build of project from beginning to end and tend not to do incremental optimisation work.',
                         'I’m booked till September, but if you would like to talk about working together, please get in touch.'
                       ]

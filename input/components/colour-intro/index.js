@@ -20,7 +20,8 @@ class ColourIntro extends Component {
       backgroundColor: '',
       firstPosition: 0,
       secondPosition: 0,
-      thirdPosition: 0
+      thirdPosition: 0,
+      transitionTimingFunction: 'cubic-bezier(.1, .2, .1, 1)'
     }
     this.updateColour = R.bind(this.updateColour, this)
     this.updatePosition = R.bind(this.updatePosition, this)
@@ -29,7 +30,7 @@ class ColourIntro extends Component {
   componentWillMount() {
     setInterval(this.updateColour, 2000)
     setInterval(this.updatePosition, 4000)
-    this.updatePosition()
+    setTimeout(this.updatePosition, 0)
     this.updateColour()
 
     window.addEventListener('resize', this.updatePosition)
@@ -67,14 +68,16 @@ class ColourIntro extends Component {
   }
 
   render() {
-    const {backgroundColor} = this.state
+    const {backgroundColor, transitionTimingFunction} = this.state
     return div(
       {
         className: css({
           width: '100vw',
           height: '100vh',
           display: 'flex',
-          transition: 'background-color 2s ease-in-out',
+          transition: 'background-color 2s',
+          transitionTimingFunction,
+          willChange: 'background-color',
           backgroundColor,
           [medium]: {paddingTop: HEADER_HEIGHT},
           [large]: {paddingTop: HEADER_HEIGHT}
@@ -90,8 +93,10 @@ class ColourIntro extends Component {
                 grow: 1,
                 align: 'center',
                 className: css({
+                  willChange: 'transform',
                   transform: this.state.firstPosition,
-                  transition: 'all 3s ease-in-out'
+                  transition: 'all 1s',
+                  transitionTimingFunction
                 })
               },
               [text({size: 4}, 'Hi, I’m Max')]
@@ -103,8 +108,10 @@ class ColourIntro extends Component {
                 grow: 1,
                 align: 'center',
                 className: css({
+                  willChange: 'transform',
                   transform: this.state.secondPosition,
-                  transition: 'all 3s ease-in-out'
+                  transition: 'all 1s',
+                  transitionTimingFunction
                 })
               },
               [text({size: 4}, 'I design & build')]
@@ -116,8 +123,10 @@ class ColourIntro extends Component {
                 grow: 1,
                 align: 'center',
                 className: css({
+                  willChange: 'transform',
                   transform: this.state.thirdPosition,
-                  transition: 'all 3s ease-in-out'
+                  transition: 'all 1s',
+                  transitionTimingFunction
                 })
               },
               [text({size: 4}, 'digital products')]

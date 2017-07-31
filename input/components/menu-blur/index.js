@@ -1,10 +1,10 @@
 import {hh, div} from 'react-hyperscript-helpers'
-import {css} from 'glamor'
 
 const MenuBlur = ({isOpen, children}) => {
   return div(
     {
       style: {
+        willChange: 'filter',
         filter: isOpen ? 'blur(12px) opacity(20%)' : 'none',
         transitionDuration: '100ms',
         transitionProperty: 'filter',

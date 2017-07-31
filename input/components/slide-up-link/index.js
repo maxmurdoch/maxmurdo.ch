@@ -1,11 +1,12 @@
-import {hh, div} from 'react-hyperscript-helpers'
+import {Flex} from 'reflexbox'
+import {h, hh, div} from 'react-hyperscript-helpers'
 import {compose} from 'recompose'
 import toggleHover from '../toggle-hover'
 
 import link from '../link'
 
 const SlideUpLink = ({to, isHovered, onMouseEnter, onMouseLeave, children}) =>
-  div([
+  h(Flex, {auto: true}, [
     div(
       {
         onMouseEnter,

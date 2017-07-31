@@ -1,4 +1,4 @@
-import {div} from 'react-hyperscript-helpers'
+import {div, hh} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
 import container from '../site-container'
 import grid from '../grid'
@@ -54,6 +54,6 @@ const Header = () => {
   ])
 }
 
-export default Header
+export default hh(Header)
 
 export {HEADER_HEIGHT}

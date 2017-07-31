@@ -14,9 +14,10 @@ const topBar = hh(({isOpen}) =>
       display: 'block',
       transition: 'all 50ms ease-in-out',
       top: 11,
+      willChange: 'transform',
       transform: isOpen ? 'rotate(45deg) translateY(0px)' : 'translateY(-6px)',
       width: 24,
-      height: 2,
+      height: isOpen ? 1 : 2,
       [medium]: {
         width: 32,
         top: 15,
@@ -39,9 +40,10 @@ const bottomBar = hh(({isOpen}) =>
       display: 'block',
       bottom: 11,
       transition: 'all 50ms ease',
+      willChange: 'transform',
       transform: isOpen ? 'rotate(-45deg) translateY(0px)' : 'translateY(6px)',
       width: 24,
-      height: 2,
+      height: isOpen ? 1 : 2,
       [medium]: {
         width: 32,
         bottom: 15,
