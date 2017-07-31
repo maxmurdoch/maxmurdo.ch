@@ -53,6 +53,7 @@
     "recompose": "^0.23.5",
     "redux": "^3.7.0",
     "redux-devtools-extension": "^2.13.2",
+    "reflexbox": "^3.0.0-0",
     "reline": "^1.0.0-beta.3",
     "rellax": "^1.0.0",
     "scrollreveal": "^3.3.4",
