@@ -17,29 +17,26 @@ import ScrollToTop from '../scroll-to-top'
 import {small, medium, large} from '../../constants/media'
 import Home from '../home'
 import MathsBuilder from '../../screens/maths-builder'
-import defaultCursor from '../../assets/cursor.svg'
+import defaultCursor from '../../assets/cursor-2.svg'
 import linkStyle from '../../constants/link-style'
 
 css.insert(
   `
 ${small} {
   :root {
-    font-size: calc(8px + 0.4vmin);
-    font-size: calc(8px + 0.4vm);
+    font-size: calc(2vw);
   }
 }
 
 ${medium} {
   :root {
-    font-size: calc(1.6vmin);
-    font-size: calc(1.6vm);
+    font-size: calc(1.3vw);
   }
 }
 
 ${large} {
   :root {
-    font-size: calc(2vmin);
-    font-size: calc(2vm);
+    font-size: calc(1.3vw);
   }
 }
 `
