@@ -1,7 +1,6 @@
 import R from 'ramda'
-import {Flex} from 'reflexbox'
 import {css} from 'glamor'
-import {h, div} from 'react-hyperscript-helpers'
+import {div} from 'react-hyperscript-helpers'
 
 import container from '../../components/site-container'
 import cell from '../../components/cell'
@@ -9,9 +8,12 @@ import crossLink from '../../components/cross-link'
 import grid from '../../components/grid'
 import header from '../../components/header'
 import bodyText from '../../components/body-text'
+import {medium, large} from '../../constants/media'
+
+import {HEADER_HEIGHT} from '../../components/header'
 
 const Menu = ({closeMenu, isOpen}) => {
-  return h(Flex, [
+  return div([
     header(),
     div(
       {
@@ -25,7 +27,9 @@ const Menu = ({closeMenu, isOpen}) => {
           height: '100vh',
           transform: isOpen ? 'translateY(0)' : 'translateY(-150%)',
           transitionDelay: isOpen ? 0 : '100ms',
-          zIndex: 2
+          zIndex: 2,
+          [medium]: {top: HEADER_HEIGHT},
+          [large]: {top: HEADER_HEIGHT}
         })
       },
       [
