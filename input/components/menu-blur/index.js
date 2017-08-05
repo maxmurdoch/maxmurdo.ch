@@ -5,7 +5,7 @@ const MenuBlur = ({isOpen, children}) => {
     {
       style: {
         willChange: 'filter',
-        filter: isOpen ? 'blur(12px) opacity(20%)' : 'none',
+        filter: isOpen ? 'blur(12px) opacity(40%)' : 'none',
         transitionDuration: '100ms',
         transitionProperty: 'filter',
         transitionTimingFunction: 'ease-in-out',
