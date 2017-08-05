@@ -10,7 +10,7 @@ const MenuBlur = ({isOpen, children}) => {
         transitionProperty: 'filter',
         transitionTimingFunction: 'ease-in-out',
         zIndex: 1,
-        width: '100vw',
+        width: '100%',
         height: '100%'
       }
     },
