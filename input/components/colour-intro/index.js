@@ -11,36 +11,80 @@ import {HEADER_HEIGHT} from '../header'
 
 import {medium, large} from '../../constants/media'
 
-const getRandom = list =>
+const getRandomFromList = list =>
   R.nth(Math.floor(R.multiply(R.length(list), Math.random())), list)
+
 class ColourIntro extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      isPlaying: false,
       backgroundColor: '',
       firstPosition: 0,
       secondPosition: 0,
       thirdPosition: 0,
-      transitionTimingFunction: 'cubic-bezier(.1, .2, .1, 1)'
+      transitionTimingFunction: 'cubic-bezier(.1, .2, .1, 1)',
+      stopColourInterval: () => null,
+      stopPositionInterval: () => null
     }
     this.updateColour = R.bind(this.updateColour, this)
     this.updatePosition = R.bind(this.updatePosition, this)
+    this.startAnimation = R.bind(this.startAnimation, this)
+    this.stopAnimation = R.bind(this.stopAnimation, this)
   }
 
   componentWillMount() {
-    setInterval(this.updateColour, 2000)
-    setInterval(this.updatePosition, 4000)
-    setTimeout(this.updatePosition, 0)
-    this.updateColour()
+    this.startAnimation()
 
     window.addEventListener('resize', this.updatePosition)
   }
 
+  componentWillUpdate(nextProps) {
+    if (R.not(R.equals(nextProps, this.props))) {
+      nextProps.stopAnimation ? this.stopAnimation() : this.startAnimation()
+    }
+  }
+
+  componentWillUnmount() {
+    this.stopAnimation()
+  }
+
+  startAnimation() {
+    if (this.state.isPlaying) {
+      return
+    }
+    const updateColourId = setInterval(this.updateColour, 2000)
+    const updatePositionId = setInterval(this.updatePosition, 4000)
+    setTimeout(this.updatePosition, 0)
+    setTimeout(this.updateColour, 0)
+
+    this.setState({
+      isPlaying: true,
+      stopColourInterval: () => clearInterval(updateColourId),
+      stopPositionInterval: () => clearInterval(updatePositionId)
+    })
+
+    window.addEventListener('resize', this.updatePosition)
+  }
+
+  stopAnimation() {
+    if (R.equals(this.state.isPlaying, false)) {
+      return
+    }
+
+    this.setState({isPlaying: false})
+    this.state.stopColourInterval()
+    this.state.stopPositionInterval()
+
+    window.removeEventListener('resize', this.updatePosition)
+  }
+
   updatePosition() {
     const operands = ['-', '']
-    const divisors = R.range(0, 45)
+    const divisors = R.range(0, 40)
 
-    const random = () => `${getRandom(operands)}${getRandom(divisors)}`
+    const random = () =>
+      `${getRandomFromList(operands)}${getRandomFromList(divisors)}`
 
     this.setState({
       firstPosition: `translateY(${random()}%)`,
@@ -63,7 +107,7 @@ class ColourIntro extends Component {
         R.not(R.equals(backgroundColor, this.state.backgroundColor)),
       colours
     )
-    const backgroundColor = getRandom(colourSet)
+    const backgroundColor = getRandomFromList(colourSet)
     this.setState({backgroundColor})
   }
 
@@ -76,12 +120,12 @@ class ColourIntro extends Component {
           height: '100vh',
           display: 'flex',
           transition: 'background-color 2s',
-          transitionTimingFunction,
           willChange: 'background-color',
-          backgroundColor,
+          transitionTimingFunction,
           [medium]: {paddingTop: HEADER_HEIGHT},
           [large]: {paddingTop: HEADER_HEIGHT}
-        })
+        }),
+        style: {backgroundColor}
       },
       [
         container([
@@ -94,10 +138,12 @@ class ColourIntro extends Component {
                 align: 'center',
                 className: css({
                   willChange: 'transform',
-                  transform: this.state.firstPosition,
-                  transition: 'all 1s',
+                  transitionProperty: 'all',
+                  transitionDuration: '2000ms',
+                  transitionDelay: 0,
                   transitionTimingFunction
-                })
+                }),
+                style: {transform: this.state.firstPosition}
               },
               [text({size: 4}, 'Hi, I’m Max')]
             ),
@@ -109,10 +155,12 @@ class ColourIntro extends Component {
                 align: 'center',
                 className: css({
                   willChange: 'transform',
-                  transform: this.state.secondPosition,
-                  transition: 'all 1s',
+                  transitionProperty: 'all',
+                  transitionDuration: '2000ms',
+                  transitionDelay: '250ms',
                   transitionTimingFunction
-                })
+                }),
+                style: {transform: this.state.secondPosition}
               },
               [text({size: 4}, 'I design & build')]
             ),
@@ -124,10 +172,12 @@ class ColourIntro extends Component {
                 align: 'center',
                 className: css({
                   willChange: 'transform',
-                  transform: this.state.thirdPosition,
-                  transition: 'all 1s',
+                  transitionProperty: 'all',
+                  transitionDuration: '2000ms',
+                  transitionDelay: '500ms',
                   transitionTimingFunction
-                })
+                }),
+                style: {transform: this.state.thirdPosition}
               },
               [text({size: 4}, 'digital products')]
             )

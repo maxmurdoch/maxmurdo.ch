@@ -21,7 +21,7 @@ const Home = ({menuIsOpen}) => {
       menuIsOpen ? null : header(),
       menu(),
       menuBlur([
-        colourIntro(),
+        colourIntro({stopAnimation: menuIsOpen}),
         div({className: css({marginTop: large})}, [
           container([mathsBuilders(), codeAtUni(), goCardless()])
         ])
