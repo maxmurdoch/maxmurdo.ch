@@ -28,8 +28,8 @@ const MathsBuilders = () => {
         cell(
           {
             small: {column: 1, of: 1},
-            medium: {column: 2, of: 6},
-            large: {column: 2, of: 6},
+            medium: {column: 1, of: 3},
+            large: {column: 1, of: 3},
             bottomGutter: true
           },
           [
@@ -43,9 +43,7 @@ const MathsBuilders = () => {
                 text(
                   {
                     tag: 'h1',
-                    smallSize: 1,
-                    mediumSize: 2,
-                    largeSize: 3,
+                    size: 3,
                     className: css({margin: 0})
                   },
                   'Maths Builders'
@@ -57,8 +55,8 @@ const MathsBuilders = () => {
         cell(
           {
             small: {column: 1, of: 1},
-            medium: {column: 1, of: 2},
-            large: {column: 1, of: 2},
+            medium: {column: 2, of: 3},
+            large: {column: 2, of: 3},
             bottomGutter: true
           },
           [
@@ -76,9 +74,7 @@ const MathsBuilders = () => {
                 text(
                   {
                     tag: 'p',
-                    smallSize: 1,
-                    mediumSize: 2,
-                    largeSize: 3,
+                    size: 3,
                     shade: 2,
                     className: css({margin: 0})
                   },
@@ -88,7 +84,7 @@ const MathsBuilders = () => {
                       {target: 'external', to: 'http://www.eng.cam.ac.uk/'},
                       'University of Cambridge'
                     ),
-                    ' to design an app to teach maths on a phone.'
+                    ' to design an app to teach GCSE maths on a phone.'
                   ]
                 )
               ]

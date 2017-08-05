@@ -28,7 +28,7 @@ const CodeAtUni = () => {
           {
             small: {column: 1, of: 1},
             medium: {column: 1, of: 3},
-            large: {column: 1, of: 2},
+            large: {column: 1, of: 3},
             bottomGutter: true
           },
           [
@@ -55,7 +55,7 @@ const CodeAtUni = () => {
           {
             small: {column: 1, of: 1},
             medium: {column: 2, of: 3},
-            large: {column: 1, of: 2},
+            large: {column: 2, of: 3},
             bottomGutter: true
           },
           [
@@ -75,7 +75,10 @@ const CodeAtUni = () => {
                   },
                   [
                     'I made a v1 brand and website for ',
-                    link({to: 'http://www.codeatuni.com/'}, ['Code at Uni']),
+                    link(
+                      {target: 'internal', to: 'http://www.codeatuni.com/'},
+                      ['Code at Uni']
+                    ),
                     ', the new education startup that wants to teach uni students to code.'
                   ]
                 )

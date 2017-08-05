@@ -30,7 +30,7 @@ const GoCardless = () => {
           {
             small: {column: 1, of: 1},
             medium: {column: 1, of: 3},
-            large: {column: 1, of: 2},
+            large: {column: 1, of: 3},
             bottomGutter: true
           },
           [
@@ -44,9 +44,7 @@ const GoCardless = () => {
                 text(
                   {
                     tag: 'h1',
-                    smallSize: 1,
-                    mediumSize: 2,
-                    largeSize: 3,
+                    size: 3,
                     className: css({margin: 0})
                   },
                   'GoCardless'
@@ -59,7 +57,7 @@ const GoCardless = () => {
           {
             small: {column: 1, of: 1},
             medium: {column: 2, of: 3},
-            large: {column: 1, of: 2},
+            large: {column: 2, of: 3},
             bottomGutter: true
           },
           [
@@ -73,9 +71,7 @@ const GoCardless = () => {
                 text(
                   {
                     tag: 'p',
-                    smallSize: 1,
-                    mediumSize: 2,
-                    largeSize: 3,
+                    size: 3,
                     shade: 2,
                     className: css({margin: 0})
                   },
