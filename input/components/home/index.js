@@ -7,7 +7,6 @@ import {div} from 'react-hyperscript-helpers'
 import menuNoScroll from '../../containers/menu-no-scroll'
 import menu from '../../containers/menu'
 import menuBlur from '../../containers/menu-blur'
-import header from '../header'
 import container from '../site-container'
 import colourIntro from '../colour-intro'
 import goCardless from '../gocardless'
@@ -18,7 +17,6 @@ import {large} from '../../constants/gutter'
 const Home = ({menuIsOpen}) => {
   return div([
     menuNoScroll([
-      menuIsOpen ? null : header(),
       menu(),
       menuBlur([
         colourIntro({stopAnimation: menuIsOpen}),
