@@ -13,7 +13,7 @@ const topBar = hh(({isOpen}) =>
       position: 'absolute',
       display: 'block',
       transition: 'all 50ms ease-in-out',
-      top: 11,
+      top: 12,
       willChange: 'transform',
       transform: isOpen ? 'rotate(45deg) translateY(0px)' : 'translateY(-6px)',
       width: 24,
@@ -38,8 +38,8 @@ const bottomBar = hh(({isOpen}) =>
       background: R.last(black),
       position: 'absolute',
       display: 'block',
-      bottom: 11,
-      transition: 'all 50ms ease',
+      bottom: 12,
+      transition: 'transform 100ms cubic-bezier(0.1, 0.8, 0.1, 1)',
       willChange: 'transform',
       transform: isOpen ? 'rotate(-45deg) translateY(0px)' : 'translateY(6px)',
       width: 24,
@@ -73,14 +73,14 @@ const menuIconContainer = hh(({onClick, children}) =>
           justifyContent: 'center',
           alignItems: 'center',
           width: 24,
-          height: 24,
+          height: 25,
           [medium]: {
-            width: 32,
-            height: 32
+            width: 34,
+            height: 31
           },
           [large]: {
-            width: 32,
-            height: 32
+            width: 34,
+            height: 31
           }
         },
         linkStyle
