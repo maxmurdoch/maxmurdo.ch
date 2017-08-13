@@ -1,7 +1,7 @@
 import R from 'ramda'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
-import {hh, h} from 'react-hyperscript-helpers'
+import {hh, h, a} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
 import internalCursor from '../../assets/cursor-2-internal.svg'
 import externalCursor from '../../assets/cursor-2-external.svg'
@@ -40,17 +40,28 @@ const LinkWrapper = ({
     className
   )
 
-  return h(
-    Link,
-    {
-      to,
-      onMouseEnter,
-      onMouseLeave,
-      className: linkStyle,
-      ...props
-    },
-    [children]
-  )
+  return R.equals(target, 'external')
+    ? a(
+        {
+          href: to,
+          target: '_blank',
+          className: linkStyle,
+          onMouseEnter,
+          onMouseLeave
+        },
+        [children]
+      )
+    : h(
+        Link,
+        {
+          to,
+          onMouseEnter,
+          onMouseLeave,
+          className: linkStyle,
+          ...props
+        },
+        [children]
+      )
 }
 
 LinkWrapper.propTypes = {

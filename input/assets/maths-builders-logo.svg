@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="375px" height="667px" viewBox="0 0 375 667" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #FFFFFF;">
+<svg width="183px" height="133px" viewBox="0 0 183 133" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 46 (44423) - http://www.bohemiancoding.com/sketch -->
-    <title>one</title>
+    <title>logo</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="sign-in" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="one">
-            <text id="Maths-builders" font-family="Graphik-Regular, Graphik" font-size="22" font-weight="normal" line-spacing="28" fill-opacity="0.9" fill="#112730">
-                <tspan x="112.353" y="342">Maths builders</tspan>
-            </text>
-            <g id="logo" transform="translate(105.000000, 160.000000)" stroke-width="2">
+        <g id="one" transform="translate(-103.000000, -160.000000)" stroke-width="2">
+            <g id="logo" transform="translate(105.000000, 160.000000)">
                 <g id="solve-little-pieces" transform="translate(55.000000, 76.000000)">
                     <rect id="Rectangle-4" stroke-opacity="0.9" stroke="#112730" x="0" y="8" width="24" height="24"></rect>
                     <rect id="Rectangle-4" stroke="#5886F4" x="32" y="0" width="24" height="24"></rect>

@@ -36,7 +36,7 @@ class SimpleIntro extends Component {
                   overflowX: 'hidden',
                   height: '100vh',
                   maxWidth: '100%',
-                  width: '100vw'
+                  width: '100%'
                 })
               },
               [

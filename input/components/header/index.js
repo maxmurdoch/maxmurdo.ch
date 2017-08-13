@@ -15,7 +15,7 @@ const Header = () => {
       'data-aos': 'fade-in',
       'data-aos-delay': 800,
       className: css({
-        zIndex: 10,
+        zIndex: 2,
         height: HEADER_HEIGHT,
         display: 'flex',
         width: '100%',

@@ -24,19 +24,19 @@ css.insert(
   `
 ${small} {
   :root {
-    font-size: calc(2vw);
+    font-size: 2.2vw;
   }
 }
 
 ${medium} {
   :root {
-    font-size: calc(1.3vw);
+    font-size: 1.3vw;
   }
 }
 
 ${large} {
   :root {
-    font-size: calc(1.3vw);
+    font-size: 1.3vw;
   }
 }
 `

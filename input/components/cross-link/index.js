@@ -6,7 +6,6 @@ import cross from '../../assets/cross.svg'
 
 const className = css({
   display: 'block',
-  minHeight: '100vh',
   cursor: `url(${cross}), auto !important`,
   textDecoration: 'none'
 })

@@ -18,6 +18,8 @@ class ColourIntro extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      operands: ['-', ''],
+      divisors: R.range(0, 40),
       isPlaying: false,
       backgroundColor: '',
       firstPosition: 0,
@@ -27,10 +29,10 @@ class ColourIntro extends Component {
       stopColourInterval: () => null,
       stopPositionInterval: () => null
     }
-    this.updateColour = R.bind(this.updateColour, this)
-    this.updatePosition = R.bind(this.updatePosition, this)
-    this.startAnimation = R.bind(this.startAnimation, this)
-    this.stopAnimation = R.bind(this.stopAnimation, this)
+    this.updateColour = this.updateColour.bind(this)
+    this.updatePosition = this.updatePosition.bind(this)
+    this.startAnimation = this.startAnimation.bind(this)
+    this.stopAnimation = this.stopAnimation.bind(this)
   }
 
   componentWillMount() {
@@ -80,11 +82,10 @@ class ColourIntro extends Component {
   }
 
   updatePosition() {
-    const operands = ['-', '']
-    const divisors = R.range(0, 40)
-
     const random = () =>
-      `${getRandomFromList(operands)}${getRandomFromList(divisors)}`
+      `${getRandomFromList(this.state.operands)}${getRandomFromList(
+        this.state.divisors
+      )}`
 
     this.setState({
       firstPosition: `translateY(${random()}%)`,
