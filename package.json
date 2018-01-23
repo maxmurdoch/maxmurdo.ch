@@ -47,7 +47,7 @@
     "react-parallax-component": "^1.0.6",
     "react-redux": "^5.0.5",
     "react-router": "^4.0.0",
-    "react-router-redux": "next",
+    "react-router-redux": "^5.0.0-alpha.9",
     "react-slick": "^0.14.11",
     "react-slide-deck": "^0.2.3",
     "react-track": "^0.4.4",
