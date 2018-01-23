@@ -10,7 +10,7 @@ const className = css({
   textDecoration: 'none'
 })
 
-const CrossLink = ({to = '/', onClick, children}) =>
-  h(Link, {className, to, onClick}, [children])
+const CrossLink = ({to = '/', onClick, children, style}) =>
+  h(Link, {className, to, onClick, style}, [children])
 
 export default hh(CrossLink)
