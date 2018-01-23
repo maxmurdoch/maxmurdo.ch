@@ -6,6 +6,7 @@ import graphikRegularItalicWoff from '../assets/fonts/graphik/Graphik-RegularIta
 import graphikRegularItalicTtf from '../assets/fonts/graphik/Graphik-RegularItalic.ttf'
 import gtAmericaRegularWoff from '../assets/fonts/gt-america/GT-America-Standard-Light.woff'
 import gtAmericaExtendedBlackWoff from '../assets/fonts/gt-america/GT-America-Extended-Black.woff'
+import gtAmericaMonoWoff from '../assets/fonts/gt-america/GT-America-Mono-Light.woff'
 
 const lineHeight = 1.5
 
@@ -39,10 +40,17 @@ const gtAmericaBlack = css.fontFace({
   src: `url(${gtAmericaExtendedBlackWoff})`
 })
 
+const gtAmericaMono = css.fontFace({
+  fontFamily: 'GT America Mono',
+  fontStyle: 'normal',
+  fontWeight: 300,
+  src: `url(${gtAmericaMonoWoff})`
+})
+
 const sans = `${graphik}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif`
 const wide = `${gtAmericaBlack}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif`
-const mono = '\'Space Mono\', monospace'
-const serif = '"Untitled Serif", Times, Times New Roman, serif'
+const mono = `${gtAmericaMono}, monospace`
+const serif = 'Times, Times New Roman, serif'
 const family = {
   wide,
   sans,
@@ -50,7 +58,7 @@ const family = {
   serif
 }
 
-const numScale = R.scan(n => R.multiply(n, 1.25), 0.9, R.range(1, 10))
+const numScale = R.scan(n => R.multiply(n, 1.25), 1, R.range(1, 10))
 const appendRem = R.partialRight(R.concat, ['rem'])
 const size = R.map(appendRem, R.map(R.toString, numScale))
 
