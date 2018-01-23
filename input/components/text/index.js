@@ -18,6 +18,7 @@ css.global('::selection', {
 
 const Text = ({
   tag = 'p',
+  align = 'left',
   size,
   smallSize,
   mediumSize,
@@ -34,6 +35,7 @@ const Text = ({
 
   const baseStyle = css({
     fontFamily: R.prop(family, fontFamily),
+    textAlign: align,
     fontWeight: weight,
     color: R.nth(R.dec(shade), shadeSet),
     fontStyle,
