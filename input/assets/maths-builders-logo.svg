@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="183px" height="133px" viewBox="0 0 183 133" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 46 (44423) - http://www.bohemiancoding.com/sketch -->
-    <title>logo</title>
+<svg width="118px" height="118px" viewBox="0 0 118 118" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>maths-builders-logo</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="sign-in" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="one" transform="translate(-103.000000, -160.000000)" stroke-width="2">
-            <g id="logo" transform="translate(105.000000, 160.000000)">
-                <g id="solve-little-pieces" transform="translate(55.000000, 76.000000)">
-                    <rect id="Rectangle-4" stroke-opacity="0.9" stroke="#112730" x="0" y="8" width="24" height="24"></rect>
-                    <rect id="Rectangle-4" stroke="#5886F4" x="32" y="0" width="24" height="24"></rect>
-                    <rect id="Rectangle-4" stroke-opacity="0.9" stroke="#112730" x="0" y="32" width="24" height="24"></rect>
-                    <rect id="Rectangle-4" stroke-opacity="0.9" stroke="#112730" x="24" y="32" width="24" height="24"></rect>
-                </g>
-                <circle id="Oval-2" stroke="#58C7F4" cx="51" cy="45" r="8"></circle>
-                <polyline id="Line-2" stroke="#FF6767" stroke-linecap="square" transform="translate(158.506097, 66.506097) rotate(-45.000000) translate(-158.506097, -66.506097) " points="134.506097 71.5060967 140.506097 61.5060967 146.506097 71.5060967 152.506097 61.5060967 158.506097 71.5060967 164.506097 61.5060967 170.506097 71.5060967 176.506097 61.5060967 182.506097 71.5060967"></polyline>
-                <path d="M111,25.7874117 L101.88148,39.2964942 L120.11852,39.2964942 L111,25.7874117 Z" id="Rectangle-2" stroke="#CA86EB"></path>
-                <rect id="Rectangle-5" stroke="#FE8E47" transform="translate(75.348469, 7.348469) rotate(-15.000000) translate(-75.348469, -7.348469) " x="70.3484692" y="2.34846923" width="10" height="10"></rect>
-                <path d="M23.5,74.5 L0,60" id="Line-3" stroke="#5FE59B" stroke-linecap="square"></path>
+    <g id="Desktop-HD" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-120.000000, -2885.000000)" stroke-opacity="0.9">
+        <g id="maths-builders-logo" transform="translate(123.000000, 2888.000000)" stroke="#112730" stroke-width="2">
+            <g id="Group-8">
+                <rect id="Path" x="0" y="16" width="48" height="48"></rect>
+                <rect id="Path" x="0" y="64" width="48" height="48"></rect>
+                <rect id="Path" x="48" y="64" width="48" height="48"></rect>
+                <rect id="Path" x="64" y="0" width="48" height="48"></rect>
             </g>
         </g>
     </g>
