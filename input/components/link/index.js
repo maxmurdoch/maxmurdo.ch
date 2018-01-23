@@ -1,8 +1,20 @@
 import R from 'ramda'
 import PropTypes from 'prop-types'
-import {Link} from 'react-router-dom'
-import {hh, h, a} from 'react-hyperscript-helpers'
-import {css} from 'glamor'
+import {
+  Link
+} from 'react-router-dom'
+import {
+  hh,
+  h,
+  a
+} from 'react-hyperscript-helpers'
+import {
+  css
+} from 'glamor'
+
+import {
+  blue
+} from '../../constants/colour'
 import internalCursor from '../../assets/cursor-2-internal.svg'
 import externalCursor from '../../assets/cursor-2-external.svg'
 import defaultCursor from '../../assets/cursor-2.svg'
@@ -23,45 +35,44 @@ const LinkWrapper = ({
   children,
   ...props
 }) => {
-  const linkStyle = css(
-    {
-      transition: 'opacity 250ms cubic-bezier(0.2, 1, 0.4, 1)',
-      display: 'inline-flex',
-      flex: '0 1 auto',
-      textDecoration: 'none',
-      color,
+  const linkStyle = css({
       ':hover': {
         opacity: 0.6,
         cursor: cursorFor(target)
       },
-      ':focus': {backgroundColor: 'blue', outline: 0},
-      ':visited': {color}
+      ':focus': {
+        color: blue,
+        outline: 0
+      },
+      ':visited': {
+        textDecoration: 'line-through'
+      },
+      transition: 'opacity 250ms cubic-bezier(0.2, 1, 0.4, 1)',
+      display: 'inline-flex',
+      flex: '0 1 auto',
+      textDecoration: 'none',
+      color
     },
     className
   )
 
-  return R.equals(target, 'external')
-    ? a(
-        {
-          href: to,
-          target: '_blank',
-          className: linkStyle,
-          onMouseEnter,
-          onMouseLeave
-        },
-        [children]
-      )
-    : h(
-        Link,
-        {
-          to,
-          onMouseEnter,
-          onMouseLeave,
-          className: linkStyle,
-          ...props
-        },
-        [children]
-      )
+  return R.equals(target, 'external') ?
+    a({
+      href: to,
+      target: '_blank',
+      className: linkStyle,
+      onMouseEnter,
+      onMouseLeave
+    }, [children]) :
+    h(
+      Link, {
+        to,
+        onMouseEnter,
+        onMouseLeave,
+        className: linkStyle,
+        ...props
+      }, [children]
+    )
 }
 
 LinkWrapper.propTypes = {
