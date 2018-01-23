@@ -15,6 +15,8 @@ const Grid = ({
   wrap = true,
   justify = 'start',
   align = 'start',
+  gutter = true,
+  gridWrapperClassName,
   children
 }) => {
   const flexDirection = R.ifElse(
@@ -23,11 +25,14 @@ const Grid = ({
     R.identity
   )
 
-  const gridWrapperStyle = css({
-    height: '100%',
-    width: '100%',
-    maxWidth: '100%'
-  })
+  const gridWrapperStyle = css(
+    {
+      height: '100%',
+      width: '100%',
+      maxWidth: '100%'
+    },
+    gridWrapperClassName
+  )
 
   const gridStyle = css({
     boxSizing: 'border-box',
@@ -40,16 +45,16 @@ const Grid = ({
     flexBasis: '100%',
     position: 'relative',
     [R.prop('small', media)]: {
-      marginRight: `-${smallHalf}`,
-      marginLeft: `-${smallHalf}`
+      marginRight: gutter ? `-${smallHalf}` : 0,
+      marginLeft: gutter ? `-${smallHalf}` : 0
     },
     [R.prop('medium', media)]: {
-      marginRight: `-${mediumHalf}`,
-      marginLeft: `-${mediumHalf}`
+      marginRight: gutter ? `-${mediumHalf}` : 0,
+      marginLeft: gutter ? `-${mediumHalf}` : 0
     },
     [R.prop('large', media)]: {
-      marginRight: `-${largeHalf}`,
-      marginLeft: `-${largeHalf}`
+      marginRight: gutter ? `-${largeHalf}` : 0,
+      marginLeft: gutter ? `-${largeHalf}` : 0
     }
   })
 

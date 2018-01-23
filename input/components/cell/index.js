@@ -34,7 +34,9 @@ class Cell extends Component {
       justify = 'start',
       align = 'start',
       topGutter = false,
+      rightGutter = true,
       bottomGutter = false,
+      leftGutter = true,
       children,
       ...props
     } = this.props
@@ -56,22 +58,22 @@ class Cell extends Component {
       height: '100%',
       [R.prop('small', media)]: {
         flexBasis: R.prop('auto', small) ? 'auto' : percent(small),
-        paddingRight: smallHalf,
-        paddingLeft: smallHalf,
+        paddingRight: rightGutter ? smallHalf : 0,
+        paddingLeft: leftGutter ? smallHalf : 0,
         paddingBottom: bottomGutter ? smallGutter : 0,
         paddingTop: topGutter ? smallGutter : 0
       },
       [R.prop('medium', media)]: {
         flexBasis: R.prop('auto', medium) ? 'auto' : percent(medium),
-        paddingRight: mediumHalf,
-        paddingLeft: mediumHalf,
+        paddingRight: rightGutter ? mediumHalf : 0,
+        paddingLeft: leftGutter ? mediumHalf : 0,
         paddingBottom: bottomGutter ? mediumGutter : 0,
         paddingTop: topGutter ? mediumGutter : 0
       },
       [R.prop('large', media)]: {
         flexBasis: R.prop('auto', large) ? 'auto' : percent(large),
-        paddingRight: largeHalf,
-        paddingLeft: largeHalf,
+        paddingRight: rightGutter ? largeHalf : 0,
+        paddingLeft: leftGutter ? largeHalf : 0,
         paddingBottom: bottomGutter ? largeGutter : 0,
         paddingTop: topGutter ? largeGutter : 0
       }
@@ -110,7 +112,9 @@ Cell.propTypes = {
   style: PropTypes.object,
   children: PropTypes.node.isRequired,
   topGutter: PropTypes.bool,
-  bottomGutter: PropTypes.bool
+  rightGutter: PropTypes.bool,
+  bottomGutter: PropTypes.bool,
+  leftGutter: PropTypes.bool
 }
 
 export default hh(Cell)
