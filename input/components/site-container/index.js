@@ -1,3 +1,4 @@
+import R from 'ramda'
 import {hh, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
 
@@ -8,24 +9,32 @@ import {
   large as largeGutter
 } from '../../constants/gutter'
 
-const SiteContainer = ({children}) => {
+const SiteContainer = ({children, top, right = true, bottom, left = true}) => {
   const className = css({
     position: 'relative',
     width: '100%',
     maxWidth: '100%',
-    margin: '0 auto',
+    marginBottom: 0,
+    marginRight: 'auto',
+    marginLeft: 'auto',
     boxSizing: 'border-box',
     [small]: {
-      paddingRight: smallGutter,
-      paddingLeft: smallGutter
+      paddingRight: right ? smallGutter : 0,
+      paddingLeft: left ? smallGutter : 0,
+      paddingTop: top ? smallGutter : 0,
+      paddingBottom: bottom ? smallGutter : 0
     },
     [medium]: {
-      paddingRight: mediumGutter,
-      paddingLeft: mediumGutter
+      paddingRight: right ? mediumGutter : 0,
+      paddingLeft: left ? mediumGutter : 0,
+      paddingTop: top ? mediumGutter : 0,
+      paddingBottom: bottom ? mediumGutter : 0
     },
     [large]: {
-      paddingRight: largeGutter,
-      paddingLeft: largeGutter
+      paddingRight: right ? largeGutter : 0,
+      paddingLeft: left ? largeGutter : 0,
+      paddingTop: top ? largeGutter : 0,
+      paddingBottom: bottom ? largeGutter : 0
     }
   })
 
