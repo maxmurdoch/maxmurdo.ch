@@ -19,9 +19,8 @@ class ColourIntro extends Component {
     super(props)
     this.state = {
       operands: ['-', ''],
-      divisors: R.range(0, 40),
+      divisors: R.range(5, 30),
       isPlaying: false,
-      backgroundColor: '',
       firstPosition: 0,
       secondPosition: 0,
       thirdPosition: 0,
@@ -43,7 +42,7 @@ class ColourIntro extends Component {
 
   componentWillUpdate(nextProps) {
     if (R.not(R.equals(nextProps, this.props))) {
-      nextProps.stopAnimation ? this.stopAnimation() : this.startAnimation()
+      nextProps.stopAnimationIf ? this.stopAnimation() : this.startAnimation()
     }
   }
 
@@ -113,20 +112,17 @@ class ColourIntro extends Component {
   }
 
   render() {
-    const {backgroundColor, transitionTimingFunction} = this.state
+    const {transitionTimingFunction} = this.state
     return div(
       {
         className: css({
           width: '100%',
           height: '100vh',
           display: 'flex',
-          transition: 'background-color 2s',
-          willChange: 'background-color',
           transitionTimingFunction,
           [medium]: {paddingTop: HEADER_HEIGHT},
           [large]: {paddingTop: HEADER_HEIGHT}
-        }),
-        style: {backgroundColor}
+        })
       },
       [
         container([
@@ -154,6 +150,7 @@ class ColourIntro extends Component {
                 bottomGutter: true,
                 grow: 1,
                 align: 'center',
+                justify: 'center',
                 className: css({
                   willChange: 'transform',
                   transitionProperty: 'all',
@@ -163,7 +160,7 @@ class ColourIntro extends Component {
                 }),
                 style: {transform: this.state.secondPosition}
               },
-              [text({size: 4}, 'I design & build')]
+              [text({family: 'sans', size: 4}, 'I design & build')]
             ),
             cell(
               {
@@ -171,6 +168,7 @@ class ColourIntro extends Component {
                 bottomGutter: true,
                 grow: 1,
                 align: 'center',
+                justify: 'end',
                 className: css({
                   willChange: 'transform',
                   transitionProperty: 'all',
