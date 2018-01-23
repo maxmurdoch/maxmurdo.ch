@@ -77,7 +77,7 @@ const MathsBuildersText = () => {
                   {target: 'external', to: 'http://www.eng.cam.ac.uk/'},
                   'University of Cambridge'
                 ),
-                ' to design an app to teach GCSE maths on a phone.'
+                ' to design a way to teach GCSE maths on a phone.'
               ]
             )
           ]
