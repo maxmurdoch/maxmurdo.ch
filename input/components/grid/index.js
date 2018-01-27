@@ -7,6 +7,7 @@ import justifyContentMap from '../../constants/justify-content-map'
 import alignItemsMap from '../../constants/align-items-map'
 import validJustify from '../../constants/valid-justify'
 import validAlign from '../../constants/valid-align'
+import flexDirection from '../../helpers/flex-direction'
 import {smallHalf, mediumHalf, largeHalf} from '../../constants/gutter'
 
 const Grid = ({
@@ -19,12 +20,6 @@ const Grid = ({
   gridWrapperClassName,
   children
 }) => {
-  const flexDirection = R.ifElse(
-    R.always(R.equals(reverse, true)),
-    R.partialRight(R.concat, ['-reverse']),
-    R.identity
-  )
-
   const gridWrapperStyle = css(
     {
       height: '100%',
@@ -39,7 +34,7 @@ const Grid = ({
     display: 'flex',
     justifyContent: R.prop(justify, justifyContentMap),
     alignItems: R.prop(align, alignItemsMap),
-    flexDirection: flexDirection(direction),
+    flexDirection: flexDirection(direction, reverse),
     flexWrap: wrap ? 'wrap' : 'nowrap',
     height: '100%',
     flexBasis: '100%',

@@ -1,4 +1,3 @@
-import R from 'ramda'
 import {hh, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
 
@@ -13,7 +12,6 @@ const SiteContainer = ({children, top, right = true, bottom, left = true}) => {
   const className = css({
     position: 'relative',
     width: '100%',
-    maxWidth: '100%',
     marginBottom: 0,
     marginRight: 'auto',
     marginLeft: 'auto',

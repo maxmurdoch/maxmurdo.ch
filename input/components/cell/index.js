@@ -11,6 +11,7 @@ import justifyContentMap from '../../constants/justify-content-map'
 import alignItemsMap from '../../constants/align-items-map'
 
 import toFixed from '../../helpers/to-fixed'
+import flexDirection from '../../helpers/flex-direction'
 import {
   smallHalf,
   small as smallGutter,
@@ -31,6 +32,8 @@ class Cell extends Component {
       className,
       style,
       alignSelf,
+      direction,
+      reverse,
       justify = 'start',
       align = 'start',
       topGutter = false,
@@ -51,6 +54,7 @@ class Cell extends Component {
       alignSelf: R.prop(alignSelf, alignItemsMap),
       boxSizing: 'border-box',
       display: 'flex',
+      flexDirection: flexDirection(direction, reverse),
       alignItems: R.prop(align, alignItemsMap),
       justifyContent: R.prop(justify, justifyContentMap),
       flexGrow: grow,
@@ -106,6 +110,8 @@ Cell.propTypes = {
   alignSelf: PropTypes.oneOf(validAlign),
   align: PropTypes.oneOf(validAlign),
   justify: PropTypes.oneOf(validJustify),
+  direction: PropTypes.oneOf(['row', 'column']),
+  reverse: PropTypes.bool,
   grow: PropTypes.number,
   shrink: PropTypes.number,
   className: PropTypes.object,
