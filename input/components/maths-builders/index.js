@@ -2,18 +2,19 @@ import {withRouter} from 'react-router'
 import PropTypes from 'prop-types'
 import {hh, h, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
-import Media from 'react-media'
+import {Media} from 'react-media'
 
-import firstPage from '../../images/first-page.svg'
-import geometryAndMeasures from '../../images/maths-builder-geometry-and-measures-1.svg'
-import mathsBuilderProfile from '../../images/maths-builder-profile.svg'
+import firstPage from '../../images/sign-in-one.png'
+import signInOne from '../../images/sign-in-two.png'
+import signInTwo from '../../images/sign-in-three.png'
+import homeScreen from '../../assets/maths-builders-home-screen.svg'
 
 import screenImage from '../screen-image'
 import imageRow from '../image-row'
-import link from '../link'
 import grid from '../grid'
 import cell from '../cell'
 import text from '../text'
+import blurLink from '../../components/blur-link'
 import {smallWidth} from '../../constants/media'
 
 const MathsBuildersText = () => {
@@ -22,8 +23,7 @@ const MathsBuildersText = () => {
       {
         small: {column: 1, of: 1},
         medium: {column: 1, of: 3},
-        large: {column: 1, of: 3},
-        bottomGutter: true
+        large: {column: 1, of: 3}
       },
       [
         div(
@@ -36,6 +36,7 @@ const MathsBuildersText = () => {
             text(
               {
                 tag: 'h1',
+                smallSize: 2,
                 size: 3,
                 className: css({margin: 0})
               },
@@ -67,17 +68,13 @@ const MathsBuildersText = () => {
             text(
               {
                 tag: 'p',
+                smallSize: 2,
                 size: 3,
                 shade: 2,
                 className: css({margin: 0})
               },
               [
-                'I worked with the ',
-                link(
-                  {target: 'external', to: 'http://www.eng.cam.ac.uk/'},
-                  'University of Cambridge'
-                ),
-                ' to design a way to teach GCSE maths on a phone.'
+                'Research, brand, design and a prototype for a new app that teaches maths on a phone.'
               ]
             )
           ]
@@ -98,37 +95,20 @@ const MathsBuilders = () => {
       })
     },
     [
-      h(Media, {query: smallWidth}, [
-        matches => {
-          return matches
-            ? grid({justify: 'center'}, [
-                cell(
-                  {
-                    align: 'center',
-                    topGutter: true,
-                    bottomGutter: true,
-                    small: {column: 1, of: 2},
-                    medium: {column: 1, of: 2},
-                    large: {column: 1, of: 2}
-                  },
-                  [screenImage({src: firstPage})]
-                ),
-                cell([h(MathsBuildersText)])
-              ])
-            : grid([
-                cell([h(MathsBuildersText)]),
-                cell([
-                  imageRow({
-                    to: '/maths-builders',
-                    images: [
-                      firstPage,
-                      geometryAndMeasures,
-                      mathsBuilderProfile
-                    ]
-                  })
-                ])
-              ])
-        }
+      grid([
+        cell({bottomGutter: true}, [
+          blurLink({to: '/maths-builders'}, [
+            h(Media, {query: smallWidth}, [
+              matches =>
+                matches
+                  ? screenImage({src: homeScreen})
+                  : imageRow({
+                      images: [firstPage, signInOne, signInTwo]
+                    })
+            ])
+          ])
+        ]),
+        cell([h(MathsBuildersText)])
       ])
     ]
   )

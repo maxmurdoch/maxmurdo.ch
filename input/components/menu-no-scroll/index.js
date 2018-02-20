@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import {css} from 'glamor'
 import {Component} from 'react'
-import {div} from 'react-hyperscript-helpers'
+import {hh, div} from 'react-hyperscript-helpers'
 
 class MenuNoScroll extends Component {
   componentWillReceiveProps(nextProps) {
@@ -26,4 +26,4 @@ MenuNoScroll.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-export default MenuNoScroll
+export default hh(MenuNoScroll)

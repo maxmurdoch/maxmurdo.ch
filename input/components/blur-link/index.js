@@ -11,12 +11,13 @@ const viewProjectCell = ({to, isHovered}) =>
   link(
     {
       style: {
-        cursor: `url(${arrow}) 32 0, auto`,
+        cursor: isHovered ? `url(${arrow}) 32 0, auto` : 'auto',
         position: 'absolute',
-        transition: 'all 150ms ease-in-out, cursor 500ms ease-in',
+        transition: 'all 250ms ease-in-out',
         width: '100%',
         height: '100%',
-        opacity: 1,
+        opacity: isHovered ? 1 : 0,
+        filter: isHovered ? 'none' : 'blur(12px) opacity(40%)',
         zIndex: 3,
         display: 'flex',
         visibility: isHovered ? 'visible' : 'hidden',
@@ -56,8 +57,8 @@ const BlurLink = ({to, isHovered, onMouseEnter, onMouseLeave, children}) =>
           style: {
             width: '105%',
             height: '105%',
-            transition: '250ms filter, 250ms opacity',
-            filter: isHovered ? 'blur(8px) opacity(0.6)' : 'none'
+            transition: '200ms filter, 200ms opacity',
+            filter: isHovered ? 'blur(6px) opacity(0.6)' : 'blur(0px)'
           }
         },
         [children]

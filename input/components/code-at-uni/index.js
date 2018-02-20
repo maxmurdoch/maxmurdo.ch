@@ -5,13 +5,15 @@ import Media from 'react-media'
 
 import codeAtUni1 from '../../images/code-at-uni-1.png'
 import codeAtUni2 from '../../images/code-at-uni-2.png'
-import screenImage from '../screen-image'
-import grid from '../grid'
+
 import cell from '../cell'
+import grid from '../grid'
+import link from '../link'
+import screenImage from '../screen-image'
+import text from '../text'
+
 import {smallWidth} from '../../constants/media'
 import space from '../../constants/space'
-import link from '../link'
-import text from '../text'
 
 const CodeAtUniText = () => {
   return grid([
@@ -19,8 +21,7 @@ const CodeAtUniText = () => {
       {
         small: {column: 1, of: 1},
         medium: {column: 1, of: 3},
-        large: {column: 1, of: 3},
-        bottomGutter: true
+        large: {column: 1, of: 3}
       },
       [
         div(
@@ -33,6 +34,7 @@ const CodeAtUniText = () => {
             text(
               {
                 tag: 'h1',
+                smallSize: 2,
                 size: 3,
                 className: css({margin: 0})
               },
@@ -60,16 +62,13 @@ const CodeAtUniText = () => {
             text(
               {
                 tag: 'p',
+                smallSize: 2,
                 size: 3,
                 shade: 2,
                 className: css({margin: 0})
               },
               [
-                'I made a v1 brand and website for ',
-                link({target: 'external', to: 'http://www.codeatuni.com/'}, [
-                  'Code at Uni'
-                ]),
-                ', the new education startup that wants to teach uni students to code.'
+                'MVP brand and website for a new education startup that teaches uni students to code.'
               ]
             )
           ]
@@ -122,22 +121,12 @@ const CodeAtUni = () => {
         matches =>
           matches
             ? grid({align: 'start'}, [
-                cell(
-                  {
-                    small: {column: 1, of: 1},
-                    medium: {column: 2, of: 3},
-                    large: {column: 2, of: 3},
-                    bottomGutter: true,
-                    'data-aos': 'fade-up',
-                    'data-aos-delay': 200
-                  },
-                  [screenImage({src: codeAtUni1})]
-                ),
+                cell({bottomGutter: true}, [screenImage({src: codeAtUni1})]),
                 cell([h(CodeAtUniText)])
               ])
             : grid({align: 'start'}, [
-                cell([h(CodeAtUniText)]),
-                cell([h(CodeAtUniImages)])
+                cell([h(CodeAtUniImages)]),
+                cell([h(CodeAtUniText)])
               ])
       ])
     ]

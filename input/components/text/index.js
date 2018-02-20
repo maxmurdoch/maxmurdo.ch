@@ -9,6 +9,7 @@ import {
   lineHeight,
   family as fontFamily
 } from '../../constants/typography'
+import space from '../../constants/space'
 import {black} from '../../constants/colour'
 
 css.global('::selection', {
@@ -23,6 +24,7 @@ const Text = ({
   smallSize,
   mediumSize,
   largeSize,
+  marginBottom = false,
   family = 'sans',
   weight = 400,
   shade = 1,
@@ -40,7 +42,8 @@ const Text = ({
     color: R.nth(R.dec(shade), shadeSet),
     fontStyle,
     lineHeight,
-    margin: 0
+    margin: 0,
+    marginBottom: marginBottom ? R.nth(3, space) : 0
   })
   const sizeStyle = css({
     [small]: {fontSize: R.nth(R.defaultTo(size)(smallSize), typeSize)},

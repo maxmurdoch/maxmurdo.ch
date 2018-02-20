@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="667px" viewBox="0 0 375 667" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #FFFFFF;">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>two</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="311" height="42"></rect>
+        <filter x="-0.3%" y="-2.4%" width="100.6%" height="104.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="-2" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="sign-in" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="two">
+            <g id="button/flat/full/disabled" transform="translate(32.000000, 349.000000)" fill="#112730">
+                <rect id="button" fill-opacity="0.0700000003" fill-rule="evenodd" x="0" y="0" width="311" height="56" rx="4"></rect>
+                <text id="Text" font-family="Graphik-Medium, Graphik" font-size="18" font-weight="400" line-spacing="18" fill-opacity="0.4">
+                    <tspan x="116.044" y="34">Send link</tspan>
+                </text>
+            </g>
+            <g id="password-instead" transform="translate(78.000000, 421.000000)">
+                <text id="Type-password-instea" font-family="Graphik-Regular, Graphik" font-size="18" font-weight="normal" line-spacing="24" fill="#112730" fill-opacity="0.4">
+                    <tspan x="0.106" y="16">Type password instead</tspan>
+                </text>
+                <g id="arrow/stem/small/primary" transform="translate(210.500000, 15.000000) rotate(-180.000000) translate(-210.500000, -15.000000) translate(202.000000, 9.000000)" fill="#000000" fill-opacity="0.3">
+                    <path d="M3.41421356,7 L7.32712051,10.912907 L5.91290695,12.3271205 L0.524743569,6.93895713 L0.526050179,6.93765052 L-0.403436607,6.00816374 L5.80236356,-0.197636436 L7.21657713,1.21657713 L3.43315425,5 L17,5 L17,7 L3.41421356,7 Z" id="Combined-Shape"></path>
+                </g>
+            </g>
+            <g id="input/text/untouched" transform="translate(32.000000, 291.000000)">
+                <g id="Rectangle-4">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                </g>
+                <text id="password" font-family="Graphik-Regular, Graphik" font-size="18" font-weight="normal" line-spacing="24" fill="#112730" fill-opacity="0.4">
+                    <tspan x="0" y="24">email</tspan>
+                </text>
+            </g>
+            <g id="top-text" transform="translate(32.000000, 136.000000)" fill="#112730" fill-opacity="0.9" font-family="Graphik-Regular, Graphik" font-weight="normal">
+                <text id="We’ll-send-a-link-to" font-size="14" line-spacing="22">
+                    <tspan x="33.745" y="41">We’ll send a link to your email for you </tspan>
+                    <tspan x="82.227" y="63">to sign in with instead.</tspan>
+                </text>
+                <text id="Passwords-are-boring" font-size="18" line-spacing="26">
+                    <tspan x="62.359" y="15">Passwords are boring!</tspan>
+                </text>
+            </g>
+            <text id="Sign-up" font-family="Graphik-Regular, Graphik" font-size="18" font-weight="normal" line-spacing="24" fill="#112730" fill-opacity="0.4">
+                <tspan x="154.844641" y="641">Sign up</tspan>
+            </text>
+            <g id="logo-colour-small" transform="translate(168.000000, 24.000000)" stroke="#040F23">
+                <g id="Rectangle-4">
+                    <rect stroke-width="2" x="0" y="4.44444444" width="17.7777778" height="17.7777778"></rect>
+                    <rect stroke-width="2" x="0" y="22.2222222" width="17.7777778" height="17.7777778"></rect>
+                    <rect stroke-width="2" x="17.7777778" y="22.2222222" width="17.7777778" height="17.7777778"></rect>
+                    <rect stroke-width="2" fill="#3E7EEE" x="22.2222222" y="0" width="17.7777778" height="17.7777778"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

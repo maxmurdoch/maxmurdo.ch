@@ -17,8 +17,15 @@ const FullPageHeader = ({children, className, ...props}) => {
           height: '100vh',
           display: 'flex',
           paddingTop: SMALL_HEADER_HEIGHT,
-          [medium]: {paddingTop: MEDIUM_HEADER_HEIGHT},
-          [large]: {paddingTop: LARGE_HEADER_HEIGHT}
+          paddingBottom: SMALL_HEADER_HEIGHT,
+          [medium]: {
+            paddingTop: MEDIUM_HEADER_HEIGHT,
+            paddingBottom: MEDIUM_HEADER_HEIGHT
+          },
+          [large]: {
+            paddingTop: LARGE_HEADER_HEIGHT,
+            paddingBottom: LARGE_HEADER_HEIGHT
+          }
         },
         className
       ),

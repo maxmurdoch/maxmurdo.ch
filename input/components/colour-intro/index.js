@@ -126,61 +126,66 @@ class ColourIntro extends Component {
       },
       [
         container([
-          grid({wrap: false}, [
-            cell(
-              {
-                topGutter: true,
-                bottomGutter: true,
-                grow: 1,
-                align: 'center',
-                className: css({
-                  willChange: 'transform',
-                  transitionProperty: 'all',
-                  transitionDuration: '2000ms',
-                  transitionDelay: 0,
-                  transitionTimingFunction
-                }),
-                style: {transform: this.state.firstPosition}
-              },
-              [text({size: 4}, 'Hi, I’m Max')]
-            ),
-            cell(
-              {
-                topGutter: true,
-                bottomGutter: true,
-                grow: 1,
-                align: 'center',
-                justify: 'center',
-                className: css({
-                  willChange: 'transform',
-                  transitionProperty: 'all',
-                  transitionDuration: '2000ms',
-                  transitionDelay: '250ms',
-                  transitionTimingFunction
-                }),
-                style: {transform: this.state.secondPosition}
-              },
-              [text({family: 'sans', size: 4}, 'I design & build')]
-            ),
-            cell(
-              {
-                topGutter: true,
-                bottomGutter: true,
-                grow: 1,
-                align: 'center',
-                justify: 'end',
-                className: css({
-                  willChange: 'transform',
-                  transitionProperty: 'all',
-                  transitionDuration: '2000ms',
-                  transitionDelay: '500ms',
-                  transitionTimingFunction
-                }),
-                style: {transform: this.state.thirdPosition}
-              },
-              [text({size: 4}, 'digital products')]
-            )
-          ])
+          grid(
+            {
+              wrap: false
+            },
+            [
+              cell(
+                {
+                  topGutter: true,
+                  bottomGutter: true,
+                  grow: 1,
+                  align: 'center',
+                  className: css({
+                    willChange: 'transform',
+                    transitionProperty: 'all',
+                    transitionDuration: '2000ms',
+                    transitionDelay: 0,
+                    transitionTimingFunction
+                  }),
+                  style: {transform: this.state.firstPosition}
+                },
+                [text({size: 4, family: 'wide'}, 'Hi, I’m Max')]
+              ),
+              cell(
+                {
+                  topGutter: true,
+                  bottomGutter: true,
+                  grow: 1,
+                  align: 'center',
+                  justify: 'center',
+                  className: css({
+                    willChange: 'transform',
+                    transitionProperty: 'all',
+                    transitionDuration: '2000ms',
+                    transitionDelay: '250ms',
+                    transitionTimingFunction
+                  }),
+                  style: {transform: this.state.secondPosition}
+                },
+                [text({family: 'wide', size: 4}, 'I design & build')]
+              ),
+              cell(
+                {
+                  topGutter: true,
+                  bottomGutter: true,
+                  grow: 1,
+                  align: 'center',
+                  justify: 'end',
+                  className: css({
+                    willChange: 'transform',
+                    transitionProperty: 'all',
+                    transitionDuration: '2000ms',
+                    transitionDelay: '500ms',
+                    transitionTimingFunction
+                  }),
+                  style: {transform: this.state.thirdPosition}
+                },
+                [text({size: 4, family: 'wide'}, 'digital products')]
+              )
+            ]
+          )
         ])
       ]
     )

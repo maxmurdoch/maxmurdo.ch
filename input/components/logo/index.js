@@ -15,15 +15,15 @@ const className = css({
   lineHeight: 1
 })
 
-const Logo = () =>
-  link({to: '/'}, [
+const Logo = ({closeMenu}) =>
+  link({to: '/', onClick: closeMenu}, [
     text(
       {
         tag: 'h1',
         size: 2,
         className
       },
-      'Max Murdoch'
+      'Home'
     )
   ])
 

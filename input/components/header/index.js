@@ -2,7 +2,7 @@ import {div, hh} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
 import containerBox from '../site-container-box'
 import grid from '../grid'
-import logo from '../logo'
+import logo from '../../containers/logo'
 import menuIcon from '../../containers/menu-icon'
 import cell from '../cell'
 import {small, medium, large} from '../../constants/media'
@@ -25,7 +25,7 @@ const Header = () => {
         position: 'fixed',
         alignItems: 'stretch',
         height: SMALL_HEADER_HEIGHT,
-        [small]: {bottom: 0},
+        [small]: {bottom: 8},
         [medium]: {height: MEDIUM_HEADER_HEIGHT},
         [large]: {height: LARGE_HEADER_HEIGHT}
       })

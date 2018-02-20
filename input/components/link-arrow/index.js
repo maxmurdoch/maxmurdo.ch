@@ -12,11 +12,11 @@ import space from '../../constants/space'
 
 const LinkArrow = ({
   className,
-  text,
   to,
   isHovered,
   onMouseLeave,
-  onMouseEnter
+  onMouseEnter,
+  children
 }) => {
   return linkComponent(
     {
@@ -32,16 +32,7 @@ const LinkArrow = ({
       )
     },
     [
-      textComponent(
-        {
-          tag: 'p',
-          size: 2,
-          largeSize: 3,
-          shade: 2,
-          className: css({margin: 0})
-        },
-        [text]
-      ),
+      children,
       span(
         {
           style: {
@@ -56,7 +47,7 @@ const LinkArrow = ({
             willChange: 'transform'
           })
         },
-        [h(Arrow, {strokeWidth: 1})]
+        [h(Arrow, {strokeWidth: 2})]
       )
     ]
   )

@@ -1,9 +1,11 @@
-const smallWidth = '(max-width: 40em)'
+const smallWidth = '(max-width: 40rem)'
 const small = `@media screen and ${smallWidth}`
-const mediumWidth = '(min-width: 40em) and (max-width: 70em)'
+const mediumWidth = '(min-width: 40rem)'
 const medium = `@media screen and ${mediumWidth}`
-const largeWidth = '(min-width: 70em)'
+const largeWidth = '(min-width: 70rem)'
 const large = `@media screen and ${largeWidth}`
+const xLargeWidth = '(min-width: 90rem)'
+const xLarge = `@media screen and ${xLargeWidth}`
 
 const media = {
   small,
@@ -11,8 +13,19 @@ const media = {
   medium,
   mediumWidth,
   large,
-  largeWidth
+  largeWidth,
+  xLarge,
+  xLargeWidth
 }
 
 export default media
-export {small, smallWidth, medium, mediumWidth, large, largeWidth}
+export {
+  small,
+  smallWidth,
+  medium,
+  mediumWidth,
+  large,
+  largeWidth,
+  xLarge,
+  xLargeWidth
+}

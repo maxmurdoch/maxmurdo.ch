@@ -4,13 +4,12 @@ import {css} from 'glamor'
 import {compose} from 'recompose'
 import R from 'ramda'
 
-import slideUpLink from '../slide-up-link'
 import toggleHover from '../toggle-hover'
 import screenImage from '../screen-image'
 import grid from '../grid'
 import cell from '../cell'
 
-const ImageRow = ({to, images = []}) => {
+const ImageRow = ({images = []}) => {
   const mapWithIndex = R.addIndex(R.map)
   const cells = mapWithIndex((src, index) => {
     return cell(
@@ -24,7 +23,7 @@ const ImageRow = ({to, images = []}) => {
         div(
           {
             'data-aos': 'fade-up',
-            'data-aos-delay': R.pipe(R.inc, R.multiply(200))(index),
+            'data-aos-delay': R.multiply(200, index),
             'data-aos-offset': 100,
             'data-aos-anchor-placement': 'top-bottom',
             className: css({width: '100%'})
@@ -35,7 +34,7 @@ const ImageRow = ({to, images = []}) => {
     )
   }, images)
 
-  return slideUpLink({to}, [grid(cells)])
+  return grid(cells)
 }
 
 ImageRow.propTypes = {

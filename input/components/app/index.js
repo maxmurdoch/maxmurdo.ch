@@ -11,11 +11,16 @@ import {ConnectedRouter, routerMiddleware} from 'react-router-redux'
 import {h, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
 
+import menu from '../../containers/menu'
+import menuBlur from '../../containers/menu-blur'
+import menuNoScroll from '../../containers/menu-no-scroll'
+import navMargin from '../../components/nav-margin'
 import initialiseAnimation from '../../services/initialise-animation'
 import reducer from '../../store/reducers'
 import ScrollToTop from '../scroll-to-top'
-import {small, medium, large} from '../../constants/media'
+import {small, medium, large, xLarge} from '../../constants/media'
 import Home from '../home'
+import About from '../../screens/about'
 import MathsBuilder from '../../screens/maths-builder'
 import defaultCursor from '../../assets/cursor-2.svg'
 import linkStyle from '../../constants/link-style'
@@ -24,19 +29,25 @@ css.insert(
   `
 ${small} {
   :root {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 }
 
 ${medium} {
   :root {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 }
 
 ${large} {
   :root {
     font-size: 1rem;
+  }
+}
+
+${xLarge} {
+  :root {
+    font-size: 1.2rem;
   }
 }
 `
@@ -67,13 +78,24 @@ class App extends Component {
     return h(Provider, {store}, [
       h(ConnectedRouter, {history}, [
         h(ScrollToTop, [
-          div({className: css({width: '100%'})}, [
-            h(Route, {exact: true, path: '/', component: Home}),
-            h(Route, {
-              exact: true,
-              path: '/maths-builders',
-              component: MathsBuilder
-            })
+          menuNoScroll([
+            menu(),
+            menuBlur([
+              div({className: css({width: '100%'})}, [
+                h(Route, {exact: true, path: '/', component: Home}),
+                h(Route, {
+                  exact: true,
+                  path: '/maths-builders',
+                  component: MathsBuilder
+                }),
+                h(Route, {
+                  exact: true,
+                  path: '/about',
+                  component: About
+                })
+              ])
+            ]),
+            navMargin()
           ])
         ])
       ])

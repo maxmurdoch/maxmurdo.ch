@@ -1,6 +1,9 @@
 import R from 'ramda'
 import {css} from 'glamor'
 import graphikRegular from '../assets/fonts/graphik/Graphik-Regular-Web.woff'
+import untitledBlackWoff from '../assets/fonts/untitled/Untitled-Sans-Black.woff'
+import untitledLightWoff from '../assets/fonts/untitled/Untitled-Sans-Light.woff'
+import untitledLightItalicWoff from '../assets/fonts/untitled/Untitled-Sans-Light-Italic.woff'
 import graphikRegularItalicEot from '../assets/fonts/graphik/Graphik-RegularItalic.eot'
 import graphikRegularItalicWoff from '../assets/fonts/graphik/Graphik-RegularItalic.woff'
 import graphikRegularItalicTtf from '../assets/fonts/graphik/Graphik-RegularItalic.ttf'
@@ -19,26 +22,47 @@ css.fontFace({
         url(${graphikRegularItalicTtf}) format('ttf')`
 })
 
-const graphik = css.fontFace({
-  fontFamily: 'Graphik',
+// const graphik = css.fontFace({
+//   fontFamily: 'Graphik',
+//   fontStyle: 'normal',
+//   fontWeight: 400,
+//   src: `url(${graphikRegular})`
+// })
+
+const untitledBlack = css.fontFace({
+  fontFamily: 'Untitled',
   fontStyle: 'normal',
-  fontWeight: 400,
-  src: `url(${graphikRegular})`
+  fontWeight: 700,
+  src: `url(${untitledBlackWoff})`
 })
 
-const gtAmerica = css.fontFace({
-  fontFamily: 'GT America',
+const untitledLight = css.fontFace({
+  fontFamily: 'Untitled',
   fontStyle: 'normal',
-  fontWeight: 400,
-  src: `url(${gtAmericaRegularWoff})`
+  fontWeight: 300,
+  src: `url(${untitledLightWoff})`
 })
 
-const gtAmericaBlack = css.fontFace({
-  fontFamily: 'GT America Extended',
-  fontStyle: 'normal',
-  fontWeight: 900,
-  src: `url(${gtAmericaExtendedBlackWoff})`
+css.fontFace({
+  fontFamily: 'Untitled',
+  fontStyle: 'italic',
+  fontWeight: 300,
+  src: `url(${untitledLightItalicWoff})`
 })
+
+// const gtAmerica = css.fontFace({
+//   fontFamily: 'GT America',
+//   fontStyle: 'normal',
+//   fontWeight: 400,
+//   src: `url(${gtAmericaRegularWoff})`
+// })
+
+// const gtAmericaBlack = css.fontFace({
+//   fontFamily: 'GT America Extended',
+//   fontStyle: 'normal',
+//   fontWeight: 900,
+//   src: `url(${gtAmericaExtendedBlackWoff})`
+// })
 
 const gtAmericaMono = css.fontFace({
   fontFamily: 'GT America Mono',
@@ -47,8 +71,8 @@ const gtAmericaMono = css.fontFace({
   src: `url(${gtAmericaMonoWoff})`
 })
 
-const sans = `${graphik}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif`
-const wide = `${gtAmericaBlack}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif`
+const sans = `${untitledLight}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif`
+const wide = `${untitledBlack}, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif`
 const mono = `${gtAmericaMono}, monospace`
 const serif = 'Times, Times New Roman, serif'
 const family = {
