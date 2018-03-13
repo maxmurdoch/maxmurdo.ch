@@ -9,6 +9,7 @@ import grid from '../grid'
 import cell from '../cell'
 import wordCycle from '../word-cycle'
 import {HEADER_HEIGHT} from '../header'
+import cursorDown from '../../assets/cursor-down.svg'
 
 import {medium, large} from '../../constants/media'
 
@@ -120,6 +121,7 @@ class ColourIntro extends Component {
           width: '100%',
           height: '100vh',
           display: 'flex',
+          cursor: `url(${cursorDown}), default`,
           transitionTimingFunction,
           [medium]: {paddingTop: HEADER_HEIGHT},
           [large]: {paddingTop: HEADER_HEIGHT}
@@ -127,70 +129,65 @@ class ColourIntro extends Component {
       },
       [
         container([
-          grid(
-            {
-              wrap: false
-            },
-            [
-              cell(
-                {
-                  topGutter: true,
-                  bottomGutter: true,
-                  grow: 1,
-                  align: 'center',
-                  className: css({
-                    willChange: 'transform',
-                    transitionProperty: 'all',
-                    transitionDuration: '2000ms',
-                    transitionDelay: 0,
-                    transitionTimingFunction
-                  }),
-                  style: {transform: this.state.firstPosition}
-                },
-                [text({size: 4, family: 'wide'}, 'Hi, I’m Max')]
-              ),
-              cell(
-                {
-                  topGutter: true,
-                  bottomGutter: true,
-                  grow: 1,
-                  align: 'center',
-                  justify: 'center',
-                  className: css({
-                    willChange: 'transform',
-                    transitionProperty: 'all',
-                    transitionDuration: '2000ms',
-                    transitionDelay: '250ms',
-                    transitionTimingFunction
-                  }),
-                  style: {transform: this.state.secondPosition}
-                },
-                [
-                  wordCycle({words: ['brand', 'design', 'build']}, [
-                    word => text({family: 'wide', size: 4}, `I ${word}`)
-                  ])
-                ]
-              ),
-              cell(
-                {
-                  topGutter: true,
-                  bottomGutter: true,
-                  grow: 1,
-                  align: 'center',
-                  justify: 'end',
-                  className: css({
-                    willChange: 'transform',
-                    transitionProperty: 'all',
-                    transitionDuration: '2000ms',
-                    transitionDelay: '500ms',
-                    transitionTimingFunction
-                  }),
-                  style: {transform: this.state.thirdPosition}
-                },
-                [text({size: 4, family: 'wide'}, 'digital products')]
-              )
-            ]
-          )
+          grid({wrap: false}, [
+            cell(
+              {
+                topGutter: true,
+                bottomGutter: true,
+                grow: 1,
+                align: 'center',
+                className: css({
+                  willChange: 'transform',
+                  transitionProperty: 'all',
+                  transitionDuration: '2000ms',
+                  transitionDelay: 0,
+                  transitionTimingFunction
+                }),
+                style: {transform: this.state.firstPosition}
+              },
+              [text({size: 4, family: 'wide'}, 'Hi, I’m Max')]
+            ),
+            cell(
+              {
+                topGutter: true,
+                bottomGutter: true,
+                grow: 1,
+                align: 'center',
+                justify: 'center',
+                className: css({
+                  willChange: 'transform',
+                  transitionProperty: 'all',
+                  transitionDuration: '2000ms',
+                  transitionDelay: '250ms',
+                  transitionTimingFunction
+                }),
+                style: {transform: this.state.secondPosition}
+              },
+              [
+                wordCycle({words: ['brand', 'design', 'build']}, [
+                  word => text({family: 'wide', size: 4}, `I ${word}`)
+                ])
+              ]
+            ),
+            cell(
+              {
+                topGutter: true,
+                bottomGutter: true,
+                grow: 1,
+                align: 'center',
+                justify: 'end',
+                className: css({
+                  willChange: 'transform',
+                  transitionProperty: 'all',
+                  transitionDuration: '2000ms',
+                  transitionDelay: '500ms',
+                  transitionTimingFunction
+                }),
+                style: {transform: this.state.thirdPosition}
+              },
+              [text({size: 4, family: 'wide'}, 'digital products')]
+            )
+          ])
         ])
       ]
     )

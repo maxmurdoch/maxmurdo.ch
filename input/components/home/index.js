@@ -1,7 +1,8 @@
 import {withRouter} from 'react-router'
 import {compose} from 'recompose'
 import {connect} from 'react-redux'
-import {div} from 'react-hyperscript-helpers'
+import {h, div} from 'react-hyperscript-helpers'
+import {Link, Element} from 'react-scroll'
 
 import intro from '../intro'
 import navMargin from '../nav-margin'
@@ -13,8 +14,10 @@ import mathsBuilders from '../maths-builders'
 
 const Home = ({menuIsOpen}) => {
   return div([
-    intro({menuIsOpen}),
-    div([mathsBuilders(), mayhem(), adaptiveLab(), codeAtUni(), goCardless()]),
+    h(Link, {to: 'work', smooth: true, duration: 300}, [intro({menuIsOpen})]),
+    h(Element, {name: 'work'}, [
+      div([mathsBuilders(), mayhem(), adaptiveLab(), codeAtUni(), goCardless()])
+    ]),
     navMargin()
   ])
 }
