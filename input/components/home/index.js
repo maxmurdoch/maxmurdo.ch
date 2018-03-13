@@ -4,8 +4,9 @@ import {connect} from 'react-redux'
 import {div} from 'react-hyperscript-helpers'
 
 import intro from '../intro'
-import container from '../site-container'
 import navMargin from '../nav-margin'
+import adaptiveLab from '../adaptive-lab'
+import mayhem from '../mayhem'
 import goCardless from '../gocardless'
 import codeAtUni from '../code-at-uni'
 import mathsBuilders from '../maths-builders'
@@ -13,7 +14,7 @@ import mathsBuilders from '../maths-builders'
 const Home = ({menuIsOpen}) => {
   return div([
     intro({menuIsOpen}),
-    div([container([mathsBuilders(), codeAtUni(), goCardless()])]),
+    div([mathsBuilders(), mayhem(), adaptiveLab(), codeAtUni(), goCardless()]),
     navMargin()
   ])
 }

@@ -1,29 +1,22 @@
 import {withRouter} from 'react-router'
-import R from 'ramda'
 import PropTypes from 'prop-types'
+import R from 'ramda'
 import {hh, h, div} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
-import {Media} from 'react-media'
 
-import homePageProjectSection from '../../components/home-page-project-section'
-import firstPage from '../../images/sign-in-one.png'
-import signInOne from '../../images/sign-in-two.png'
-import questionListFilter from '../../images/maths-builder-question-list-2.png'
-import homeScreen from '../../assets/maths-builders-home-screen.svg'
+import firstPage from '../../images/adaptive-lab-intro.png'
+import homePageProjectSection from '../home-page-project-section'
 
-import screenImage from '../screen-image'
+import container from '../site-container'
+import space from '../../constants/space'
 import imageRow from '../image-row'
 import grid from '../grid'
 import cell from '../cell'
 import text from '../text'
 import blurLink from '../../components/blur-link'
-import container from '../../components/site-container'
-import containerBox from '../../components/site-container-box'
-import {smallWidth} from '../../constants/media'
 import {lightGrey} from '../../constants/colour'
-import space from '../../constants/space'
 
-const MathsBuildersText = () => {
+const AdaptiveLabText = () => {
   return grid({align: 'baseline', justify: 'between'}, [
     cell(
       {
@@ -46,7 +39,7 @@ const MathsBuildersText = () => {
                 size: 3,
                 className: css({margin: 0})
               },
-              'Maths Builders'
+              'Adaptive Lab'
             )
           ]
         )
@@ -79,7 +72,7 @@ const MathsBuildersText = () => {
                 className: css({margin: 0})
               },
               [
-                'Research, brand, design and a prototype for a new app that teaches maths on a phone.'
+                'Leading development and helping out with the design on a new site for the London based digital product studio.'
               ]
             )
           ]
@@ -89,7 +82,7 @@ const MathsBuildersText = () => {
   ])
 }
 
-const MathsBuilders = () => {
+const AdaptiveLab = () => {
   return homePageProjectSection([
     div(
       {
@@ -103,36 +96,27 @@ const MathsBuilders = () => {
       [
         grid([
           cell([
-            blurLink({to: '/maths-builders'}, [
-              h(Media, {query: smallWidth}, [
-                matches =>
-                  matches
-                    ? containerBox(
-                        {
-                          className: css({
-                            backgroundColor: lightGrey
-                          })
-                        },
-                        [screenImage({src: homeScreen})]
-                      )
-                    : container(
-                        {
-                          top: true,
-                          className: css({
-                            backgroundColor: lightGrey
-                          })
-                        },
-                        [
-                          imageRow({
-                            images: [firstPage, signInOne, questionListFilter]
-                          })
-                        ]
-                      )
-              ])
-            ])
+            container(
+              {
+                top: true,
+                className: css({
+                  backgroundColor: lightGrey
+                })
+              },
+              [
+                blurLink(
+                  {
+                    text: 'View website',
+                    target: 'external',
+                    to: 'https://adaptivelab.studio'
+                  },
+                  [imageRow({images: [firstPage]})]
+                )
+              ]
+            )
           ]),
           cell({className: css({marginTop: R.nth(3, space)})}, [
-            h(MathsBuildersText)
+            h(AdaptiveLabText)
           ])
         ])
       ]
@@ -140,8 +124,8 @@ const MathsBuilders = () => {
   ])
 }
 
-MathsBuilders.propTypes = {
+AdaptiveLab.propTypes = {
   match: PropTypes.object.isRequired
 }
 
-export default hh(withRouter(MathsBuilders))
+export default hh(withRouter(AdaptiveLab))

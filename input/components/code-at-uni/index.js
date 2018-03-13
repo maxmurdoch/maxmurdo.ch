@@ -1,19 +1,22 @@
 import {h, hh, div} from 'react-hyperscript-helpers'
-import {css} from 'glamor'
 import R from 'ramda'
+import {css} from 'glamor'
 import Media from 'react-media'
 
 import codeAtUni1 from '../../images/code-at-uni-1.png'
 import codeAtUni2 from '../../images/code-at-uni-2.png'
 
+import space from '../../constants/space'
+import container from '../site-container'
 import cell from '../cell'
+import homePageProjectSection from '../home-page-project-section'
 import grid from '../grid'
-import link from '../link'
 import screenImage from '../screen-image'
+import imageRow from '../image-row'
 import text from '../text'
+import {lightGrey} from '../../constants/colour'
 
 import {smallWidth} from '../../constants/media'
-import space from '../../constants/space'
 
 const CodeAtUniText = () => {
   return grid([
@@ -27,7 +30,7 @@ const CodeAtUniText = () => {
         div(
           {
             'data-aos': 'fade-in',
-            'data-aos-delay': 200,
+            'data-aos-delay': 100,
             'data-aos-anchor-placement': 'top-bottom'
           },
           [
@@ -48,14 +51,13 @@ const CodeAtUniText = () => {
       {
         small: {column: 1, of: 1},
         medium: {column: 2, of: 3},
-        large: {column: 2, of: 3},
-        bottomGutter: true
+        large: {column: 2, of: 3}
       },
       [
         div(
           {
             'data-aos': 'fade-in',
-            'data-aos-delay': 400,
+            'data-aos-delay': 200,
             'data-aos-anchor-placement': 'top-bottom'
           },
           [
@@ -79,58 +81,71 @@ const CodeAtUniText = () => {
 }
 
 const CodeAtUniImages = () =>
-  grid({align: 'start'}, [
-    cell(
-      {
-        small: {column: 1, of: 1},
-        medium: {column: 2, of: 3},
-        large: {column: 2, of: 3},
-        bottomGutter: true,
-        'data-aos': 'fade-up',
-        'data-aos-delay': 200
-      },
-      [screenImage({src: codeAtUni1})]
-    ),
-    cell(
-      {
-        small: {column: 1, of: 1},
-        medium: {column: 1, of: 3},
-        large: {column: 1, of: 3},
-        bottomGutter: true,
-        'data-aos': 'fade-up',
-        'data-aos-delay': 400
-      },
-      [screenImage({src: codeAtUni2})]
-    )
-  ])
-
-const CodeAtUni = () => {
-  return div(
+  container(
     {
+      top: true,
       className: css({
-        paddingTop: R.nth(4, space),
-        marginTop: R.nth(4, space),
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center'
+        backgroundColor: lightGrey
       })
     },
     [
-      h(Media, {query: smallWidth}, [
-        matches =>
-          matches
-            ? grid({align: 'start'}, [
-                cell({bottomGutter: true}, [screenImage({src: codeAtUni1})]),
-                cell([h(CodeAtUniText)])
-              ])
-            : grid({align: 'start'}, [
-                cell([h(CodeAtUniImages)]),
-                cell([h(CodeAtUniText)])
-              ])
+      grid({align: 'start'}, [
+        cell(
+          {
+            small: {column: 1, of: 1},
+            medium: {column: 2, of: 3},
+            large: {column: 2, of: 3},
+            bottomGutter: true,
+            'data-aos': 'fade-up',
+            'data-aos-delay': 100
+          },
+          [screenImage({src: codeAtUni1})]
+        ),
+        cell(
+          {
+            small: {column: 1, of: 1},
+            medium: {column: 1, of: 3},
+            large: {column: 1, of: 3},
+            bottomGutter: true,
+            'data-aos': 'fade-up',
+            'data-aos-delay': 200
+          },
+          [screenImage({src: codeAtUni2})]
+        )
       ])
     ]
   )
+
+const CodeAtUni = () => {
+  return homePageProjectSection([
+    div(
+      {
+        className: css({
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center'
+        })
+      },
+      [
+        h(Media, {query: smallWidth}, [
+          matches =>
+            matches
+              ? grid({align: 'start'}, [
+                  cell([imageRow({images: [codeAtUni1]})]),
+                  cell({className: css({marginTop: R.nth(3, space)})}, [
+                    h(CodeAtUniText)
+                  ])
+                ])
+              : grid({align: 'start'}, [
+                  cell([h(CodeAtUniImages)]),
+                  cell({className: css({marginTop: R.nth(3, space)})}, [
+                    h(CodeAtUniText)
+                  ])
+                ])
+        ])
+      ]
+    )
+  ])
 }
 
 export default hh(CodeAtUni)

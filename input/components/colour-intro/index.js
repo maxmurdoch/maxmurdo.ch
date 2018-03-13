@@ -7,6 +7,7 @@ import text from '../text'
 import container from '../site-container'
 import grid from '../grid'
 import cell from '../cell'
+import wordCycle from '../word-cycle'
 import {HEADER_HEIGHT} from '../header'
 
 import {medium, large} from '../../constants/media'
@@ -164,7 +165,11 @@ class ColourIntro extends Component {
                   }),
                   style: {transform: this.state.secondPosition}
                 },
-                [text({family: 'wide', size: 4}, 'I design & build')]
+                [
+                  wordCycle({words: ['brand', 'design', 'build']}, [
+                    word => text({family: 'wide', size: 4}, `I ${word}`)
+                  ])
+                ]
               ),
               cell(
                 {

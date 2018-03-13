@@ -21,37 +21,29 @@ const Header = () => {
       className: css({
         zIndex: 2,
         display: 'flex',
+        justifyContent: 'center',
         width: '100%',
+        margin: '0 auto',
         position: 'fixed',
         alignItems: 'stretch',
         height: SMALL_HEADER_HEIGHT,
-        [small]: {bottom: 8},
+        [small]: {bottom: 18},
         [medium]: {height: MEDIUM_HEADER_HEIGHT},
         [large]: {height: LARGE_HEADER_HEIGHT}
       })
     },
     [
-      containerBox([
-        grid({justify: 'between', align: 'center'}, [
-          cell(
-            {
-              small: {column: 1, of: 2},
-              medium: {column: 1, of: 2},
-              large: {column: 1, of: 2},
-              align: 'center'
-            },
-            [logo()]
-          ),
-          cell(
-            {
-              small: {column: 1, of: 2},
-              medium: {column: 1, of: 2},
-              large: {column: 1, of: 2},
-              align: 'center',
-              justify: 'end'
-            },
-            [menuIcon()]
-          )
+      div({className: css({width: '100%'})}, [
+        containerBox([
+          grid({justify: 'between', align: 'center'}, [
+            cell(
+              {
+                align: 'center',
+                justify: 'end'
+              },
+              [menuIcon()]
+            )
+          ])
         ])
       ])
     ]

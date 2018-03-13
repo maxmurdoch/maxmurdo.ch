@@ -10,8 +10,9 @@ const container = css({
 
 const imageStyle = css({
   boxSizing: 'border-box',
-  boxShadow: '0 20px 25px rgba(0, 0, 0, 0.06), 0 0 30px rgba(0, 0, 0, 0.06)',
-  width: '100%'
+  boxShadow: '0 10px 25px rgba(0, 0, 0, 0.05), 0 0 30px rgba(0, 0, 0, 0.05)',
+  width: '100%',
+  maxHeight: '100vh'
 })
 
 const ScreenImage = ({src, className}) =>

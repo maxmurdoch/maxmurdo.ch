@@ -76,29 +76,38 @@ class App extends Component {
 
   render() {
     return h(Provider, {store}, [
-      h(ConnectedRouter, {history}, [
-        h(ScrollToTop, [
-          menuNoScroll([
-            menu(),
-            menuBlur([
-              div({className: css({width: '100%'})}, [
-                h(Route, {exact: true, path: '/', component: Home}),
-                h(Route, {
-                  exact: true,
-                  path: '/maths-builders',
-                  component: MathsBuilder
-                }),
-                h(Route, {
-                  exact: true,
-                  path: '/about',
-                  component: About
-                })
+      div(
+        {
+          className: css({
+            margin: '0 auto'
+          })
+        },
+        [
+          h(ConnectedRouter, {history}, [
+            h(ScrollToTop, [
+              menuNoScroll([
+                menu(),
+                menuBlur([
+                  div({className: css({width: '100%'})}, [
+                    h(Route, {exact: true, path: '/', component: Home}),
+                    h(Route, {
+                      exact: true,
+                      path: '/maths-builders',
+                      component: MathsBuilder
+                    }),
+                    h(Route, {
+                      exact: true,
+                      path: '/work-with-me',
+                      component: About
+                    })
+                  ])
+                ]),
+                navMargin()
               ])
-            ]),
-            navMargin()
+            ])
           ])
-        ])
-      ])
+        ]
+      )
     ])
   }
 }

@@ -4,10 +4,10 @@ import {compose} from 'recompose'
 
 import toggleHover from '../toggle-hover'
 import link from '../link'
-import text from '../text'
+import textComponent from '../text'
 import arrow from '../../assets/arrow-up-right-big.svg'
 
-const viewProjectCell = ({to, isHovered}) =>
+const viewProjectCell = ({target, text = 'View project', to, isHovered}) =>
   link(
     {
       style: {
@@ -24,20 +24,29 @@ const viewProjectCell = ({to, isHovered}) =>
         alignItems: 'center',
         justifyContent: 'center'
       },
+      target,
       to
     },
     [
-      text(
+      textComponent(
         {
           size: 3,
           'data-aos': 'fade-in'
         },
-        'View project'
+        text
       )
     ]
   )
 
-const BlurLink = ({to, isHovered, onMouseEnter, onMouseLeave, children}) =>
+const BlurLink = ({
+  target,
+  text,
+  to,
+  isHovered,
+  onMouseEnter,
+  onMouseLeave,
+  children
+}) =>
   div(
     {
       onMouseEnter,
@@ -51,7 +60,7 @@ const BlurLink = ({to, isHovered, onMouseEnter, onMouseLeave, children}) =>
       }
     },
     [
-      viewProjectCell({to, isHovered}),
+      viewProjectCell({target, text, to, isHovered}),
       div(
         {
           style: {

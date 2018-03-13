@@ -15,16 +15,18 @@ const ImageRow = ({images = []}) => {
     return cell(
       {
         small: {column: 1, of: 1},
-        medium: {column: 1, of: 3},
-        large: {column: 1, of: 3},
-        justify: 'center'
+        medium: {column: 1, of: R.length(images)},
+        large: {column: 1, of: R.length(images)},
+        justify: 'center',
+        bottomGutter: true
       },
       [
         div(
           {
             'data-aos': 'fade-up',
-            'data-aos-delay': R.multiply(200, index),
+            'data-aos-delay': R.multiply(100, index),
             'data-aos-offset': 100,
+            'data-aos-duration': 300,
             'data-aos-anchor-placement': 'top-bottom',
             className: css({width: '100%'})
           },

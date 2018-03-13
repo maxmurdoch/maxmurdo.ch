@@ -47,7 +47,8 @@ const LinkWrapper = ({
           target: isEmail ? '_top' : '_blank',
           className: linkStyle,
           onMouseEnter,
-          onMouseLeave
+          onMouseLeave,
+          ...props
         },
         [children]
       )

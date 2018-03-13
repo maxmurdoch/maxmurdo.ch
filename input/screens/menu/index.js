@@ -110,9 +110,8 @@ class Menu extends Component {
                                   ]
                                 ),
                               [
-                                {text: 'About', to: '/about'},
-                                {text: 'Work', to: '/work'},
-                                {text: 'Contact', to: '/contact'}
+                                {text: 'Portfolio', to: '/'},
+                                {text: 'Work with me', to: '/work-with-me'}
                               ]
                             )
                           )

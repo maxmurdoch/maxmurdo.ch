@@ -14,7 +14,7 @@ const FullPageHeader = ({children, className, ...props}) => {
       className: css(
         {
           width: '100%',
-          height: '100vh',
+          minHeight: '100vh',
           display: 'flex',
           paddingTop: SMALL_HEADER_HEIGHT,
           paddingBottom: SMALL_HEADER_HEIGHT,

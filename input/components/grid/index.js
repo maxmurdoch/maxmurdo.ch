@@ -6,7 +6,6 @@ import media from '../../constants/media'
 import justifyContentMap from '../../constants/justify-content-map'
 import alignItemsMap from '../../constants/align-items-map'
 import validJustify from '../../constants/valid-justify'
-import validAlign from '../../constants/valid-align'
 import flexDirection from '../../helpers/flex-direction'
 import {smallHalf, mediumHalf, largeHalf} from '../../constants/gutter'
 
@@ -14,6 +13,9 @@ const Grid = ({
   direction = 'row',
   reverse = false,
   wrap = true,
+  smallWrap = true,
+  mediumWrap = true,
+  largeWrap = true,
   justify = 'start',
   align = 'start',
   gutter = true,
@@ -34,7 +36,6 @@ const Grid = ({
       }
     : R.reduce(
         (styleObject, [breakpoint, direction]) => {
-          console.log(breakpoint, direction, styleObject)
           return R.assoc(
             breakpoint,
             {flexDirection: flexDirection(direction, reverse)},
@@ -73,14 +74,17 @@ const Grid = ({
       flexBasis: '100%',
       position: 'relative',
       [R.prop('small', media)]: {
+        flexWrap: smallWrap ? 'wrap' : 'nowrap',
         marginRight: gutter ? `-${smallHalf}` : 0,
         marginLeft: gutter ? `-${smallHalf}` : 0
       },
       [R.prop('medium', media)]: {
+        flexWrap: mediumWrap ? 'wrap' : 'nowrap',
         marginRight: gutter ? `-${mediumHalf}` : 0,
         marginLeft: gutter ? `-${mediumHalf}` : 0
       },
       [R.prop('large', media)]: {
+        flexWrap: largeWrap ? 'wrap' : 'nowrap',
         marginRight: gutter ? `-${largeHalf}` : 0,
         marginLeft: gutter ? `-${largeHalf}` : 0
       }
