@@ -13,9 +13,9 @@ const Grid = ({
   direction = 'row',
   reverse = false,
   wrap = true,
-  smallWrap = false,
-  mediumWrap = false,
-  largeWrap = false,
+  smallWrap = true,
+  mediumWrap = true,
+  largeWrap = true,
   justify = 'start',
   align = 'start',
   gutter = true,
@@ -69,22 +69,22 @@ const Grid = ({
       boxSizing: 'border-box',
       display: 'flex',
       justifyContent: R.prop(justify, justifyContentMap),
-      flexWrap: wrap ? 'wrap' : 'nowrap',
+      flexWrap: R.and(wrap, smallWrap) ? 'wrap' : 'nowrap',
       height: '100%',
       flexBasis: '100%',
       position: 'relative',
       [R.prop('small', media)]: {
-        flexWrap: wrap || smallWrap ? 'wrap' : 'nowrap',
+        flexWrap: smallWrap ? 'wrap' : null,
         marginRight: gutter ? `-${smallHalf}` : 0,
         marginLeft: gutter ? `-${smallHalf}` : 0
       },
       [R.prop('medium', media)]: {
-        flexWrap: wrap || mediumWrap ? 'wrap' : 'nowrap',
+        flexWrap: R.and(wrap, mediumWrap) ? 'wrap' : 'nowrap',
         marginRight: gutter ? `-${mediumHalf}` : 0,
         marginLeft: gutter ? `-${mediumHalf}` : 0
       },
       [R.prop('large', media)]: {
-        flexWrap: wrap || largeWrap ? 'wrap' : 'nowrap',
+        flexWrap: R.and(wrap, largeWrap) ? 'wrap' : 'nowrap',
         marginRight: gutter ? `-${largeHalf}` : 0,
         marginLeft: gutter ? `-${largeHalf}` : 0
       }

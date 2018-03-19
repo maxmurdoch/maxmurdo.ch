@@ -26,8 +26,7 @@ const Header = () => {
         margin: '0 auto',
         position: 'fixed',
         alignItems: 'stretch',
-        height: SMALL_HEADER_HEIGHT,
-        [small]: {bottom: 18},
+        [small]: {bottom: 0},
         [medium]: {height: MEDIUM_HEADER_HEIGHT},
         [large]: {height: LARGE_HEADER_HEIGHT}
       })

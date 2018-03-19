@@ -70,7 +70,7 @@ const CodeAtUniText = () => {
                 className: css({margin: 0})
               },
               [
-                'MVP brand and website for a new education startup that teaches uni students to code.'
+                'MVP brand and website for a new education startup that teaches uni students to code'
               ]
             )
           ]
@@ -97,7 +97,7 @@ const CodeAtUniImages = () =>
             large: {column: 2, of: 3},
             bottomGutter: true,
             'data-aos': 'fade-up',
-            'data-aos-delay': 100
+            'data-aos-delay': 150
           },
           [screenImage({src: codeAtUni1})]
         ),
@@ -108,7 +108,7 @@ const CodeAtUniImages = () =>
             large: {column: 1, of: 3},
             bottomGutter: true,
             'data-aos': 'fade-up',
-            'data-aos-delay': 200
+            'data-aos-delay': 300
           },
           [screenImage({src: codeAtUni2})]
         )
@@ -131,7 +131,17 @@ const CodeAtUni = () => {
           matches =>
             matches
               ? grid({align: 'start'}, [
-                  cell([imageRow({images: [codeAtUni1]})]),
+                  cell([
+                    container(
+                      {
+                        top: true,
+                        className: css({
+                          backgroundColor: lightGrey
+                        })
+                      },
+                      [imageRow({images: [codeAtUni1]})]
+                    )
+                  ]),
                   cell({className: css({marginTop: R.nth(3, space)})}, [
                     h(CodeAtUniText)
                   ])

@@ -8,6 +8,7 @@ import homePageProjectSection from '../home-page-project-section'
 
 import link from '../link'
 import screenImage from '../screen-image'
+import imageRow from '../image-row'
 import grid from '../grid'
 import cell from '../cell'
 import text from '../text'
@@ -78,7 +79,7 @@ const GoCardlessText = () =>
                     link({target: 'external', to: 'https://gocardless.com'}, [
                       'GoCardless'
                     ]),
-                    ' during a major rewrite of the core product.'
+                    ' during a major rewrite of the core product'
                   ]
                 )
               ]
@@ -98,7 +99,7 @@ const GoCardlessImage = () =>
             backgroundColor: lightGrey
           })
         },
-        [screenImage({src: goCardless1})]
+        [imageRow({images: [goCardless1]})]
       )
     ])
   ])

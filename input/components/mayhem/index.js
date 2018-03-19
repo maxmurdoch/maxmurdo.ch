@@ -70,7 +70,7 @@ const MayhemText = () => {
                 shade: 2,
                 className: css({margin: 0})
               },
-              ['Branding and website design for a british film makers studio.']
+              ['Branding and website design for a british film making studio']
             )
           ]
         )

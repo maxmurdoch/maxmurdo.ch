@@ -35,7 +35,7 @@ const MathsBuildersText = () => {
         div(
           {
             'data-aos': 'fade-in',
-            'data-aos-delay': 100,
+            'data-aos-delay': 150,
             'data-aos-anchor-placement': 'top-bottom'
           },
           [
@@ -62,7 +62,7 @@ const MathsBuildersText = () => {
         div(
           {
             'data-aos': 'fade-in',
-            'data-aos-delay': 200,
+            'data-aos-delay': 300,
             'data-aos-anchor-placement': 'top-bottom',
             className: css({
               display: 'flex',
@@ -79,7 +79,7 @@ const MathsBuildersText = () => {
                 className: css({margin: 0})
               },
               [
-                'Research, brand, design and a prototype for a new app that teaches maths on a phone.'
+                'Research, brand, design and a prototype for a new app that teaches maths on a phone'
               ]
             )
           ]
@@ -107,13 +107,14 @@ const MathsBuilders = () => {
               h(Media, {query: smallWidth}, [
                 matches =>
                   matches
-                    ? containerBox(
+                    ? container(
                         {
+                          top: true,
                           className: css({
                             backgroundColor: lightGrey
                           })
                         },
-                        [screenImage({src: homeScreen})]
+                        [imageRow({images: [homeScreen]})]
                       )
                     : container(
                         {

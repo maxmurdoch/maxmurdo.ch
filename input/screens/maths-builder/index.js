@@ -8,7 +8,7 @@ import graphikRegularSample from '../../assets/graphik-medium-reg.svg'
 import colourPalette from '../../components/colour-palette'
 import graphikSmallUpperSample from '../../assets/graphik-small-upper.svg'
 import headerPadding from '../../components/header-padding'
-import {large} from '../../constants/media'
+import {medium, large} from '../../constants/media'
 import link from '../../components/link'
 import caseStudySection from '../../components/case-study-section'
 import bigProblem from '../../assets/big-problem.svg'
@@ -22,6 +22,18 @@ import orderSecond from '../../images/order-two.png'
 import orderThird from '../../images/order-three.png'
 import grid from '../../components/grid'
 import imageRow from '../../components/image-row'
+import tutorialOne from '../../assets/tutorial-one.png'
+import tutorialTwo from '../../assets/tutorial-two.png'
+import tutorialThree from '../../assets/tutorial-three.png'
+import tutorialFour from '../../assets/tutorial-four.png'
+import tutorialFive from '../../assets/tutorial-five.png'
+import tutorialSix from '../../assets/tutorial-six.png'
+import tutorialSeven from '../../assets/tutorial-seven.png'
+import tutorialEight from '../../assets/tutorial-eight.png'
+import tutorialNine from '../../assets/tutorial-nine.png'
+import tutorialTen from '../../assets/tutorial-ten.png'
+import tutorialEleven from '../../assets/tutorial-eleven.png'
+import tutorialTwelve from '../../assets/tutorial-twelve.png'
 import largeColourLogo from '../../assets/logo-big-broken.svg'
 import mediumColourLogo from '../../assets/logo-small-broken.svg'
 import questionList from '../../images/maths-builder-question-list.png'
@@ -45,6 +57,46 @@ const colors = [
   '#FF6767'
 ]
 
+const testimonial = hh(() =>
+  containerBox([
+    grid({justify: 'center'}, [
+      cell({}, [
+        text(
+          {
+            smallSize: 2,
+            mediumSize: 3,
+            marginBottom: true,
+            className: css({
+              maxWidth: '40em'
+            })
+          },
+          [
+            `‘We found working with Max was a very efficient
+process and resulted in a new version of our system that
+achieved all our aims. This was delivered on time and within
+budget. At the end of the project he gave an excellent
+presentation on his design to our sponsors which was very
+well received. I would recommend him as a web designer and
+developer without reservation. As and when I have further
+requirements for this sort of work, I will certainly try and
+hire him if he is available.’`
+          ]
+        )
+      ]),
+      cell(
+        {
+          bottomGutter: true,
+          direction: 'column'
+        },
+        [
+          text({size: 0}, ['Richard Prager']),
+          text({size: 0}, ['Head of Cambridge University School of Technology'])
+        ]
+      )
+    ])
+  ])
+)
+
 const typography = hh(() =>
   container({top: true}, [
     grid([
@@ -65,13 +117,18 @@ const typography = hh(() =>
           bottomGutter: true
         },
         [
-          img({className: css({width: '100%'}), src: graphikSample}),
+          img({
+            className: css({
+              width: '50%',
+              [medium]: {width: '100%'}
+            }),
+            src: graphikSample
+          }),
           link(
             {
               target: 'external',
               to: 'https://commercialtype.com/catalog/graphik',
               className: css({
-                width: '100%',
                 marginTop: R.nth(3, space)
               })
             },
@@ -83,21 +140,41 @@ const typography = hh(() =>
         {
           medium: {column: 1, of: 3},
           large: {column: 1, of: 3},
-          align: 'center',
-          direction: 'column',
           bottomGutter: true
         },
         [
-          img({className: css({width: '50%'}), src: graphikRegularSample}),
-          link(
+          grid(
             {
-              target: 'external',
-              to: 'https://commercialtype.com/catalog/graphik',
-              className: css({
-                marginTop: R.nth(3, space)
-              })
+              align: 'center',
+              direction: 'column'
             },
-            [text({size: 0}, 'Graphik, Regular, 18/24')]
+            [
+              cell(
+                {
+                  direction: 'column',
+                  small: {column: 1, of: 3}
+                },
+                [
+                  img({
+                    className: css({
+                      width: '100%',
+                      [medium]: {width: '75%'}
+                    }),
+                    src: graphikRegularSample
+                  }),
+                  link(
+                    {
+                      target: 'external',
+                      to: 'https://commercialtype.com/catalog/graphik',
+                      className: css({
+                        marginTop: R.nth(3, space)
+                      })
+                    },
+                    [text({size: 0}, 'Graphik, Regular, 18/24')]
+                  )
+                ]
+              )
+            ]
           )
         ]
       ),
@@ -106,11 +183,22 @@ const typography = hh(() =>
           medium: {column: 1, of: 3},
           large: {column: 1, of: 3},
           direction: 'column',
+          className: css({
+            alignItems: 'flex-end',
+            [medium]: {
+              alignItems: 'flex-start'
+            }
+          }),
           bottomGutter: true
         },
         [
           img({
-            className: css({width: '25%'}),
+            className: css({
+              width: '20%',
+              [medium]: {
+                width: '25%'
+              }
+            }),
             src: graphikSmallUpperSample
           }),
           link(
@@ -118,7 +206,6 @@ const typography = hh(() =>
               target: 'external',
               to: 'https://commercialtype.com/catalog/graphik',
               className: css({
-                width: '100%',
                 marginTop: R.nth(3, space)
               })
             },
@@ -130,7 +217,7 @@ const typography = hh(() =>
   ])
 )
 
-const MathsBuildersPrinciples = hh(() =>
+const mathsBuildersPrinciples = hh(() =>
   caseStudySection([
     grid({align: 'baseline'}, [
       cell(
@@ -143,6 +230,7 @@ const MathsBuildersPrinciples = hh(() =>
     grid({align: 'baseline'}, [
       cell(
         {
+          small: {column: 1, of: 2},
           medium: {column: 1, of: 2},
           large: {column: 1, of: 4},
           direction: 'column'
@@ -154,11 +242,13 @@ const MathsBuildersPrinciples = hh(() =>
               marginBottom: R.nth(3, space),
               [large]: {marginTop: 0}
             })
-          })
+          }),
+          text({size: 0}, ['Take a big problem'])
         ]
       ),
       cell(
         {
+          small: {column: 1, of: 2},
           medium: {column: 1, of: 2},
           large: {column: 1, of: 4},
           direction: 'column'
@@ -171,11 +261,13 @@ const MathsBuildersPrinciples = hh(() =>
               marginBottom: R.nth(3, space),
               [large]: {marginTop: 0}
             })
-          })
+          }),
+          text({size: 0}, ['Break it into smaller problems'])
         ]
       ),
       cell(
         {
+          small: {column: 1, of: 2},
           medium: {column: 1, of: 2},
           large: {column: 1, of: 4},
           direction: 'column'
@@ -188,11 +280,13 @@ const MathsBuildersPrinciples = hh(() =>
               marginBottom: R.nth(3, space),
               [large]: {marginTop: 0}
             })
-          })
+          }),
+          text({size: 0}, ['Solve the smaller problems'])
         ]
       ),
       cell(
         {
+          small: {column: 1, of: 2},
           medium: {column: 1, of: 2},
           large: {column: 1, of: 4},
           direction: 'column'
@@ -205,66 +299,90 @@ const MathsBuildersPrinciples = hh(() =>
               marginBottom: R.nth(3, space),
               [large]: {marginTop: 0}
             })
-          })
+          }),
+          text({size: 0}, ['Solve the big problem'])
         ]
       )
     ])
   ])
 )
 
-const MathsBuilderLogo = hh(() =>
+const mathsBuilderLogo = hh(() =>
   caseStudySection([
     grid({align: 'baseline'}, [
       cell(
         {
-          medium: {column: 1, of: 2},
-          large: {column: 2, of: 4}
+          className: css({marginBottom: R.nth(5, space)})
         },
-        [
-          img({
-            src: largeColourLogo,
-            className: css({
-              width: '50%',
-              marginBottom: R.nth(3, space)
-            })
-          })
-        ]
-      ),
-      cell(
-        {
-          medium: {column: 1, of: 2},
-          large: {column: 1, of: 4}
-        },
-        [
-          img({
-            src: mediumColourLogo,
-            className: css({
-              marginBottom: R.nth(3, space)
-            })
-          })
-        ]
-      ),
-      cell(
-        {
-          medium: {column: 1, of: 2},
-          large: {column: 1, of: 4}
-        },
-        [
-          img({
-            src: smallColourLogo,
-            className: css({
-              marginBottom: R.nth(3, space)
-            })
-          })
-        ]
+        [text({size: 1}, 'Logo')]
       )
-    ])
+    ]),
+    containerBox(
+      {
+        className: css({
+          backgroundColor: lightGrey
+        })
+      },
+      [
+        grid({align: 'baseline'}, [
+          cell(
+            {
+              medium: {column: 1, of: 3},
+              large: {column: 1, of: 3}
+            },
+            [
+              img({
+                src: largeColourLogo,
+                className: css({
+                  marginBottom: R.nth(5, space),
+                  [medium]: {marginBottom: 0}
+                })
+              })
+            ]
+          ),
+          cell(
+            {
+              className: css({
+                justifyContent: 'center',
+                [medium]: {justifyContent: 'flex-start'}
+              }),
+              medium: {column: 1, of: 3},
+              large: {column: 1, of: 3}
+            },
+            [
+              img({
+                src: mediumColourLogo,
+                className: css({
+                  marginBottom: R.nth(5, space),
+                  [medium]: {marginBottom: 0}
+                })
+              })
+            ]
+          ),
+          cell(
+            {
+              className: css({
+                justifyContent: 'flex-end',
+                [medium]: {justifyContent: 'flex-start'}
+              }),
+              medium: {column: 1, of: 3},
+              large: {column: 1, of: 3}
+            },
+            [
+              img({
+                src: smallColourLogo
+              })
+            ]
+          )
+        ])
+      ]
+    )
   ])
 )
 
 const MathsBuilder = () =>
   headerPadding([
-    container({bottom: true}, [
+    containerBox([
       div([
         grid({align: 'baseline'}, [
           cell(
@@ -327,12 +445,12 @@ const MathsBuilder = () =>
                 ),
                 cell({direction: 'column'}, [
                   text({size: 2}, [
-                    'The team had a clear vision for how to teach GCSE maths: don’t just tell a student the answer to a big problem. Help them solve a bunch of small problems so they can solve the big problem.'
+                    'The team had a clear vision for how to teach GCSE maths: don’t just tell a student the answer to a big problem. Help them solve a bunch of small problems so they can solve the big problem on their own.'
                   ]),
                   text(
                     {size: 2, className: css({marginTop: R.nth(2, space)})},
                     [
-                      'My job was to bring this model to a digital form, which I did in three phases: research, design, prototype.'
+                      'My job was to communicate this model in a digital form, which I did in rounds of research, design and prototype.'
                     ]
                   )
                 ])
@@ -342,7 +460,19 @@ const MathsBuilder = () =>
         ])
       ])
     ]),
+    mathsBuildersPrinciples(),
+    mathsBuilderLogo(),
+    typography(),
+    colourPalette({colors}),
     containerBox([
+      grid([
+        cell(
+          {
+            className: css({marginBottom: R.nth(5, space)})
+          },
+          [text({size: 1}, 'User interface')]
+        )
+      ]),
       container(
         {
           top: true,
@@ -351,14 +481,6 @@ const MathsBuilder = () =>
           })
         },
         [
-          grid([
-            cell(
-              {
-                className: css({marginBottom: R.nth(5, space)})
-              },
-              [text({size: 1}, 'User interface')]
-            )
-          ]),
           grid([
             cell([
               imageRow({
@@ -379,12 +501,39 @@ const MathsBuilder = () =>
                 images: [orderFirst, orderSecond, orderThird]
               })
             ])
+          ]),
+          grid([
+            cell([
+              imageRow({
+                images: [tutorialOne, tutorialTwo, tutorialThree]
+              })
+            ])
+          ]),
+          grid([
+            cell([
+              imageRow({
+                images: [tutorialFour, tutorialFive, tutorialSix]
+              })
+            ])
+          ]),
+          grid([
+            cell([
+              imageRow({
+                images: [tutorialSeven, tutorialEight, tutorialNine]
+              })
+            ])
+          ]),
+          grid([
+            cell([
+              imageRow({
+                images: [tutorialTen, tutorialEleven, tutorialTwelve]
+              })
+            ])
           ])
         ]
       )
     ]),
-    typography(),
-    colourPalette({colors})
+    testimonial()
   ])
 
 export default MathsBuilder

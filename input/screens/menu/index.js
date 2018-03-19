@@ -23,13 +23,14 @@ class Menu extends Component {
     return div(
       {
         className: css({
-          position: 'fixed',
-          width: '100%',
-          top: 0,
           bottom: isOpen ? 0 : '100%',
-          right: 0,
+          height: isOpen ? '100vh' : 'auto',
+          display: 'flex',
           left: 0,
-          overflowY: isOpen ? 'scroll' : 'hidden',
+          position: 'fixed',
+          right: 0,
+          top: 0,
+          width: '100%',
           zIndex: isOpen ? 3 : 1
         })
       },
@@ -38,8 +39,7 @@ class Menu extends Component {
         div(
           {
             className: css({
-              position: 'fixed',
-              height: '90vh',
+              zIndex: 3,
               width: '100%',
               transform: isOpen ? 'translateY(0)' : 'translateY(-150%)',
               transitionDelay: isOpen ? 0 : '100ms',
@@ -62,7 +62,7 @@ class Menu extends Component {
                   },
                   [
                     containerBox([
-                      grid({justify: 'between', align: 'flex-end'}, [
+                      grid({justify: 'between', align: 'end'}, [
                         cell({align: 'end'}, [
                           div(
                             {
@@ -110,8 +110,8 @@ class Menu extends Component {
                                   ]
                                 ),
                               [
-                                {text: 'Portfolio', to: '/'},
-                                {text: 'Work with me', to: '/work-with-me'}
+                                {text: 'Work', to: '/'},
+                                {text: 'Information', to: '/work-with-me'}
                               ]
                             )
                           )

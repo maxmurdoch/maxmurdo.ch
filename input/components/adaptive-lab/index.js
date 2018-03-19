@@ -72,7 +72,7 @@ const AdaptiveLabText = () => {
                 className: css({margin: 0})
               },
               [
-                'Leading development and helping out with the design on a new site for the London based digital product studio.'
+                'Leading development and helping out with the design on a new site for the London based digital product studio'
               ]
             )
           ]

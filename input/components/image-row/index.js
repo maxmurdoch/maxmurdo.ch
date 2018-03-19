@@ -25,7 +25,7 @@ const ImageRow = ({images = []}) => {
           {
             'data-aos': 'fade-up',
             'data-aos-delay': R.multiply(100, index),
-            'data-aos-offset': 100,
+            'data-aos-offset': 50,
             'data-aos-duration': 300,
             'data-aos-anchor-placement': 'top-bottom',
             className: css({width: '100%'})
