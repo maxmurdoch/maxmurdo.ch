@@ -14,7 +14,10 @@ import link from '../../components/link'
 import {medium, large} from '../../constants/media'
 
 import space from '../../constants/space'
-import {HEADER_HEIGHT} from '../../components/header'
+import {
+  MEDIUM_HEADER_HEIGHT,
+  LARGE_HEADER_HEIGHT
+} from '../../components/header'
 
 class Menu extends Component {
   render() {
@@ -24,8 +27,8 @@ class Menu extends Component {
       {
         className: css({
           bottom: isOpen ? 0 : '100%',
-          height: isOpen ? '100vh' : 'auto',
-          display: 'flex',
+          height: isOpen ? '100vh' : 0,
+          display: isOpen ? 'flex' : 'block',
           left: 0,
           position: 'fixed',
           right: 0,
@@ -39,12 +42,15 @@ class Menu extends Component {
         div(
           {
             className: css({
-              zIndex: 3,
               width: '100%',
               transform: isOpen ? 'translateY(0)' : 'translateY(-150%)',
               transitionDelay: isOpen ? 0 : '100ms',
-              [medium]: {marginTop: HEADER_HEIGHT},
-              [large]: {marginTop: HEADER_HEIGHT}
+              [medium]: {
+                marginTop: MEDIUM_HEADER_HEIGHT
+              },
+              [large]: {
+                marginTop: LARGE_HEADER_HEIGHT
+              }
             })
           },
           [
@@ -62,61 +68,78 @@ class Menu extends Component {
                   },
                   [
                     containerBox([
-                      grid({justify: 'between', align: 'end'}, [
-                        cell({align: 'end'}, [
-                          div(
+                      grid(
+                        {
+                          justify: 'between',
+                          align: 'end'
+                        },
+                        [
+                          cell(
                             {
-                              className: css({
-                                display: 'flex',
-                                flexDirection: 'column',
-                                justifyContent: 'flex-end'
-                              })
+                              align: 'end'
                             },
-                            R.addIndex(R.map)(
-                              ({to, text}, index) =>
-                                link(
-                                  {
-                                    to,
-                                    onClick: closeMenu
-                                  },
-                                  [
-                                    bodyText(
+                            [
+                              div(
+                                {
+                                  className: css({
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'flex-end'
+                                  })
+                                },
+                                R.addIndex(R.map)(
+                                  ({to, text}, index) =>
+                                    link(
                                       {
-                                        smallSize: 3,
-                                        mediumSize: 4,
-                                        size: 5,
-                                        className: css({
-                                          marginTop: R.nth(0, space),
-                                          willChange: 'transform, opacity',
-                                          opacity: isOpen ? 1 : 0,
-                                          transform: isOpen
-                                            ? 'translateY(0)'
-                                            : 'translateY(-20px)',
-                                          transitionDelay: isOpen
-                                            ? `${R.add(
-                                                R.multiply(index, 50),
-                                                50
-                                              )}ms`
-                                            : '0',
-                                          transitionProperty:
-                                            'opacity, transform',
-                                          transitionDuration: '200ms',
-                                          transitionTimingFunction:
-                                            'cubic-bezier(0.2, 0.7, 0.2, 0.8)'
-                                        })
+                                        to,
+                                        onClick: closeMenu
                                       },
-                                      [text]
-                                    )
+                                      [
+                                        bodyText(
+                                          {
+                                            smallSize: 3,
+                                            mediumSize: 4,
+                                            size: 5,
+                                            className: css({
+                                              marginTop: R.nth(0, space),
+                                              willChange: 'transform, opacity',
+                                              opacity: isOpen ? 1 : 0,
+                                              transform: isOpen
+                                                ? 'translateY(0)'
+                                                : 'translateY(-20px)',
+                                              transitionDelay: isOpen
+                                                ? `${R.add(
+                                                    R.multiply(index, 50),
+                                                    50
+                                                  )}ms`
+                                                : '0',
+                                              transitionProperty:
+                                                'opacity, transform',
+                                              transitionDuration: '200ms',
+                                              transitionTimingFunction:
+                                                'cubic-bezier(0.2, 0.7, 0.2, 0.8)'
+                                            })
+                                          },
+                                          [text]
+                                        )
+                                      ]
+                                    ),
+                                  [
+                                    {
+                                      text: 'Work',
+                                      to: '/'
+                                    },
+                                    {
+                                      text: 'Information',
+                                      to: '/info'
+                                    }
                                   ]
-                                ),
-                              [
-                                {text: 'Work', to: '/'},
-                                {text: 'Information', to: '/work-with-me'}
-                              ]
-                            )
+                                )
+                              )
+                            ]
                           )
-                        ])
-                      ])
+                        ]
+                      )
                     ])
                   ]
                 )

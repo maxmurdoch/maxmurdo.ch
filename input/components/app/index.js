@@ -97,7 +97,7 @@ class App extends Component {
                     }),
                     h(Route, {
                       exact: true,
-                      path: '/work-with-me',
+                      path: '/info',
                       component: About
                     })
                   ])

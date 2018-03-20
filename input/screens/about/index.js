@@ -1,18 +1,20 @@
 import R from 'ramda'
-import {div, img, span, ul, li} from 'react-hyperscript-helpers'
+import {h, hh, div, img, span, ul} from 'react-hyperscript-helpers'
 import {css} from 'glamor'
 
+import Media from 'react-media'
 import containerBox from '../../components/site-container-box'
+import container from '../../components/site-container'
 import headerPadding from '../../components/header-padding'
 import navMargin from '../../components/nav-margin'
 import text from '../../components/text'
 import me from '../../images/max.jpg'
-import {medium, large} from '../../constants/media'
+import {medium, large, smallWidth} from '../../constants/media'
 import space from '../../constants/space'
 import link from '../../components/link'
 
-const About = () => {
-  return containerBox([
+const content = hh(() =>
+  div([
     headerPadding(),
     div([
       img({
@@ -151,6 +153,15 @@ const About = () => {
       )
     ]),
     navMargin()
+  ])
+)
+
+const About = () => {
+  return h(Media, {query: smallWidth}, [
+    matches =>
+      matches
+        ? containerBox([content()])
+        : container({bottom: true}, [content()])
   ])
 }
 

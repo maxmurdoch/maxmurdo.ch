@@ -65,21 +65,14 @@ const testimonial = hh(() =>
           {
             smallSize: 2,
             mediumSize: 3,
+            largeSize: 4,
             marginBottom: true,
             className: css({
               maxWidth: '40em'
             })
           },
           [
-            `‘We found working with Max was a very efficient
-process and resulted in a new version of our system that
-achieved all our aims. This was delivered on time and within
-budget. At the end of the project he gave an excellent
-presentation on his design to our sponsors which was very
-well received. I would recommend him as a web designer and
-developer without reservation. As and when I have further
-requirements for this sort of work, I will certainly try and
-hire him if he is available.’`
+            '‘I would recommend Max as a web designer and developer without reservation. When I have further requirements for this sort of work, I will certainly try and hire him if he is available.’'
           ]
         )
       ]),
