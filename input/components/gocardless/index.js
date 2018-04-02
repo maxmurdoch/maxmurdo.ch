@@ -43,6 +43,7 @@ const GoCardlessText = () =>
                     tag: 'h1',
                     smallSize: 2,
                     size: 3,
+                    largeSize: 4,
                     className: css({margin: 0})
                   },
                   'GoCardless'
@@ -71,6 +72,7 @@ const GoCardlessText = () =>
                     tag: 'p',
                     smallSize: 2,
                     size: 3,
+                    largeSize: 4,
                     shade: 2,
                     className: css({margin: 0})
                   },

@@ -66,8 +66,10 @@ const BlurLink = ({
           style: {
             width: '105%',
             height: '105%',
-            transition: '200ms filter, 200ms opacity',
-            filter: isHovered ? 'blur(6px) opacity(0.6)' : 'blur(0px)'
+            transition: '200ms filter, 400ms opacity',
+            filter: isHovered
+              ? 'blur(6px) opacity(0.4)'
+              : 'blur(0px) opacity(1)'
           }
         },
         [children]

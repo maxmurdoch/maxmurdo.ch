@@ -18,7 +18,6 @@ const SiteContainer = ({
 }) => {
   const style = css(
     {
-      maxWidth: '80rem',
       position: 'relative',
       width: '100%',
       marginBottom: 0,

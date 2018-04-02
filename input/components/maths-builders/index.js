@@ -11,20 +11,18 @@ import signInOne from '../../images/sign-in-two.png'
 import questionListFilter from '../../images/maths-builder-question-list-2.png'
 import homeScreen from '../../assets/maths-builders-home-screen.svg'
 
-import screenImage from '../screen-image'
 import imageRow from '../image-row'
 import grid from '../grid'
 import cell from '../cell'
 import text from '../text'
-import blurLink from '../../components/blur-link'
 import container from '../../components/site-container'
-import containerBox from '../../components/site-container-box'
 import {smallWidth} from '../../constants/media'
 import {lightGrey} from '../../constants/colour'
 import space from '../../constants/space'
+import blurLink from '../blur-link'
 
 const MathsBuildersText = () => {
-  return grid({align: 'baseline', justify: 'between'}, [
+  return grid({align: 'baseline'}, [
     cell(
       {
         small: {column: 1, of: 1},
@@ -44,6 +42,7 @@ const MathsBuildersText = () => {
                 tag: 'h1',
                 smallSize: 2,
                 size: 3,
+                largeSize: 4,
                 className: css({margin: 0})
               },
               'Maths Builders'
@@ -75,6 +74,7 @@ const MathsBuildersText = () => {
                 tag: 'p',
                 smallSize: 2,
                 size: 3,
+                largeSize: 4,
                 shade: 2,
                 className: css({margin: 0})
               },

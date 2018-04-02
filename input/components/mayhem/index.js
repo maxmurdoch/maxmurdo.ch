@@ -36,6 +36,7 @@ const MayhemText = () => {
                 tag: 'h1',
                 smallSize: 2,
                 size: 3,
+                largeSize: 4,
                 className: css({margin: 0})
               },
               'Mayhem'
@@ -67,6 +68,7 @@ const MayhemText = () => {
                 tag: 'p',
                 smallSize: 2,
                 size: 3,
+                largeSize: 4,
                 shade: 2,
                 className: css({margin: 0})
               },

@@ -75,7 +75,7 @@ WordCycle.propTypes = {
 }
 
 WordCycle.defaultProps = {
-  updateInterval: 500
+  updateInterval: 750
 }
 
 export default hh(WordCycle)

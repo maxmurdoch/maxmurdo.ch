@@ -76,7 +76,7 @@ const content = hh(() =>
           size: 3,
           marginBottom: true
         },
-        'As soon as you can. Now, if possible. Yesterday would be best. Most digital products have a key message or idea. If you pull me in early, the design and development will be done with that in mind. It’s harder to do retrospectively.'
+        'As soon as you can. Most digital products have a key message or idea. If you pull me in early, the design and development will be done with that in mind. It’s harder to do retrospectively.'
       ),
       text(
         {
