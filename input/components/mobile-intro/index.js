@@ -10,7 +10,7 @@ import wordCycle from '../word-cycle'
 
 import {medium, large} from '../../constants/media'
 
-const MobileIntro = () => {
+const MobileIntro = ({stopAnimationIf}) => {
   return div(
     {
       className: css({
@@ -24,13 +24,14 @@ const MobileIntro = () => {
     },
     [
       containerBox([
-        text({size: 3}, 'Hi'),
-        text({size: 3}, 'I’m Max'),
+        text({size: 4}, 'Hi'),
+        text({size: 4}, 'I’m Max'),
         wordCycle(
           {
-            words: ['brand', 'design', 'build']
+            words: ['brand', 'design', 'build'],
+            stopAnimationIf
           },
-          [word => text({size: 3}, `I ${word} digital products`)]
+          [word => text({size: 4}, `I ${word} digital products`)]
         )
       ])
     ]

@@ -8,9 +8,12 @@ class WordCycle extends Component {
     super()
     this.state = {
       word: null,
-      stopUpdatingWord: R.F
+      stopUpdatingWord: R.F,
+      wordIsCycling: false
     }
     this.updateWord = this.updateWord.bind(this)
+    this.startCycling = this.startCycling.bind(this)
+    this.stopCycling = this.stopCycling.bind(this)
   }
 
   updateWord() {
@@ -23,7 +26,7 @@ class WordCycle extends Component {
     })
   }
 
-  componentWillMount() {
+  startCycling() {
     this.updateWord()
     const updateWordIntervalId = setInterval(
       this.updateWord,
@@ -31,12 +34,32 @@ class WordCycle extends Component {
     )
     this.setState({
       word: R.head(this.props.words),
-      stopUpdatingWord: () => clearInterval(updateWordIntervalId)
+      stopUpdatingWord: () => clearInterval(updateWordIntervalId),
+      isCycling: true
     })
   }
 
-  componentWillUnmount() {
+  stopCycling() {
     this.state.stopUpdatingWord()
+    this.setState({
+      isCycling: false
+    })
+  }
+
+  componentWillMount() {
+    this.startCycling()
+  }
+
+  componentDidUpdate() {
+    if (this.props.stopAnimationIf && this.state.isCycling) {
+      this.stopCycling()
+    } else if (!this.props.stopAnimationIf && !this.state.isCycling) {
+      this.startCycling()
+    }
+  }
+
+  componentWillUnmount() {
+    this.stopCycling()
   }
 
   render() {
@@ -47,7 +70,8 @@ class WordCycle extends Component {
 WordCycle.propTypes = {
   words: PropTypes.array.isRequired,
   children: PropTypes.func.isRequired,
-  updateInterval: PropTypes.number
+  updateInterval: PropTypes.number,
+  stopAnimationIf: PropTypes.bool
 }
 
 WordCycle.defaultProps = {
