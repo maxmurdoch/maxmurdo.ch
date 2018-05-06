@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46 (44423) - http://www.bohemiancoding.com/sketch -->
+    <title>cursor-2-internal</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="cursor-2-internal">
+            <path d="M1,1 L1,15 L15,15 L15,1 L1,1 Z" id="Rectangle-9" stroke-opacity="0.5" stroke="#000000" stroke-width="2"></path>
+            <g id="Group-2" transform="translate(19.500000, 19.500000) scale(-1, 1) translate(-19.500000, -19.500000) translate(7.000000, 7.000000)" fill="#000000">
+                <path d="M23,3.43097852 L23,16 L25,16 L25,1 L25,3.33066907e-15 L9,3.91516756e-16 L9,2 L21.5690215,2 L0.0618126902,23.5072088 L1.49279121,24.9381873 L23,3.43097852 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

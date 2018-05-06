@@ -1,0 +1,10 @@
+{
+  "title": "Maths builders",
+  "description": "A small team at the University of Cambridge",
+  "images": [
+    "/img/maths-builders-cover.png",
+    "/img/maths-builders-2.png"
+  ],
+  "backgroundColor": "#FFE2E2",
+  "order": 2
+}

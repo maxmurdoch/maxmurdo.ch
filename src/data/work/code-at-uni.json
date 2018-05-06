@@ -1,0 +1,9 @@
+{
+  "title": "Code at Uni",
+  "description": "Design direction for the startup that wants to teach all uni students to code",
+  "images": [
+    "/img/code-at-uni-1.jpg"
+  ],
+  "backgroundColor": "#EEE0FE",
+  "order": 3
+}
