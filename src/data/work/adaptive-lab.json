@@ -1,9 +1,17 @@
 {
   "title": "Adaptive Lab",
-  "description": "Leading development and helping with the design of a new site for the coolest Shoreditch-based studio.",
-  "images": [
-    "/img/personably-1.png"
+  "client": "Adaptive Lab",
+  "brief": "A new site for a fast-growing digital product studio",
+  "services": [
+    "design",
+    "build"
   ],
-  "backgroundColor": "#F5F5F5",
-  "order": 4
+  "tools": [
+    "JavaScript",
+    "Jekyll",
+    "SiteLeaf",
+    "AWS"
+  ],
+  "backgroundColor": "#F9F9F9",
+  "order": 1
 }

@@ -1,10 +1,36 @@
-import React from 'react'
+import React, {Component} from 'react'
+import {css} from 'react-emotion'
 
-const NotFoundPage = () => (
-  <div>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </div>
-)
+import Flex from '../components/flex'
+import Text from '../components/text'
+import BodyText from '../components/body-text'
+import Link from '../components/link'
+
+class NotFoundPage extends Component {
+  render() {
+    return (
+      <Link
+        className={css({
+          height: '100vh',
+          width: '100%'
+        })}
+        hoverStyle="none"
+        to="/"
+      >
+        <Flex
+          width="100%"
+          justifyContent="center"
+          alignItems="center"
+          flexDirection="column"
+        >
+          <Text fontSize={'25vw'} tag="h1">
+            404
+          </Text>
+          <BodyText>Click anywhere</BodyText>
+        </Flex>
+      </Link>
+    )
+  }
+}
 
 export default NotFoundPage

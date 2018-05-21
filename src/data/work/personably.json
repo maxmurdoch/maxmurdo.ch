@@ -1,9 +1,11 @@
 {
   "title": "Personably",
-  "description": "Designing automation into the onboarding process for London-based startup, Personably",
-  "images": [
-    "/img/personably-1.png"
+  "client": "Personably",
+  "brief": "A new visual direction for a dashboard, focussing on a user journey that automates common tasks for new employees",
+  "services": [
+    "design"
   ],
-  "backgroundColor": "#EEE0FE",
-  "order": 1
+  "tools": [],
+  "backgroundColor": "#F9F9F9",
+  "order": 3
 }

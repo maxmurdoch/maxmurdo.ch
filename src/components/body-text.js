@@ -2,13 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Text from './text'
 
-const BodyText = ({color = 'rgba(0, 0, 0, 0.8)', children, ...props}) => {
+const BodyText = ({color = 'rgba(0, 0, 0, 1)', children, ...props}) => {
   return (
     <Text
       color={color}
-      fontSize={[5, 4, 3]}
-      fontWeight={300}
-      lineHeight={3}
+      fontSize={[0, 0, 0, 2]}
+      fontWeight={700}
       m={0}
       {...props}
     >

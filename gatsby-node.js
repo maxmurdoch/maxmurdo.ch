@@ -13,7 +13,6 @@ exports.onCreateNode = ({node, getNode, boundActionCreators}) => {
 
   if (node.internal.type === 'MarkdownRemark') {
     const slug = createFilePath({node, getNode, basePath: 'pages'})
-    console.log(node)
     createNodeField({
       node,
       name: 'slug',
@@ -26,63 +25,5 @@ exports.onCreateNode = ({node, getNode, boundActionCreators}) => {
       name: 'slug',
       value: slug
     })
-    createNodeField({
-      node,
-      name: 'hash',
-      value: slug
-    })
   }
-}
-
-exports.createPages = ({graphql, boundActionCreators}) => {
-  const {createPage} = boundActionCreators
-
-  return new Promise(resolve => {
-    graphql(`
-      {
-        allMarkdownRemark {
-          edges {
-            node {
-              fields {
-                slug
-              }
-            }
-          }
-        }
-        allWorkJson {
-          edges {
-            node {
-              id
-              title
-              description
-              fields {
-                slug
-              }
-            }
-          }
-        }
-      }
-    `).then(result => {
-      const {allMarkdownRemark, allWorkJson} = result.data
-      allMarkdownRemark.edges.forEach(({node}) => {
-        createPage({
-          path: node.fields.slug,
-          component: path.resolve('./src/templates/blog-post.js'),
-          context: {
-            slug: node.fields.slug
-          }
-        })
-      })
-      allWorkJson.edges.forEach(({node}) => {
-        createPage({
-          path: node.fields.slug,
-          component: path.resolve('./src/templates/case-study.js'),
-          context: {
-            slug: node.fields.slug
-          }
-        })
-      })
-      resolve()
-    })
-  })
 }

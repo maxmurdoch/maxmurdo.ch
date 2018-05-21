@@ -1,27 +1,27 @@
 import React, {Component} from 'react'
-import MediaQuery from 'react-responsive'
-import {scroller} from 'react-scroll'
+import {css} from 'emotion'
 import R from 'ramda'
 import PropTypes from 'prop-types'
-import BodyText from './body-text'
 import Flex from './flex'
 import Box from './box'
-import Link from './link'
 import Img from 'gatsby-image'
+import ProjectSmall from './project-small'
+import ProjectLarge from './project-large'
 import stickybits from 'stickybits'
 import {kebabCase} from 'voca'
-import {breakpoints} from '../constants/theme'
 
 const mapIndex = R.addIndex(R.map)
 
-class HomePageProject extends Component {
-  constructor() {
-    super()
+import line from '../assets/line.svg'
+import line2 from '../assets/line-2.svg'
+import line3 from '../assets/line-3.svg'
+import line4 from '../assets/line-4.svg'
 
-    this.state = {
-      infoIsOpen: false
-    }
-    this.calculateStickyBits = this.calculateStickyBits.bind(this)
+const shapes = [line2, line, line3, line4]
+
+class HomePageProject extends Component {
+  state = {
+    infoIsOpen: false
   }
 
   calculateStickyBits() {
@@ -43,151 +43,116 @@ class HomePageProject extends Component {
 
   render() {
     const {
-      title,
+      client,
+      brief,
+      index,
+      total,
+      tools,
+      services,
+      backgroundColor = 'white',
       images,
-      description,
-      backgroundColor,
       previousProjectId,
       nextProjectId
     } = this.props
-    const id = kebabCase(title)
+    const id = kebabCase(client)
 
     return (
       <Flex id={id} flexWrap={true}>
         <Box
           id="description"
           position="relative"
-          width={['100%', '100%', '33.33%']}
+          width={['100%', '100%', '20rem', '30rem']}
           height={['auto', 'auto', '100vh']}
           overflow="auto"
           zIndex="3"
-          background="white"
+          className={css({bottom: 0})}
         >
           <Flex
             flexDirection="column"
             justifyContent="space-between"
-            p={[3, 4, 4]}
             height="100%"
           >
-            <Box>
-              <BodyText tag={'h2'}>{title}</BodyText>
-              <MediaQuery query={`(max-width: ${R.nth(1, breakpoints)}`}>
-                <Link
-                  type="button"
-                  onClick={() => {
-                    this.setState({
-                      infoIsOpen: !this.state.infoIsOpen
-                    })
-                  }}
-                >
-                  Info
-                </Link>
-              </MediaQuery>
-              <MediaQuery query={`(min-width: ${R.nth(1, breakpoints)})`}>
-                <BodyText color="grey">{description}</BodyText>
-              </MediaQuery>
-            </Box>
-            <Box>
-              <Flex justifyContent="space-between">
-                <Box>
-                  {previousProjectId ? (
-                    <BodyText>
-                      <Link
-                        type="button"
-                        onClick={() => {
-                          scroller.scrollTo(previousProjectId, {
-                            duration: 500,
-                            smooth: true
-                          })
-                        }}
-                        hoverStyle="subtle"
-                      >
-                        Previous
-                      </Link>
-                    </BodyText>
-                  ) : null}
-                </Box>
-                <Box>
-                  <BodyText>
-                    <Link
-                      type="button"
-                      onClick={() => {
-                        scroller.scrollTo(nextProjectId || 'work', {
-                          duration: 500,
-                          smooth: true
-                        })
-                      }}
-                      hoverStyle="subtle"
-                    >
-                      {nextProjectId ? 'Next' : 'Back to top'}
-                    </Link>
-                  </BodyText>
-                </Box>
-              </Flex>
-            </Box>
+            <ProjectSmall
+              shapes={shapes}
+              brief={brief}
+              client={client}
+              index={index}
+              total={total}
+              tools={tools}
+              services={services}
+              nextProjectId={nextProjectId}
+              previousProjectId={previousProjectId}
+            />
+            <ProjectLarge
+              shapes={shapes}
+              tools={tools}
+              index={index}
+              total={total}
+              services={services}
+              brief={brief}
+              client={client}
+              nextProjectId={nextProjectId}
+              previousProjectId={previousProjectId}
+            />
           </Flex>
         </Box>
-        <Box
-          display="flex"
+        <Flex
           flexWrap={true}
-          flexDirection="column"
+          flexDirection="row"
           alignItems="center"
-          width={['100%', '100%', '66.66%']}
-          background={backgroundColor}
-          pt={[3, 4, 5]}
-          pb={[3, 4, 5]}
+          justifyContent="center"
+          width={['100%', '100%', 'calc(100% - 20rem)', 'calc(100% - 30rem)']}
+          background={backgroundColor ? backgroundColor : 'rgba(0, 0, 0, 0.03)'}
+          pr={['6vw', '8vw']}
+          pb={['6vw', '8vw']}
         >
           {mapIndex(({image, type}, key) => {
             const sizes = R.prop('sizes', image)
             const imageEl = R.has('sizes', image) ? (
-              <Img
-                style={{
-                  boxShadow:
-                    '0 10px 25px rgba(0, 0, 0, 0.05), 0 0 30px rgba(0, 0, 0, 0.05)'
-                }}
-                sizes={sizes}
-                key={key}
-              />
+              <Img className={style.image} sizes={sizes} />
             ) : (
-              <img
-                style={{
-                  boxShadow:
-                    '0 10px 25px rgba(0, 0, 0, 0.05), 0 0 30px rgba(0, 0, 0, 0.05)'
-                }}
-                src={image}
-                key={key}
-              />
+              <img className={style.image} src={image} />
             )
+            const isPhone = R.equals(type, 'phone')
 
             return (
               <Box
+                width={isPhone ? ['100%', '50%'] : ['100%', '100%']}
+                key={key}
                 maxWidth={
-                  R.equals(type, 'phone') ? ['80%', '30rem'] : ['100%', '80%']
+                  isPhone ? ['100%', '20vw'] : ['100%', '100%', '100%', '50vw']
                 }
-                width="100%"
-                pt={[3, 4, 5]}
-                pb={[3, 4, 5]}
-                pl={[4, 4, 5]}
-                pr={[4, 4, 5]}
+                pt={['6vw', '8vw']}
+                pl={['6vw', '8vw']}
               >
                 {imageEl}
               </Box>
             )
           }, images)}
-        </Box>
+        </Flex>
       </Flex>
     )
   }
 }
 
+const style = {
+  image: css({
+    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.05), 0 0 30px rgba(0, 0, 0, 0.05)'
+  })
+}
 HomePageProject.propTypes = {
-  title: PropTypes.string,
   description: PropTypes.string,
   images: PropTypes.array,
   slug: PropTypes.string,
   backgroundColor: PropTypes.string,
   previousProjectId: PropTypes.string,
-  nextProjectId: PropTypes.string
+  nextProjectId: PropTypes.string,
+  client: PropTypes.string,
+  brief: PropTypes.string,
+  index: PropTypes.number,
+  total: PropTypes.number,
+  tools: PropTypes.array,
+  services: PropTypes.array
 }
 
 export default HomePageProject

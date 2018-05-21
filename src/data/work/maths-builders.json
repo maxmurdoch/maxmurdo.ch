@@ -1,10 +1,17 @@
 {
   "title": "Maths builders",
-  "description": "A small team at the University of Cambridge",
-  "images": [
-    "/img/maths-builders-cover.png",
-    "/img/maths-builders-2.png"
+  "client": "University of Cambridge",
+  "brief": "A mobile app to help students learn maths on the move",
+  "services": [
+    "research",
+    "design",
+    "prototype"
   ],
-  "backgroundColor": "#FFE2E2",
+  "tools": [
+    "JavaScript",
+    "HTML",
+    "CSS"
+  ],
+  "backgroundColor": "#F9F9F9",
   "order": 2
 }

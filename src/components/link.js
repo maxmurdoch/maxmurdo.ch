@@ -5,7 +5,6 @@ import Link from 'gatsby-link'
 import {css} from 'emotion'
 
 import BodyText from './body-text'
-import {blue} from '../constants/colour'
 import internalCursor from '../assets/cursor-internal.svg'
 import externalCursor from '../assets/cursor-external.svg'
 import defaultCursor from '../assets/cursor-default.svg'
@@ -50,6 +49,7 @@ const hoverStyleFor = (style, type) => {
         transform: 'skewX(0)'
       }
     },
+    none: {},
     subtle: {
       transform: 'skewX(0)',
       ':hover': {
@@ -65,16 +65,19 @@ const hoverStyleFor = (style, type) => {
     },
     text: {
       transform: 'skewX(0)',
-      color: blue,
+      borderBottom: '1px dotted black',
       ':hover': {
-        transform: 'skewX(-12deg)'
+        transform: 'skewX(-12deg)',
+        borderBottom: '1px solid black'
       },
       ':active': {
         transform: 'skewX(-12deg)',
+        borderBottom: '1px solid black',
         outline: 0
       },
       ':focus': {
-        transform: 'skewX(-12deg)'
+        transform: 'skewX(-12deg)',
+        borderBottom: '1px solid black'
       }
     }
   }
@@ -103,9 +106,9 @@ const LinkWrapper = ({
       display: 'inline-flex',
       flex: '0 1 auto',
       textDecoration: 'none',
-      transition: 'transform 250ms cubic-bezier(0.2, 1, 0.4, 1)',
+      transition: 'all 250ms cubic-bezier(0.2, 1, 0.4, 1)',
       transformOrigin: 'left bottom',
-      color: 'initial',
+      color: 'inherit',
       padding: 0,
       ':hover': {
         cursor: cursorFor(type)
@@ -160,7 +163,7 @@ LinkWrapper.propTypes = {
   onMouseLeave: PropTypes.func,
   hoverStyle: PropTypes.string,
   to: PropTypes.string,
-  children: PropTypes.string
+  children: PropTypes.node
 }
 
 export default LinkWrapper

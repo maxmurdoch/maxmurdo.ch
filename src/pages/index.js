@@ -3,11 +3,10 @@ import {kebabCase} from 'voca'
 import React from 'react'
 import PropTypes from 'prop-types'
 import SiteContainer from '../components/site-container'
-import HomeHero from '../components/home-hero'
+import Header from '../components/header'
 import HomePageProject from '../components/home-page-project'
 import {injectGlobal} from 'emotion'
 import cursor from '../assets/cursor-default.svg'
-import adaptiveLabBuildBeta from '../assets/images/adaptive lab/adaptive-lab-build-beta.gif'
 
 injectGlobal`
   * {
@@ -49,6 +48,10 @@ const IndexPage = ({
     personablyAgenda,
     personablyChooseApp,
     personablyComposeMessage,
+    personablyComposeMessage2,
+    personablyTemplates,
+    personablyChooseWho1,
+    personablyChooseWho2,
     personablyChooseTask,
     adaptiveLabIntroOne,
     adaptiveLabIntroTwo,
@@ -56,6 +59,7 @@ const IndexPage = ({
     adaptiveLabFour,
     adaptiveLabClients,
     adaptiveLabJobs,
+    adaptiveLabBuildBeta,
     adaptiveLabSmartyCover
   }
 }) => {
@@ -186,11 +190,27 @@ const IndexPage = ({
         type: 'laptop'
       },
       {
+        image: personablyChooseTask,
+        type: 'laptop'
+      },
+      {
+        image: personablyChooseWho1,
+        type: 'laptop'
+      },
+      {
+        image: personablyChooseWho2,
+        type: 'laptop'
+      },
+      {
         image: personablyComposeMessage,
         type: 'laptop'
       },
       {
-        image: personablyChooseTask,
+        image: personablyComposeMessage2,
+        type: 'laptop'
+      },
+      {
+        image: personablyTemplates,
         type: 'laptop'
       }
     ],
@@ -234,34 +254,41 @@ const IndexPage = ({
 
   return (
     <div>
-      <HomeHero />
       <SiteContainer>
+        <Header />
         <div name="work">
           {mapWithIndex(
-            ({title, description, backgroundColor, fields: {slug}}, key) => {
-              const getTitle = R.prop('title')
+            (
+              {tools, client, brief, backgroundColor, services, fields: {slug}},
+              key
+            ) => {
+              const getId = R.prop('client')
 
               const previousProjectId = kebabCase(
-                getTitle(R.prop(R.dec(key), workList))
+                getId(R.prop(R.dec(key), workList))
               )
               const nextProjectId = kebabCase(
-                getTitle(R.prop(R.inc(key), workList))
+                getId(R.prop(R.inc(key), workList))
               )
 
               return (
                 <HomePageProject
                   key={key}
-                  title={title}
+                  tools={tools}
+                  services={services}
+                  index={key}
+                  backgroundColor={backgroundColor}
+                  total={R.length(workList)}
+                  client={client}
+                  images={R.prop(kebabCase(slug), imagesForProject)}
+                  brief={brief}
+                  slug={slug}
                   previousProjectId={
                     R.isEmpty(previousProjectId) ? undefined : previousProjectId
                   }
                   nextProjectId={
                     R.isEmpty(nextProjectId) ? undefined : nextProjectId
                   }
-                  backgroundColor={backgroundColor}
-                  images={R.prop(kebabCase(slug), imagesForProject)}
-                  description={description}
-                  slug={slug}
                 />
               )
             },
@@ -285,10 +312,11 @@ export const query = graphql`
       edges {
         node {
           id
-          title
-          description
+          brief
+          client
+          tools
+          services
           backgroundColor
-          images
           order
           fields {
             slug
@@ -485,7 +513,27 @@ export const query = graphql`
         ...GatsbyImageSharpSizes_noBase64
       }
     }
-    personablyComposeMessage: imageSharp(id: {regex: "/compose-message/"}) {
+    personablyComposeMessage: imageSharp(id: {regex: "/compose-message-1/"}) {
+      sizes {
+        ...GatsbyImageSharpSizes_noBase64
+      }
+    }
+    personablyComposeMessage2: imageSharp(id: {regex: "/compose-message-2/"}) {
+      sizes {
+        ...GatsbyImageSharpSizes_noBase64
+      }
+    }
+    personablyTemplates: imageSharp(id: {regex: "/templates/"}) {
+      sizes {
+        ...GatsbyImageSharpSizes_noBase64
+      }
+    }
+    personablyChooseWho1: imageSharp(id: {regex: "/choose-who-1/"}) {
+      sizes {
+        ...GatsbyImageSharpSizes_noBase64
+      }
+    }
+    personablyChooseWho2: imageSharp(id: {regex: "/choose-who-2/"}) {
       sizes {
         ...GatsbyImageSharpSizes_noBase64
       }
@@ -500,7 +548,7 @@ export const query = graphql`
         ...GatsbyImageSharpSizes_noBase64
       }
     }
-    adaptiveLabIntroOne: imageSharp(id: {regex: "/adaptive-lab/"}) {
+    adaptiveLabIntroOne: imageSharp(id: {regex: "/adaptive-lab-1/"}) {
       sizes {
         ...GatsbyImageSharpSizes_noBase64
       }
@@ -526,6 +574,11 @@ export const query = graphql`
       }
     }
     adaptiveLabJobs: imageSharp(id: {regex: "/adaptive-lab-jobs/"}) {
+      sizes {
+        ...GatsbyImageSharpSizes_noBase64
+      }
+    }
+    adaptiveLabBuildBeta: imageSharp(id: {regex: "/build-you-beta/"}) {
       sizes {
         ...GatsbyImageSharpSizes_noBase64
       }

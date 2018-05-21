@@ -5,13 +5,18 @@ import {
   justifyContent,
   flexWrap,
   flexBasis,
+  width,
   flexDirection,
   flex,
   height,
   background,
+  borderTop,
+  borderRight,
+  borderLeft,
   borderBottom,
   style,
-  space
+  space,
+  position
 } from 'styled-system'
 
 const overflow = style({
@@ -21,7 +26,11 @@ const overflow = style({
 const Flex = styled('div')`
   display: flex;
   ${overflow}
+  ${borderLeft}
+  ${borderRight}
+  ${borderTop}
   ${borderBottom}
+  ${width}
   ${space}
   ${alignItems}
   ${alignContent}
@@ -32,6 +41,7 @@ const Flex = styled('div')`
   ${flex}
   ${height}
   ${background}
+  ${position}
 `
 
 export default Flex

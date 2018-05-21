@@ -1,26 +1,40 @@
 import React from 'react'
 import Link from './link.js'
-import Text from './text'
+import BodyText from './body-text'
+import BodyTextSecondary from './body-text-secondary'
+import WordCycle from './word-cycle'
 import Flex from './flex'
 import Box from './box'
 
 const Header = () => (
   <Flex justifyContent={'space-between'}>
-    <Box width={[1, 1 / 2]} p={[3, 4, 4]}>
-      <Text fontSize={[4, 5, 6]}>
-        <Link to="/" hoverStyle="subtle">
-          Work
+    <Box width={[1, 1 / 2]} p={[4, 6, 8]}>
+      <BodyText>
+        <Link to="/" hoverStyle="none">
+          Max
+          <WordCycle words={['Design', 'Code']}>
+            {({word}) => (
+              <BodyTextSecondary tag="span">
+                &nbsp;/&nbsp;{word}
+              </BodyTextSecondary>
+            )}
+          </WordCycle>
         </Link>
-      </Text>
+      </BodyText>
     </Box>
-    <Box width={[1, 1 / 2]} p={[3, 4, 4]}>
+    <Box width={[1, 1 / 2]} p={[4, 6, 8]}>
       <Flex justifyContent={'flex-end'}>
-        <Box pl={4}>
-          <Text fontSize={[4, 5, 6]}>
+        <BodyTextSecondary>
+          <Link to="/" hoverStyle="subtle">
+            Work
+          </Link>
+        </BodyTextSecondary>
+        <Box pl={6}>
+          <BodyTextSecondary>
             <Link to="/info" hoverStyle="subtle">
               Info
             </Link>
-          </Text>
+          </BodyTextSecondary>
         </Box>
       </Flex>
     </Box>

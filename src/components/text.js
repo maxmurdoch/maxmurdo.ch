@@ -1,10 +1,17 @@
 import React from 'react'
+import R from 'ramda'
 import {injectGlobal} from 'emotion'
 import styled from 'react-emotion'
 import PropTypes from 'prop-types'
+import gtAmericaMonoLight from '../fonts/gt/GT-America-Mono-Light.woff'
+import gtAmericaMonoLightItalic from '../fonts/gt/GT-America-Mono-Light-Italic.woff'
+import gtAmericaMonoBold from '../fonts/gt/GT-America-Mono-Medium.woff'
+import gtAmericaMonoBoldItalic from '../fonts/gt/GT-America-Mono-Medium-Italic.woff'
 import {
   fontSize as styledFontSize,
   fontWeight as styledFontWeight,
+  background,
+  fontFamily,
   color,
   lineHeight as styledLineHeight,
   space
@@ -12,9 +19,38 @@ import {
 
 injectGlobal`
 ::selection {
-  backgroundColor: 'blue',
-  color: 'white'
+  background-color: blue;
+  color: white;
 }
+`
+
+injectGlobal`
+@font-face {
+    font-family: 'GT America Mono';
+    font-style: normal;
+    font-weight: 300;
+    src: url(${gtAmericaMonoLight}) format('woff');
+  }
+@font-face {
+    font-family: 'GT America Mono';
+    font-style: italic;
+    font-weight: 300;
+    src: url(${gtAmericaMonoLightItalic}) format('woff');
+  }
+
+@font-face {
+    font-family: 'GT America Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: url(${gtAmericaMonoBold}) format('woff');
+  }
+
+@font-face {
+    font-family: 'GT America Mono';
+    font-style: italic;
+    font-weight: 700;
+    src: url(${gtAmericaMonoBoldItalic}) format('woff');
+  }
 `
 
 injectGlobal`
@@ -24,19 +60,32 @@ injectGlobal`
 }
 `
 
-const Text = ({tag = 'p', fontWeight = 300, children, ...props}) => {
+const fontFamilies = {
+  mono: 'GT America Mono, monospace',
+  serif: 'Times'
+}
+const fontFamilyForType = type => R.prop(type, fontFamilies)
+
+const Text = ({
+  tag = 'p',
+  fontWeight = 300,
+  lineHeight = 1.5,
+  fontType = 'mono',
+  children,
+  ...props
+}) => {
   const Component = styled(tag)`
-  font-family: 'Untitled';
-  margin: 0;
-  line-height: 1.5;
-  ${styledFontSize}
-  ${styledFontWeight}
-  ${color}
-  ${styledLineHeight}
-  ${space}
-`
+    margin: 0;
+     ${styledFontSize} ${fontFamily} ${styledFontWeight}
+      ${color} ${styledLineHeight} ${space} ${background}
+  `
   return (
-    <Component fontWeight={fontWeight} {...props}>
+    <Component
+      fontFamily={fontFamilyForType(fontType)}
+      fontWeight={fontWeight}
+      lineHeight={lineHeight}
+      {...props}
+    >
       {children}
     </Component>
   )
@@ -44,12 +93,10 @@ const Text = ({tag = 'p', fontWeight = 300, children, ...props}) => {
 
 Text.propTypes = {
   tag: PropTypes.string,
+  fontType: PropTypes.oneOf(['sans', 'mono', 'serif']),
   fontWeight: PropTypes.number,
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array,
-    PropTypes.element
-  ]),
+  lineHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  children: PropTypes.node,
   fontSize: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
 }
 

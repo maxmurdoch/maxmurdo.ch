@@ -1,9 +1,22 @@
 {
   "title": "Code at Uni",
-  "description": "Design direction for the startup that wants to teach all uni students to code",
-  "images": [
-    "/img/code-at-uni-1.jpg"
+  "client": "Code at Uni",
+  "brief": "A new site for a startup that wants to teach all uni students to code",
+  "services": [
+    "design",
+    "build"
   ],
-  "backgroundColor": "#EEE0FE",
-  "order": 3
+  "tools": [
+    "React",
+    "Redux",
+    "Ramda",
+    "CSS Modules",
+    "GraphQL"
+  ],
+  "link": {
+    "text": "View website",
+    "to": "http://www.codeatuni.com/"
+  },
+  "backgroundColor": "#F9F9F9",
+  "order": 4
 }

@@ -17,6 +17,7 @@ module.exports = {
         path: `${__dirname}/src/assets/images/`
       }
     },
+    'gatsby-plugin-emotion',
     'gatsby-transformer-remark',
     'gatsby-transformer-json',
     'gatsby-transformer-sharp',
