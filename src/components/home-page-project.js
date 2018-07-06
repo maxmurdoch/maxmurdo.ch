@@ -120,7 +120,9 @@ class HomePageProject extends Component {
                 width={isPhone ? ['100%', '50%'] : ['100%', '100%']}
                 key={key}
                 maxWidth={
-                  isPhone ? ['100%', '20vw'] : ['100%', '100%', '100%', '50vw']
+                  isPhone
+                    ? ['100%', '100%', '24vw']
+                    : ['100%', '100%', '100%', '50vw']
                 }
                 pt={['6vw', '8vw']}
                 pl={['6vw', '8vw']}
