@@ -2,10 +2,10 @@ import React from 'react'
 import {css} from 'react-emotion'
 import {capitalize} from 'voca'
 import PropTypes from 'prop-types'
-import R from 'ramda'
+import * as R from 'ramda'
 import MediaQuery from 'react-responsive'
 
-import ProjectLargeInfoFooter from './project-large-info-footer'
+import ProjectLargeFooter from './project-large-footer'
 import BodyText from './body-text'
 import BodyTextSecondary from './body-text-secondary'
 import Flex from './flex'
@@ -60,7 +60,7 @@ const ProjectLarge = ({
                 },
                 [`@media screen and (min-width: ${R.nth(2, breakpoints)})`]: {
                   bottom: '10%',
-                  width: '20rem'
+                  width: '16rem'
                 }
               })}
               src={R.nth(index, shapes)}
@@ -80,7 +80,7 @@ const ProjectLarge = ({
             </Box>
           </Flex>
           {R.and(R.isEmpty(services), R.isEmpty(tools)) ? null : (
-            <Flex pb={[4, 6, 8]} pr={[4, 6, 8]} pl={[4, 6, 8]} flexWrap="wrap">
+            <Flex pr={[4, 6, 8]} pl={[4, 6, 8]} flexWrap="wrap">
               {R.isEmpty(services) ? null : (
                 <Flex
                   pr={2}
@@ -133,8 +133,8 @@ const ProjectLarge = ({
             </Flex>
           )}
         </Box>
-        <Box p={[4, 6, 8]}>
-          <ProjectLargeInfoFooter
+        <Box pr={[4, 6, 8]} pl={[4, 6, 8]} pt={[4, 6]} pb={[4, 6]}>
+          <ProjectLargeFooter
             total={total}
             index={index}
             previousProjectId={previousProjectId}

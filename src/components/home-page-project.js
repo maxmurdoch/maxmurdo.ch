@@ -1,16 +1,17 @@
 import React, {Component} from 'react'
 import {css} from 'emotion'
-import R from 'ramda'
+import {addIndex, map, prop, has, equals} from 'ramda'
 import PropTypes from 'prop-types'
-import Flex from './flex'
-import Box from './box'
 import Img from 'gatsby-image'
-import ProjectSmall from './project-small'
-import ProjectLarge from './project-large'
 import stickybits from 'stickybits'
 import {kebabCase} from 'voca'
 
-const mapIndex = R.addIndex(R.map)
+import Flex from './flex'
+import Box from './box'
+import ProjectSmall from './project-small'
+import ProjectLarge from './project-large'
+
+const mapIndex = addIndex(map)
 
 import line from '../assets/line.svg'
 import line2 from '../assets/line-2.svg'
@@ -107,13 +108,13 @@ class HomePageProject extends Component {
           pb={['6vw', '8vw']}
         >
           {mapIndex(({image, type}, key) => {
-            const sizes = R.prop('sizes', image)
-            const imageEl = R.has('sizes', image) ? (
-              <Img className={style.image} sizes={sizes} />
+            const fluid = prop('fluid', image)
+            const imageEl = has('fluid', image) ? (
+              <Img className={style.image} fluid={fluid} />
             ) : (
               <img className={style.image} src={image} />
             )
-            const isPhone = R.equals(type, 'phone')
+            const isPhone = equals(type, 'phone')
 
             return (
               <Box
@@ -142,6 +143,7 @@ const style = {
     boxShadow: '0 10px 25px rgba(0, 0, 0, 0.05), 0 0 30px rgba(0, 0, 0, 0.05)'
   })
 }
+
 HomePageProject.propTypes = {
   description: PropTypes.string,
   images: PropTypes.array,

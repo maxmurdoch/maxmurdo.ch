@@ -3,18 +3,19 @@ import {capitalize} from 'voca'
 import {css} from 'react-emotion'
 import PropTypes from 'prop-types'
 import Collapse from 'react-collapse'
-import R from 'ramda'
+import * as R from 'ramda'
 import MediaQuery from 'react-responsive'
 
+import UpDownArrows from './UpDownArrows'
 import Flex from './flex'
 import Box from './box'
 import BodyText from './body-text'
 import BodyTextSecondary from './body-text-secondary'
-import ProjectFooterSmall from './project-footer-small'
 import plusIcon from '../assets/plus-icon.svg'
 import {breakpoints, space} from '../constants/theme'
 
 const mapIndex = R.addIndex(R.map)
+
 class ProjectSmall extends Component {
   state = {
     infoIsOpen: false
@@ -41,7 +42,10 @@ class ProjectSmall extends Component {
             alignItems="center"
             justifyContent="space-between"
             flexBasis="100%"
-            p={[4, 6, 8]}
+            pt={[2, 4, 8]}
+            pr={[4, 6, 8]}
+            pb={[2, 4, 8]}
+            pl={[4, 6, 8]}
           >
             <Box>
               <button
@@ -53,7 +57,8 @@ class ProjectSmall extends Component {
                 className={css({
                   background: 0,
                   display: 'flex',
-                  padding: '10px 10px 10px 0px',
+                  padding: R.nth(1, space),
+                  marginLeft: `-${R.nth(1, space)}`,
                   justifyContent: 'center',
                   alignItems: 'center',
                   border: 0,
@@ -65,7 +70,7 @@ class ProjectSmall extends Component {
                     transform: this.state.infoIsOpen ? 'rotate(45deg)' : 'none'
                   }}
                   className={css({
-                    transition: '100ms transform cubic-bezier(0, 0.2, 1, 0.8)',
+                    transition: '200ms transform cubic-bezier(0, 0.2, 1, 0.8)',
                     flex: 1,
                     width: R.nth(2, space),
                     marginBottom: 0
@@ -78,9 +83,9 @@ class ProjectSmall extends Component {
               <BodyTextSecondary mr={1}>
                 {R.inc(index)}/{total}
               </BodyTextSecondary>
-              <ProjectFooterSmall
-                previousProjectId={previousProjectId}
-                nextProjectId={nextProjectId}
+              <UpDownArrows
+                previousId={previousProjectId}
+                nextId={nextProjectId}
               />
             </Flex>
           </Flex>
@@ -94,25 +99,14 @@ class ProjectSmall extends Component {
                     position: 'absolute',
                     marginBottom: 0,
                     bottom: 0,
-                    width: '80%',
+                    width: '12rem',
                     left: '0',
                     opacity: 0.8,
                     [`@media screen and (min-width: ${R.nth(
-                      1,
+                      0,
                       breakpoints
                     )})`]: {
-                      bottom: '15%',
-                      transform: 'none',
-                      width: '14rem',
-                      right: '40%',
-                      left: '10%'
-                    },
-                    [`@media screen and (min-width: ${R.nth(
-                      2,
-                      breakpoints
-                    )})`]: {
-                      bottom: '10%',
-                      width: '20rem'
+                      bottom: '1rem'
                     }
                   })}
                   src={R.nth(index, shapes)}

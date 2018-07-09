@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import * as R from 'ramda'
 import {css} from 'emotion'
 import cursorDown from '../assets/cursor-down.svg'
 import Flex from '../components/flex'

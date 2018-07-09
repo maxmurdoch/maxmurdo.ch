@@ -1,4 +1,4 @@
-import R from 'ramda'
+import * as R from 'ramda'
 
 const numScale = R.scan(a => R.multiply(a, 1.5), 0.5, R.range(1, 9))
 const appendUnit = R.partialRight(R.concat, ['rem'])

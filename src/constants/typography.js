@@ -1,4 +1,4 @@
-import R from 'ramda'
+import * as R from 'ramda'
 import {injectGlobal} from 'emotion'
 
 import untitled from '../fonts/untitled/Untitled-Sans-Light.woff'

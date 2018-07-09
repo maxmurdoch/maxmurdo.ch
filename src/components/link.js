@@ -1,7 +1,7 @@
 import React from 'react'
-import R from 'ramda'
+import * as R from 'ramda'
 import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
+import {Link} from 'gatsby'
 import {css} from 'emotion'
 
 import BodyText from './body-text'

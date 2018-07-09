@@ -1,4 +1,4 @@
-import R from 'ramda'
+import * as R from 'ramda'
 
 // breakpoint values
 // any array length works with styled-system

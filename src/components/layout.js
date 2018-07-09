@@ -4,7 +4,7 @@ import {Helmet} from 'react-helmet'
 import {ThemeProvider} from 'emotion-theming'
 
 import theme from '../constants/theme'
-import favicon from './favicon-32x32.png'
+import favicon from '../assets/favicon-32x32.png'
 import './index.css'
 
 const description =
@@ -25,13 +25,13 @@ const Layout = ({children}) => {
         <meta name="author" content="Max Murdoch" />
         <link rel="icon" href={favicon} type="image/x-icon" />
       </Helmet>
-      <ThemeProvider theme={theme}>{children()}</ThemeProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </div>
   )
 }
 
 Layout.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.node
 }
 
 export default Layout

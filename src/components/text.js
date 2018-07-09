@@ -1,5 +1,5 @@
 import React from 'react'
-import R from 'ramda'
+import * as R from 'ramda'
 import {injectGlobal} from 'emotion'
 import styled from 'react-emotion'
 import PropTypes from 'prop-types'
