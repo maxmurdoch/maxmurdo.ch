@@ -1,10 +1,10 @@
 import React from 'react'
 import {inc} from 'ramda'
-import BodyTextSecondary from './body-text-secondary'
 import PropTypes from 'prop-types'
 
-import Flex from './flex'
-import Box from './box'
+import BodyTextSecondary from './BodyTextSecondary'
+import Flex from './Flex'
+import Box from './Box'
 import UpDownArrows from './UpDownArrows'
 
 const ProjectLargeInfoFooter = ({

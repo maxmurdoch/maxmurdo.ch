@@ -1,10 +1,10 @@
 import React from 'react'
-import Link from './link.js'
-import BodyText from './body-text'
-import BodyTextSecondary from './body-text-secondary'
-import WordCycle from './word-cycle'
-import Flex from './flex'
-import Box from './box'
+import Link from './Link'
+import BodyText from './BodyText'
+import BodyTextSecondary from './BodyTextSecondary'
+import WordCycle from './WordCycle'
+import Flex from './Flex'
+import Box from './Box'
 
 const Header = () => (
   <Flex justifyContent={'space-between'}>
@@ -24,14 +24,16 @@ const Header = () => (
     </Box>
     <Box width={[1, 1 / 2]} p={[4, 6, 8]}>
       <Flex justifyContent={'flex-end'}>
-        <BodyTextSecondary>
-          <Link to="/" hoverStyle="subtle">
-            Work
-          </Link>
-        </BodyTextSecondary>
+        <Box position="relative">
+          <BodyTextSecondary>
+            <Link to="/" hoverStyle="nav">
+              Work
+            </Link>
+          </BodyTextSecondary>
+        </Box>
         <Box pl={6}>
           <BodyTextSecondary>
-            <Link to="/info" hoverStyle="subtle">
+            <Link to="/info" hoverStyle="nav">
               Info
             </Link>
           </BodyTextSecondary>

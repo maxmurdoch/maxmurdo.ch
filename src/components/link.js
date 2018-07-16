@@ -4,10 +4,11 @@ import PropTypes from 'prop-types'
 import {Link} from 'gatsby'
 import {css} from 'emotion'
 
-import BodyText from './body-text'
+import BodyText from './BodyText'
 import internalCursor from '../assets/cursor-internal.svg'
 import externalCursor from '../assets/cursor-external.svg'
 import defaultCursor from '../assets/cursor-default.svg'
+import circle from '../assets/circle.svg'
 
 const cursorFor = R.cond([
   [R.equals('internal'), R.always(`url(${internalCursor}) 8 8, auto`)],
@@ -15,10 +16,22 @@ const cursorFor = R.cond([
   [R.T, R.always(`url(${defaultCursor}), auto`)]
 ])
 
+const circleActiveStyle = {
+  backgroundImage: `url(${circle})`,
+  position: 'absolute',
+  width: '5rem',
+  maxWidth: 'none',
+  left: '-50%',
+  bottom: '-30%'
+}
+
 const activeStyleFor = style => {
   const styleOptions = {
     default: {
       transform: 'skewX(0)'
+    },
+    nav: {
+      fontWeight: 700
     },
     subtle: {
       transform: 'skewX(-12deg)'
@@ -50,6 +63,19 @@ const hoverStyleFor = (style, type) => {
       }
     },
     none: {},
+    nav: {
+      transform: 'skewX(0)',
+      ':hover': {
+        fontWeight: 700
+      },
+      ':active': {
+        fontWeight: 700,
+        outline: 0
+      },
+      ':focus': {
+        fontWeight: 700
+      }
+    },
     subtle: {
       transform: 'skewX(0)',
       ':hover': {
@@ -97,6 +123,7 @@ const LinkWrapper = ({
   type = 'internal',
   hoverStyle = 'default',
   to,
+  activeStyle,
   ...props
 }) => {
   const linkStyle = css(
@@ -138,7 +165,7 @@ const LinkWrapper = ({
       <Link
         to={to}
         exact
-        activeStyle={activeStyleFor(hoverStyle)}
+        activeStyle={activeStyleFor(activeStyle)}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         className={linkStyle}

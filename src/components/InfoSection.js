@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Flex from './flex'
-import Box from './box'
-import BodyText from './body-text'
+import Flex from './Flex'
+import Box from './Box'
+import BodyText from './BodyText'
 
 const InfoSection = ({title, children}) => (
   <Flex

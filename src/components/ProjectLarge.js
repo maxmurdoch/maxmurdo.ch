@@ -5,11 +5,11 @@ import PropTypes from 'prop-types'
 import * as R from 'ramda'
 import MediaQuery from 'react-responsive'
 
-import ProjectLargeFooter from './project-large-footer'
-import BodyText from './body-text'
-import BodyTextSecondary from './body-text-secondary'
-import Flex from './flex'
-import Box from './box'
+import ProjectLargeFooter from './ProjectLargeFooter'
+import BodyText from './BodyText'
+import BodyTextSecondary from './BodyTextSecondary'
+import Flex from './Flex'
+import Box from './Box'
 import {breakpoints} from '../constants/theme'
 
 const mapIndex = R.addIndex(R.map)

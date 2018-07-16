@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import BodyText from './body-text'
+import BodyText from './BodyText'
 
 const BodyTextSecondary = ({
   // color = 'rgba(0, 0, 0, 0.6)',

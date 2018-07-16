@@ -1,16 +1,17 @@
 import React from 'react'
 import * as R from 'ramda'
+import Fade from 'react-reveal/Fade'
 import {css} from 'react-emotion'
 import {Helmet} from 'react-helmet'
 import Link from '../components/link'
-import BigText from '../components/big-text'
-import BodyTextSecondary from '../components/body-text-secondary'
-import InfoSection from '../components/info-section'
-import Header from '../components/header'
-import Flex from '../components/flex'
-import Layout from '../components/layout'
-import Box from '../components/box'
-import SiteContainer from '../components/site-container'
+import BigText from '../components/BigText'
+import BodyTextSecondary from '../components/BodyTextSecondary'
+import InfoSection from '../components/InfoSection'
+import Header from '../components/Header'
+import Flex from '../components/Flex'
+import Layout from '../components/Layout'
+import Box from '../components/Box'
+import SiteContainer from '../components/SiteContainer'
 import {breakpoints} from '../constants/theme'
 
 import line from '../assets/line.svg'
@@ -67,44 +68,47 @@ const Info = () => {
                 src={line}
               />
             </Flex>
-            <InfoSection title="Overview">
-              <BodyTextSecondary mb={4}>
-                Hi! I’m Max, an independent designer and programmer living and
-                working in London. I’ve worked as both a Digital Product
-                Designer and a Software Engineer. Now I combine the two to take
-                a holistic approach to making digital products.
-              </BodyTextSecondary>
-            </InfoSection>
-            <InfoSection title="Process">
-              <BodyTextSecondary mb={4}>
-                My process is simple and I move quite quickly and fluidly
-                between different stages. We’ll identify goals, constraints and
-                a rough scope for the project. I’ll start with pen and paper to
-                explore different approaches. Then I’ll move into Sketch to hone
-                in a more detailed visual direction. We’ll talk a lot so you can
-                feedback and I can iterate. When the the look and feel of the
-                static design is right, I’ll start writing code, which is where
-                I’ll do the interaction, animation and responsive design as well
-                as the core job of building and shipping the finished product.
-              </BodyTextSecondary>
-            </InfoSection>
-            <InfoSection title="Contact">
-              <BodyTextSecondary mb={4}>
-                If you think we could work together, please&nbsp;
-                <Link
-                  type="external"
-                  to="mailto:max@maxmurdo.ch"
-                  hoverStyle="text"
-                >
-                  get in touch
-                </Link>. If the project requires other skills, I have a close
-                group of lovely, smart, interesting people who do things like
-                content / brand strategy, illustration, engineering,
-                copywriting, photography, filmmaking etc., so if I’m not the
-                right person for your project or our timelines don’t match, I’ll
-                do my best to introduce you to someone who can help.
-              </BodyTextSecondary>
-            </InfoSection>
+            <Fade bottom cascade>
+              <InfoSection title="Overview">
+                <BodyTextSecondary mb={4}>
+                  Hi! I’m Max, an independent designer and programmer living and
+                  working in London. I’ve worked as both a Digital Product
+                  Designer and a Software Engineer. Now I combine the two to
+                  take a holistic approach to making digital products.
+                </BodyTextSecondary>
+              </InfoSection>
+              <InfoSection title="Process">
+                <BodyTextSecondary mb={4}>
+                  My process is simple and I move quite quickly and fluidly
+                  between different stages. We’ll identify goals, constraints
+                  and a rough scope for the project. I’ll start with pen and
+                  paper to explore different approaches. Then I’ll move into
+                  Sketch to hone in a more detailed visual direction. We’ll talk
+                  a lot so you can feedback and I can iterate. When the the look
+                  and feel of the static design is right, I’ll start writing
+                  code, which is where I’ll do the interaction, animation and
+                  responsive design as well as the core job of building and
+                  shipping the finished product.
+                </BodyTextSecondary>
+              </InfoSection>
+              <InfoSection title="Contact">
+                <BodyTextSecondary mb={4}>
+                  If you think we could work together, please&nbsp;
+                  <Link
+                    type="external"
+                    to="mailto:max@maxmurdo.ch"
+                    hoverStyle="text"
+                  >
+                    get in touch
+                  </Link>. If the project requires other skills, I have a close
+                  group of lovely, smart, interesting people who do things like
+                  content / brand strategy, illustration, engineering,
+                  copywriting, photography, filmmaking etc., so if I’m not the
+                  right person for your project or our timelines don’t match,
+                  I’ll do my best to introduce you to someone who can help.
+                </BodyTextSecondary>
+              </InfoSection>
+            </Fade>
           </Flex>
         </SiteContainer>
       </div>

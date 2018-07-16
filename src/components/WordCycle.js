@@ -46,7 +46,7 @@ class WordCycle extends Component {
     })
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.startCycling()
   }
 

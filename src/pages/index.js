@@ -3,7 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {injectGlobal} from 'emotion'
 
-import SiteContainer from '../components/site-container'
+import SiteContainer from '../components/SiteContainer'
 import Header from '../components/header'
 import Layout from '../components/layout'
 import Home from '../components/home'
@@ -16,14 +16,13 @@ injectGlobal`
   }
 `
 
-const IndexPage = ({data}) => {
-  console.log(data)
+const IndexPage = ({data, location}) => {
   return (
     <Layout>
       <div>
         <SiteContainer>
           <Header />
-          <Home data={data} />
+          <Home data={data} location={location} />
         </SiteContainer>
       </div>
     </Layout>
@@ -31,7 +30,8 @@ const IndexPage = ({data}) => {
 }
 
 IndexPage.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
+  location: PropTypes.object
 }
 
 export default IndexPage
@@ -54,17 +54,70 @@ export const query = graphql`
         }
       }
     }
-    imageChange: imageSharp(fluid: {originalName: {regex: "/maths-builders-image-change/"}}) {
+    mayhemFeaturedOne: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-featured-one/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    mathsBuildersHome: imageSharp(fluid: {originalName: {regex: "/maths-builders-home-page/"}}) {
+    mayhemFeaturedTwo: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-featured-two/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    mathsBuildersSignIn: imageSharp(fluid: {originalName: {regex: "/maths-builders-sign-in-three/"}}) {
+    mayhemFeaturedThree: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-featured-three/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemFeaturedFour: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-featured-four/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemFeaturedFive: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-featured-five/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemFeaturedSix: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-featured-six/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemMenu: imageSharp(fluid: {originalName: {regex: "/mayhem-menu/"}}) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    imageChange: imageSharp(
+      fluid: {originalName: {regex: "/maths-builders-image-change/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mathsBuildersHome: imageSharp(
+      fluid: {originalName: {regex: "/maths-builders-home-page/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mathsBuildersSignIn: imageSharp(
+      fluid: {originalName: {regex: "/maths-builders-sign-in-three/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
@@ -223,17 +276,23 @@ export const query = graphql`
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    codeAtUniOne: imageSharp(fluid: {originalName: {regex: "/code-at-uni-hero/"}}) {
+    codeAtUniOne: imageSharp(
+      fluid: {originalName: {regex: "/code-at-uni-hero/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    codeAtUniTwo: imageSharp(fluid: {originalName: {regex: "/code-at-uni-search/"}}) {
+    codeAtUniTwo: imageSharp(
+      fluid: {originalName: {regex: "/code-at-uni-search/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    codeAtUniThree: imageSharp(fluid: {originalName: {regex: "/code-at-uni-quote/"}}) {
+    codeAtUniThree: imageSharp(
+      fluid: {originalName: {regex: "/code-at-uni-quote/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
@@ -243,72 +302,100 @@ export const query = graphql`
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    personablyComposeMessage: imageSharp(fluid: {originalName: {regex: "/compose-message-1/"}}) {
+    personablyComposeMessage: imageSharp(
+      fluid: {originalName: {regex: "/compose-message-1/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    personablyComposeMessage2: imageSharp(fluid: {originalName: {regex: "/compose-message-2/"}}) {
+    personablyComposeMessage2: imageSharp(
+      fluid: {originalName: {regex: "/compose-message-2/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    personablyTemplates: imageSharp(fluid: {originalName: {regex: "/templates/"}}) {
+    personablyTemplates: imageSharp(
+      fluid: {originalName: {regex: "/templates/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    personablyChooseWho1: imageSharp(fluid: {originalName: {regex: "/choose-who-1/"}}) {
+    personablyChooseWho1: imageSharp(
+      fluid: {originalName: {regex: "/choose-who-1/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    personablyChooseWho2: imageSharp(fluid: {originalName: {regex: "/choose-who-2/"}}) {
+    personablyChooseWho2: imageSharp(
+      fluid: {originalName: {regex: "/choose-who-2/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    personablyChooseApp: imageSharp(fluid: {originalName: {regex: "/choose-app/"}}) {
+    personablyChooseApp: imageSharp(
+      fluid: {originalName: {regex: "/choose-app/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    personablyChooseTask: imageSharp(fluid: {originalName: {regex: "/choose-task/"}}) {
+    personablyChooseTask: imageSharp(
+      fluid: {originalName: {regex: "/choose-task/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    adaptiveLabIntroOne: imageSharp(fluid: {originalName: {regex: "/adaptive-lab-1/"}}) {
+    adaptiveLabIntroOne: imageSharp(
+      fluid: {originalName: {regex: "/adaptive-lab-1/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    adaptiveLabIntroTwo: imageSharp(fluid: {originalName: {regex: "/adaptive-lab-2/"}}) {
+    adaptiveLabIntroTwo: imageSharp(
+      fluid: {originalName: {regex: "/adaptive-lab-2/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    adaptiveLabIntroThree: imageSharp(fluid: {originalName: {regex: "/adaptive-lab-3/"}}) {
+    adaptiveLabIntroThree: imageSharp(
+      fluid: {originalName: {regex: "/adaptive-lab-3/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    adaptiveLabFour: imageSharp(fluid: {originalName: {regex: "/adaptive-lab-4/"}}) {
+    adaptiveLabFour: imageSharp(
+      fluid: {originalName: {regex: "/adaptive-lab-4/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    adaptiveLabClients: imageSharp(fluid: {originalName: {regex: "/adaptive-lab-clients/"}}) {
+    adaptiveLabClients: imageSharp(
+      fluid: {originalName: {regex: "/adaptive-lab-clients/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    adaptiveLabJobs: imageSharp(fluid: {originalName: {regex: "/adaptive-lab-jobs/"}}) {
+    adaptiveLabJobs: imageSharp(
+      fluid: {originalName: {regex: "/adaptive-lab-jobs/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
-    adaptiveLabBuildBeta: imageSharp(fluid: {originalName: {regex: "/build-you-beta/"}}) {
+    adaptiveLabBuildBeta: imageSharp(
+      fluid: {originalName: {regex: "/build-you-beta/"}}
+    ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import BigText from './big-text'
+import BigText from './BigText'
 
 const BigTextSecondary = ({
   children,

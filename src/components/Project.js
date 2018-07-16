@@ -6,10 +6,10 @@ import Img from 'gatsby-image'
 import stickybits from 'stickybits'
 import {kebabCase} from 'voca'
 
-import Flex from './flex'
-import Box from './box'
-import ProjectSmall from './project-small'
-import ProjectLarge from './project-large'
+import Flex from './Flex'
+import Box from './Box'
+import ProjectSmall from './ProjectSmall'
+import ProjectLarge from './ProjectLarge'
 
 const mapIndex = addIndex(map)
 

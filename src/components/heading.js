@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Text from 'text'
+import Text from 'Text'
 
 const Heading = ({children, tag, fontSize, ...props}) => {
   return (
