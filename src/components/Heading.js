@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Text from 'Text'
+import Text from './Text'
 
 const Heading = ({children, tag, fontSize, ...props}) => {
   return (
@@ -15,3 +15,5 @@ Heading.propTypes = {
   tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.element])
 }
+
+export default Heading

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import Text from './Text'
 
 const SmallText = ({children, color = 'rgba(0, 0, 0, 1)', ...props}) => {

@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import {injectGlobal} from 'emotion'
 
 import SiteContainer from '../components/SiteContainer'
-import Header from '../components/header'
-import Layout from '../components/layout'
-import Home from '../components/home'
+import Header from '../components/Header'
+import Layout from '../components/Layout'
+import Home from '../components/Home'
 
 import cursor from '../assets/cursor-default.svg'
 

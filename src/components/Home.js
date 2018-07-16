@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {kebabCase} from 'voca'
 import {map, addIndex, prop, dec, inc, length, isEmpty} from 'ramda'
-import Project from '../components/Project'
+
+import Project from './Project'
 
 const Home = ({
   location,
@@ -257,6 +258,7 @@ const Home = ({
 
           return (
             <Project
+              location={location}
               key={key}
               tools={tools}
               services={services}

@@ -3,7 +3,8 @@ import * as R from 'ramda'
 import Fade from 'react-reveal/Fade'
 import {css} from 'react-emotion'
 import {Helmet} from 'react-helmet'
-import Link from '../components/link'
+
+import Link from '../components/Link'
 import BigText from '../components/BigText'
 import BodyTextSecondary from '../components/BodyTextSecondary'
 import InfoSection from '../components/InfoSection'
@@ -12,6 +13,7 @@ import Flex from '../components/Flex'
 import Layout from '../components/Layout'
 import Box from '../components/Box'
 import SiteContainer from '../components/SiteContainer'
+
 import {breakpoints} from '../constants/theme'
 
 import line from '../assets/line.svg'
@@ -83,12 +85,12 @@ const Info = () => {
                   between different stages. We’ll identify goals, constraints
                   and a rough scope for the project. I’ll start with pen and
                   paper to explore different approaches. Then I’ll move into
-                  Sketch to hone in a more detailed visual direction. We’ll talk
-                  a lot so you can feedback and I can iterate. When the the look
-                  and feel of the static design is right, I’ll start writing
-                  code, which is where I’ll do the interaction, animation and
-                  responsive design as well as the core job of building and
-                  shipping the finished product.
+                  Sketch to hone in on a more detailed visual direction. We’ll
+                  talk a lot so you can feedback and I can iterate. When the the
+                  look and feel of the static design is right, I’ll start
+                  writing code, which is where I’ll do the interaction,
+                  animation and responsive design as well as the core job of
+                  building and shipping the finished product.
                 </BodyTextSecondary>
               </InfoSection>
               <InfoSection title="Contact">

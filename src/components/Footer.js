@@ -1,8 +1,9 @@
 import React from 'react'
 import {scroller} from 'react-scroll'
-import BodyText from '../components/BodyText'
-import Flex from '../components/Flex'
-import Box from '../components/Box'
+
+import BodyText from './BodyText'
+import Flex from './Flex'
+import Box from './Box'
 
 const Footer = () => {
   return (

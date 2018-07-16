@@ -20,7 +20,7 @@ import line4 from '../assets/line-4.svg'
 
 const shapes = [line2, line, line3, line4]
 
-class HomePageProject extends Component {
+class Project extends Component {
   state = {
     infoIsOpen: false
   }
@@ -144,7 +144,7 @@ const style = {
   })
 }
 
-HomePageProject.propTypes = {
+Project.propTypes = {
   description: PropTypes.string,
   images: PropTypes.array,
   slug: PropTypes.string,
@@ -159,4 +159,4 @@ HomePageProject.propTypes = {
   services: PropTypes.array
 }
 
-export default HomePageProject
+export default Project

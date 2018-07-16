@@ -1,18 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import BodyText from './BodyText'
 
-const BodyTextSecondary = ({
-  // color = 'rgba(0, 0, 0, 0.6)',
-  children,
-  ...props
-}) => {
+const BodyTextSecondary = ({children, ...props}) => {
   return (
-    <BodyText
-      fontWeight={300}
-      // color={color}
-      {...props}
-    >
+    <BodyText fontWeight={300} {...props}>
       {children}
     </BodyText>
   )

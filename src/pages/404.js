@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import {css} from 'react-emotion'
 
 import Flex from '../components/Flex'
-import Text from '../components/text'
+import Text from '../components/Text'
 import BodyText from '../components/BodyText'
-import Link from '../components/link'
+import Link from '../components/Link'
 
 class NotFoundPage extends Component {
   render() {

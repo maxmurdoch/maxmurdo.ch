@@ -16,14 +16,14 @@ const cursorFor = R.cond([
   [R.T, R.always(`url(${defaultCursor}), auto`)]
 ])
 
-const circleActiveStyle = {
-  backgroundImage: `url(${circle})`,
-  position: 'absolute',
-  width: '5rem',
-  maxWidth: 'none',
-  left: '-50%',
-  bottom: '-30%'
-}
+// const circleActiveStyle = {
+//   backgroundImage: `url(${circle})`,
+//   position: 'absolute',
+//   width: '5rem',
+//   maxWidth: 'none',
+//   left: '-50%',
+//   bottom: '-30%'
+// }
 
 const activeStyleFor = style => {
   const styleOptions = {
