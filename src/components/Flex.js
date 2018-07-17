@@ -1,6 +1,7 @@
 import styled from 'react-emotion'
 import {
   alignItems,
+  alignSelf,
   alignContent,
   justifyContent,
   flexWrap,
@@ -26,6 +27,7 @@ const overflow = style({
 const Flex = styled('div')`
   display: flex;
   ${overflow}
+  ${alignSelf}
   ${borderLeft}
   ${borderRight}
   ${borderTop}

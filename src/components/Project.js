@@ -20,6 +20,24 @@ import line4 from '../assets/line-4.svg'
 
 const shapes = [line2, line, line3, line4]
 
+const getWidthFor = type => {
+  const widths = {
+    phone: ['100%', '50%'],
+    card: ['100%', '50%'],
+    laptop: ['100%', '100%']
+  }
+
+  return prop(type, widths)
+}
+const getMaxWidthFor = type => {
+  const maxWidths = {
+    phone: ['100%', '100%', '100%'],
+    laptop: ['100%', '100%', '100%'],
+    card: ['100%', '100%', '50%']
+  }
+
+  return prop(type, maxWidths)
+}
 class Project extends Component {
   state = {
     infoIsOpen: false
@@ -101,30 +119,42 @@ class Project extends Component {
           flexWrap={true}
           flexDirection="row"
           alignItems="center"
-          justifyContent="center"
           width={['100%', '100%', 'calc(100% - 20rem)', 'calc(100% - 30rem)']}
           background={backgroundColor ? backgroundColor : 'rgba(0, 0, 0, 0.03)'}
           pr={['6vw', '8vw']}
           pb={['6vw', '8vw']}
         >
-          {mapIndex(({image, type}, key) => {
+          {mapIndex(({image, images, type}, key) => {
+            if (equals(type, 'card')) {
+              return (
+                <Flex
+                  width={getWidthFor(type)}
+                  maxWidth={getMaxWidthFor(type)}
+                  flexDirection="column"
+                >
+                  {map(({fluid}) => {
+                    return (
+                      <Box key={key} pt={['6vw', '8vw']} pl={['6vw', '8vw']}>
+                        <Img className={style.image} fluid={fluid} />
+                      </Box>
+                    )
+                  }, images)}
+                </Flex>
+              )
+            }
+
             const fluid = prop('fluid', image)
             const imageEl = has('fluid', image) ? (
               <Img className={style.image} fluid={fluid} />
             ) : (
               <img className={style.image} src={image} />
             )
-            const isPhone = equals(type, 'phone')
 
             return (
               <Box
-                width={isPhone ? ['100%', '50%'] : ['100%', '100%']}
+                width={getWidthFor(type)}
                 key={key}
-                maxWidth={
-                  isPhone
-                    ? ['100%', '100%', '24vw']
-                    : ['100%', '100%', '100%', '50vw']
-                }
+                maxWidth={getMaxWidthFor(type)}
                 pt={['6vw', '8vw']}
                 pl={['6vw', '8vw']}
               >

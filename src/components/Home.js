@@ -9,6 +9,23 @@ const Home = ({
   location,
   data: {
     allWorkJson,
+    mayhemFeaturedOne,
+    mayhemFeaturedTwo,
+    mayhemFeaturedThree,
+    mayhemFeaturedFour,
+    mayhemFeaturedFive,
+    mayhemFeaturedSix,
+    mayhemMenu,
+    mayhemBizCardFrontOne,
+    mayhemBizCardBackOne,
+    mayhemBizCardFrontTwo,
+    mayhemBizCardBackTwo,
+    mayhemBizCardFrontThree,
+    mayhemBizCardBackThree,
+    mayhemBizCardFrontFour,
+    mayhemBizCardBackFour,
+    mayhemPhoneFeaturedSeven,
+    mayhemPhoneMenu,
     mathsBuildersOrderOne,
     mathsBuildersOrderTwo,
     mathsBuildersOrderThree,
@@ -238,6 +255,60 @@ const Home = ({
       {
         image: adaptiveLabBuildBeta,
         type: 'laptop'
+      }
+    ],
+    mayhem: [
+      {
+        image: mayhemFeaturedOne,
+        type: 'laptop'
+      },
+      {
+        image: mayhemFeaturedTwo,
+        type: 'laptop'
+      },
+      {
+        image: mayhemFeaturedThree,
+        type: 'laptop'
+      },
+      {
+        image: mayhemFeaturedFour,
+        type: 'laptop'
+      },
+      {
+        image: mayhemFeaturedFive,
+        type: 'laptop'
+      },
+      {
+        image: mayhemFeaturedSix,
+        type: 'laptop'
+      },
+      {
+        image: mayhemMenu,
+        type: 'laptop'
+      },
+      {
+        image: mayhemPhoneFeaturedSeven,
+        type: 'phone'
+      },
+      {
+        image: mayhemPhoneMenu,
+        type: 'phone'
+      },
+      {
+        images: [mayhemBizCardFrontOne, mayhemBizCardBackOne],
+        type: 'card'
+      },
+      {
+        images: [mayhemBizCardFrontTwo, mayhemBizCardBackTwo],
+        type: 'card'
+      },
+      {
+        images: [mayhemBizCardFrontThree, mayhemBizCardBackThree],
+        type: 'card'
+      },
+      {
+        images: [mayhemBizCardFrontFour, mayhemBizCardBackFour],
+        type: 'card'
       }
     ]
   }

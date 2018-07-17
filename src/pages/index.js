@@ -101,6 +101,76 @@ export const query = graphql`
         ...GatsbyImageSharpFluid_noBase64
       }
     }
+    mayhemBizCardFrontOne: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-biz-card-front-one/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemBizCardBackOne: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-biz-card-back-one/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemBizCardFrontTwo: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-biz-card-front-two/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemBizCardBackTwo: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-biz-card-back-two/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemBizCardFrontThree: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-biz-card-front-three/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemBizCardBackThree: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-biz-card-back-three/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemBizCardFrontFour: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-biz-card-front-four/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemBizCardBackFour: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-biz-card-back-four/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemPhoneFeaturedSeven: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-phone-featured-seven/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemPhoneMenu: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-phone-menu/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
     imageChange: imageSharp(
       fluid: {originalName: {regex: "/maths-builders-image-change/"}}
     ) {
