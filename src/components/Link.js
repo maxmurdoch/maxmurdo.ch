@@ -8,7 +8,6 @@ import BodyText from './BodyText'
 import internalCursor from '../assets/cursor-internal.svg'
 import externalCursor from '../assets/cursor-external.svg'
 import defaultCursor from '../assets/cursor-default.svg'
-import circle from '../assets/circle.svg'
 
 const cursorFor = R.cond([
   [R.equals('internal'), R.always(`url(${internalCursor}) 8 8, auto`)],
@@ -16,32 +15,8 @@ const cursorFor = R.cond([
   [R.T, R.always(`url(${defaultCursor}), auto`)]
 ])
 
-// const circleActiveStyle = {
-//   backgroundImage: `url(${circle})`,
-//   position: 'absolute',
-//   width: '5rem',
-//   maxWidth: 'none',
-//   left: '-50%',
-//   bottom: '-30%'
-// }
-
-const activeStyleFor = style => {
-  const styleOptions = {
-    default: {
-      transform: 'skewX(0)'
-    },
-    nav: {
-      fontWeight: 700
-    },
-    subtle: {
-      transform: 'skewX(-12deg)'
-    },
-    text: {
-      transform: 'skewX(-12deg)'
-    }
-  }
-
-  return R.prop(style, styleOptions)
+const activeStyle = {
+  fontWeight: 700
 }
 
 const hoverStyleFor = (style, type) => {
@@ -123,7 +98,6 @@ const LinkWrapper = ({
   type = 'internal',
   hoverStyle = 'default',
   to,
-  activeStyle,
   ...props
 }) => {
   const linkStyle = css(
@@ -165,7 +139,7 @@ const LinkWrapper = ({
       <Link
         to={to}
         exact
-        activeStyle={activeStyleFor(activeStyle)}
+        activeStyle={activeStyle}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         className={linkStyle}

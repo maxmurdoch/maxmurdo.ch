@@ -2,6 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {kebabCase} from 'voca'
 import {map, addIndex, prop, dec, inc, length, isEmpty} from 'ramda'
+import mayhemLogo from '../assets/images/mayhem/mayhem-logo.svg'
+import mayhemBizCardFrontOne from '../assets/images/mayhem/mayhem-biz-card-front-one.svg'
+import mayhemBizCardBackOne from '../assets/images/mayhem/mayhem-biz-card-back-one.svg'
+import mayhemBizCardFrontTwo from '../assets/images/mayhem/mayhem-biz-card-front-two.svg'
+import mayhemBizCardBackTwo from '../assets/images/mayhem/mayhem-biz-card-back-two.svg'
+import mayhemBizCardFrontThree from '../assets/images/mayhem/mayhem-biz-card-front-three.svg'
+import mayhemBizCardBackThree from '../assets/images/mayhem/mayhem-biz-card-back-three.svg'
+import mayhemBizCardFrontFour from '../assets/images/mayhem/mayhem-biz-card-front-five.svg'
+import mayhemBizCardBackFour from '../assets/images/mayhem/mayhem-biz-card-back-five.svg'
 
 import Project from './Project'
 
@@ -16,16 +25,17 @@ const Home = ({
     mayhemFeaturedFive,
     mayhemFeaturedSix,
     mayhemMenu,
-    mayhemBizCardFrontOne,
-    mayhemBizCardBackOne,
-    mayhemBizCardFrontTwo,
-    mayhemBizCardBackTwo,
-    mayhemBizCardFrontThree,
-    mayhemBizCardBackThree,
-    mayhemBizCardFrontFour,
-    mayhemBizCardBackFour,
+    mayhemProfileOne,
+    mayhemProfileTwo,
+    mayhemProfileThree,
     mayhemPhoneFeaturedSeven,
+    mayhemIndexPhone,
+    mayhemIndexPhoneFilter,
     mayhemPhoneMenu,
+    mayhemIndexOne,
+    mayhemIndexTwo,
+    mayhemIndexTwoHover,
+    mayhemTheatre,
     mathsBuildersOrderOne,
     mathsBuildersOrderTwo,
     mathsBuildersOrderThree,
@@ -287,12 +297,52 @@ const Home = ({
         type: 'laptop'
       },
       {
+        image: mayhemIndexOne,
+        type: 'laptop'
+      },
+      {
+        image: mayhemIndexTwo,
+        type: 'laptop'
+      },
+      {
+        image: mayhemIndexTwoHover,
+        type: 'laptop'
+      },
+      {
+        image: mayhemTheatre,
+        type: 'laptop'
+      },
+      {
+        image: mayhemProfileOne,
+        type: 'laptop'
+      },
+      {
+        image: mayhemProfileTwo,
+        type: 'laptop'
+      },
+      {
+        image: mayhemProfileThree,
+        type: 'laptop'
+      },
+      {
         image: mayhemPhoneFeaturedSeven,
+        type: 'phone'
+      },
+      {
+        image: mayhemIndexPhone,
+        type: 'phone'
+      },
+      {
+        image: mayhemIndexPhoneFilter,
         type: 'phone'
       },
       {
         image: mayhemPhoneMenu,
         type: 'phone'
+      },
+      {
+        image: mayhemLogo,
+        type: 'logo'
       },
       {
         images: [mayhemBizCardFrontOne, mayhemBizCardBackOne],

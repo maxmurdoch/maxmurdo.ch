@@ -101,6 +101,34 @@ export const query = graphql`
         ...GatsbyImageSharpFluid_noBase64
       }
     }
+    mayhemTheatre: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-theatre/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemProfileOne: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-profile-one/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemProfileTwo: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-profile-two/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemProfileThree: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-profile-three/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
     mayhemBizCardFrontOne: imageSharp(
       fluid: {originalName: {regex: "/mayhem-biz-card-front-one/"}}
     ) {
@@ -144,14 +172,14 @@ export const query = graphql`
       }
     }
     mayhemBizCardFrontFour: imageSharp(
-      fluid: {originalName: {regex: "/mayhem-biz-card-front-four/"}}
+      fluid: {originalName: {regex: "/mayhem-biz-card-front-five/"}}
     ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
       }
     }
     mayhemBizCardBackFour: imageSharp(
-      fluid: {originalName: {regex: "/mayhem-biz-card-back-four/"}}
+      fluid: {originalName: {regex: "/mayhem-biz-card-back-five/"}}
     ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64
@@ -164,8 +192,43 @@ export const query = graphql`
         ...GatsbyImageSharpFluid_noBase64
       }
     }
+    mayhemIndexPhone: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-index-phone/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemIndexPhoneFilter: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-index-phone-filter/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
     mayhemPhoneMenu: imageSharp(
       fluid: {originalName: {regex: "/mayhem-phone-menu/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemIndexOne: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-index-one/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemIndexTwo: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-index-two.jpg$/"}}
+    ) {
+      fluid {
+        ...GatsbyImageSharpFluid_noBase64
+      }
+    }
+    mayhemIndexTwoHover: imageSharp(
+      fluid: {originalName: {regex: "/mayhem-index-two-hover/"}}
     ) {
       fluid {
         ...GatsbyImageSharpFluid_noBase64

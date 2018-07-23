@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {css} from 'emotion'
-import {addIndex, map, prop, has, equals} from 'ramda'
+import {css, cx} from 'emotion'
+import {addIndex, map, prop, propOr, has, equals} from 'ramda'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import stickybits from 'stickybits'
@@ -18,12 +18,13 @@ import line2 from '../assets/line-2.svg'
 import line3 from '../assets/line-3.svg'
 import line4 from '../assets/line-4.svg'
 
-const shapes = [line2, line, line3, line4]
+const shapes = [line2, line, line3, line4, line2]
 
 const getWidthFor = type => {
   const widths = {
     phone: ['100%', '50%'],
     card: ['100%', '50%'],
+    logo: ['100%'],
     laptop: ['100%', '100%']
   }
 
@@ -33,6 +34,7 @@ const getMaxWidthFor = type => {
   const maxWidths = {
     phone: ['100%', '100%', '100%'],
     laptop: ['100%', '100%', '100%'],
+    logo: ['100%'],
     card: ['100%', '100%', '50%']
   }
 
@@ -131,11 +133,12 @@ class Project extends Component {
                   width={getWidthFor(type)}
                   maxWidth={getMaxWidthFor(type)}
                   flexDirection="column"
+                  key={key}
                 >
-                  {map(({fluid}) => {
+                  {mapIndex((image, key) => {
                     return (
                       <Box key={key} pt={['6vw', '8vw']} pl={['6vw', '8vw']}>
-                        <Img className={style.image} fluid={fluid} />
+                        <img className={style.image} src={image} />
                       </Box>
                     )
                   }, images)}
@@ -145,9 +148,15 @@ class Project extends Component {
 
             const fluid = prop('fluid', image)
             const imageEl = has('fluid', image) ? (
-              <Img className={style.image} fluid={fluid} />
+              <Img
+                className={cx(style.image, prop(type, style))}
+                fluid={fluid}
+              />
             ) : (
-              <img className={style.image} src={image} />
+              <img
+                className={cx(style.image, propOr(null, type, style))}
+                src={image}
+              />
             )
 
             return (
@@ -171,6 +180,9 @@ class Project extends Component {
 const style = {
   image: css({
     boxShadow: '0 10px 25px rgba(0, 0, 0, 0.05), 0 0 30px rgba(0, 0, 0, 0.05)'
+  }),
+  logo: css({
+    boxShadow: 'none'
   })
 }
 

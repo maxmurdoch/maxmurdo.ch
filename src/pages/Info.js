@@ -25,8 +25,8 @@ const Info = () => {
         <Helmet>
           <title>Max Murdoch — Info</title>
         </Helmet>
-        <Header />
         <SiteContainer>
+          <Header />
           <Flex flexDirection="column" pb={[6, 7, 8]}>
             <Flex
               justifyContent="flex-end"
